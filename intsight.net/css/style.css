@@ -175,11 +175,6 @@ h2.course-list-title, h2.blog-header, h2.contact-title, h2.teacher-header, h2.su
   font-family: 'Open Sans';
 }
 
- {
-  width: 70%;
-  margin-bottom: 3.5em;
-}
-
 .course-list {
   display: block;
 }
