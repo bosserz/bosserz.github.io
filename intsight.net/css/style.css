@@ -97,8 +97,127 @@
   margin: auto;
 }
 
+/* Course Carousel Banner */
+
+.carousel-container {
+  width: 75%;
+  max-width: 1140px;
+
+}
+
+@media (max-width: 760px) {
+  .carousel-container {
+    width: 100%;
+  }
+
+  .course-text {
+    width: 90%;
+  }
+
+  .outer-box {
+    width: 90%;
+  }
+}
+
+.carousel-item {
+  height: 640px;
+  background-position: center;
+  background-size: cover;
+}
+
+.carousel-item:nth-of-type(1) {
+
+  background-image: url('https://images.unsplash.com/photo-1622495548018-4fc6f78d7bef?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+
+}
+
+.carousel-item:nth-of-type(2) {
+
+  background-image: url('https://images.unsplash.com/photo-1625398398118-778b8402c08c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1084&q=80');
+
+}
+
+.carousel-item:nth-of-type(3) {
+
+  background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+
+}
+
+.banner-container {
+  height: 100%;
+}
+
+.course-text {
+  background:   #f0ffff86;
+  padding: 5rem;
+  border-radius: .5rem;
+
+}
 
 
+.dark-text {
+  color: black;
+  background: rgba(245, 245, 245, 0.5);
+  border-radius: .75rem;
+  padding: 1.25rem;
+}
+
+.outer-box {
+  /* background: rgb(248, 109, 85); */
+  max-width: 940px;
+  width: 80%;
+  /* height: 300px; */
+  padding: 2rem 2rem 1.0rem 0.9rem;
+  border-radius: .56rem;
+}
+
+.orange-bg {
+  background: rgba(248, 110, 85, 0.37);
+}
+
+.blue-bg {
+  background: rgba(91, 102, 252, 0.425);
+}
+
+.profile-box {
+  /* background: whitesmoke; */
+  width: 50%;
+}
+
+.img-box {
+  max-width: 200px;
+  width: 60%;
+  /* height: 40%; */
+}
+
+.message-box {
+  /* position: absolute; */
+  width: 70%;
+  
+  /* height: 40%; */
+  /* left: 499.07px;
+  top: 4646px; */
+
+  /* background: #ECFFD3; */
+  /* transform: matrix(0.97, 0, -0.27, 1, 0, 0); */
+}
+
+.img-box img {
+  width: 100%;
+}
+
+.name-box {
+  position: relative;
+  top: -1.2rem;
+  background: white;
+  width: 100px;
+  padding: .4rem .7rem;
+  border-radius: .75rem;
+}
+
+.success-course-list {
+  border-bottom: 1px solid #1b1b1b ;
+}
 
 /* Swiper CSS */
 .swiper-container {
