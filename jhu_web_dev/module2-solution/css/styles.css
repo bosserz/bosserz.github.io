@@ -1,0 +1,105 @@
+/*basic style*/
+* {
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+body {
+    background-color: white;
+}
+
+h1 {
+    margin: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 175%;
+}
+
+.col {
+    position: relative;
+    padding: 15px;
+    width: 100%;
+}
+
+p {
+    position: relative;
+    clear: right;
+}
+
+.menu-card {
+    position: relative;
+    background-color: #aae2fa;
+    border: 1px solid black;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
+.title {
+    float: right;
+    width: 100px;
+    padding: 5px;
+    margin: 0px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 125%;
+    font-weight: bold;
+}
+
+.title-1 {
+    background-color: rgb(220, 120, 120);
+}
+
+.title-2 {
+    color: white;
+    background-color: maroon;
+}
+
+.title-3 {
+    background-color: rgb(220, 210, 121);
+}
+
+.menu-desc {
+    padding: 5px;
+    border: none;
+    background-color: #aae2fa;
+    color: black;
+    margin: 0px;
+    height: 100px;
+    overflow: auto;
+}
+
+
+/*desktop*/
+@media (min-width: 992px) {
+    .col-lg-4 {
+        float: left;
+        width: 33.33%;
+    }
+}
+
+/*tablet*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-6 {
+        float: left;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .col-md-12 {
+        float: left;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*mobile*/
+@media (max-width: 767px) {
+    .col-sm-12 {
+        float: left;
+        width: 100%;
+    }
+}
