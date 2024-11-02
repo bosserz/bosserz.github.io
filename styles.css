@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #f4f4f4;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the content */
+    align-items: center; /* Horizontally centers the content */
+    height: 100vh; /* Full height of the viewport */
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.sidebar h1 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.sidebar p {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+#hero {
+    background-color: #333;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#hero h2 {
+    font-size: 36px;
+}
+
+#hero .highlight {
+    color: #f0b400;
+}
+
+.social-icons a {
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+#experience, #competencies, #portfolio, #education {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.job, .project {
+    margin-bottom: 20px;
+}
+
+.job h3, .project h3 {
+    font-size: 22px;
+}
+
