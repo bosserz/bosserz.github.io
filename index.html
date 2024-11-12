@@ -15,217 +15,244 @@
 </head>
 <body>
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">thanawit.com</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
+    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-center text-center">
+        <a class="navbar-brand mb-2 mb-lg-0" href="#">thanawit.com</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
-                <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
+        <div class="navbar-collapse collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#experience">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#certificates">Certificates</a>
+                </li>
             </ul>
+            <a class="nav-link" href="#contact">Contact</a>
         </div>
     </div>
+</nav> -->
+
+<!-- Sidebar -->
+<nav class="sidebar d-none d-lg-flex flex-column align-items-center text-center">
+    <h2>
+        <a class="navbar-brand text-white mb-4 text-wrap" href="#">Thanawit Suwannikom</a>
+    </h2>
+    
+    <ul class="navbar-nav flex-column w-100">
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#certificates">Certificates</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
+    </ul>
 </nav>
 
-<!-- About Section -->
-<section id="about" class="container mt-5">
-    <div id="greeting-section">
-        <h2 class="section-header" id="greeting">hello, I'm Boss</h2>
-        <h4>Thanawit Suwannikom</h4>
-        <p>thanawit.suw@gmail.com</p>
-    </div>
-    <p>
-        I am a Data Scientist with seven years of experience across various industries, including telecommunications, real estate, and retail. Currently, 
-        I am pursuing an MS in Urban Analytics to strengthen my foundation in data science, machine learning, and GIS. 
-        My skills include advanced proficiency in Python, SQL, data analysis, machine learning, and spatial analysis, 
-        with hands-on experience in predictive modeling and optimization.
-    </p>
-    <div>
-        <ul class="list-inline text-center">
-            <li class="list-inline-item" id="github"><a href="https://github.com/bosserz"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></li>
-            <li class="list-inline-item" id="linkedin"><a href="https://www.linkedin.com/in/thanawit-suwannikom/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></li>
-            <li class="list-inline-item" id="rpubs"><a href="https://rpubs.com/bosserz">RPubs</a></li>
-        </ul>
-    </div>
-</section>
-
-<div class="container mt-5">
-    <!-- Experience Header -->
-    <div class="experience-header" id="experience">EXPERIENCE</div>
-
-    <!-- Experience Section: Center for Quality Growth and Regional Development -->
-    <div class="experience-section row">
-        <div class="col-8">
-            <div class="position-title">SPATIAL DATA SCIENTIST (Graduate Research Assistant)</div>
-            <div class="company-location">Center for Quality Growth and Regional Development, Atlanta, GA</div>
+<div class="content">
+    <!-- About Section -->
+    <section id="about" class="container mt-5">
+        <div id="greeting-section">
+            <h2 class="section-header greeting">hello,</h2>
+            <h2 class="greeting">I'm Boss</h2>
+            <h4>Thanawit Suwannikom</h4>
+            <p>thanawit.suw@gmail.com</p>
         </div>
-        <div class="col-4 date">AUG 2024 - PRESENT</div>
+        <p>
+            I am a Data Scientist with seven years of experience across various industries, including telecommunications, real estate, and retail. Currently, 
+            I am pursuing an MS in Urban Analytics to strengthen my foundation in data science, machine learning, and GIS. 
+            My skills include advanced proficiency in Python, SQL, data analysis, machine learning, and spatial analysis, 
+            with hands-on experience in predictive modeling and optimization.
+        </p>
+        <div>
+            <ul class="list-inline text-center">
+                <li class="list-inline-item" id="github"><a href="https://github.com/bosserz"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a></li>
+                <li class="list-inline-item" id="linkedin"><a href="https://www.linkedin.com/in/thanawit-suwannikom/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></li>
+                <li class="list-inline-item" id="rpubs"><a href="https://rpubs.com/bosserz">RPubs</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="container mt-5">
+        <!-- Experience Header -->
+        <div class="experience-header" id="experience">EXPERIENCE</div>
+
+        <!-- Experience Section: Center for Quality Growth and Regional Development -->
+        <div class="experience-section row">
+            <div class="col-8">
+                <div class="position-title">SPATIAL DATA SCIENTIST (Graduate Research Assistant)</div>
+                <div class="company-location">Center for Quality Growth and Regional Development, Atlanta, GA</div>
+            </div>
+            <div class="col-4 date">AUG 2024 - PRESENT</div>
+        </div>
+        <div class="row role-details">
+            <div class="col-12">
+                <ul>
+                    <li>Analyzed spatial patterns of TANF recipients in focused states, utilizing ArcGIS StoryMaps to make complex data accessible for policy recommendations and stakeholder engagement.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Experience Section: CJ Express Group -->
+        <div class="experience-section row">
+            <div class="col-8">
+                <div class="position-title">SENIOR DATA SCIENTIST</div>
+                <div class="company-location">CJ Express Group, Bangkok, Thailand</div>
+            </div>
+            <div class="col-4 date">APR 2023 - JUL 2024</div>
+        </div>
+        <div class="row role-details">
+            <div class="col-12">
+                <ul>
+                    <li>Developed a retail store clustering model using POI and sales data to optimize product assortments for each store, improving inventory efficiency.</li>
+                    <li>Built a promotion optimization model leveraging predictive analytics and non-linear optimization, reducing workload by 50% and increasing profitability by 25%.</li>
+                    <li>Collaborated with non-technical team members to enhance data-driven decision-making.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Experience Section: True Digital Group -->
+        <div class="experience-section row">
+            <div class="col-8">
+                <div class="position-title">SENIOR DATA SCIENTIST</div>
+                <div class="company-location">True Digital Group | Analytics & AI, Bangkok, Thailand</div>
+            </div>
+            <div class="col-4 date">JAN 2021 - MAR 2023</div>
+        </div>
+        <div class="row role-details">
+            <div class="col-12">
+                <ul>
+                    <li>Led a team of 4 data scientists to develop analytics products, including Location Intelligence Dashboards and Customer Segment Analytics, aligning with business strategy.</li>
+                    <li>Collaborated with cross-functional stakeholders to set clear project goals and align analytics products with business strategy, enabling actionable insights for decision-making.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-section row">
+            <div class="col-8">
+                <div class="position-title">DATA SCIENTIST</div>
+                <div class="company-location">True Digital Group | Analytics & AI, Bangkok, Thailand</div>
+            </div>
+            <div class="col-4 date">APR 2019 - DEC 2020</div>
+        </div>
+        <div class="row role-details">
+            <div class="col-12">
+                <ul>
+                    <li>Developed customer segmentation models using telecom data, enabling targeted marketing and improving customer acquisition and retention.</li>
+                    <li>Created location-based recommendations to inform retail expansion strategies, leading to data-backed decision-making for store placements.</li>
+                    <li>Spearheaded the optimization of targeted SMS campaigns with machine learning models, improving campaign performance metrics significantly.</li>
+                    <li>Automated post-campaign analysis, enabling faster performance evaluation and strategic adjustments through data visualizations and reporting.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Experience Section: Sansiri PLC -->
+        <div class="experience-section row">
+            <div class="col-8">
+                <div class="position-title">DATA ANALYST</div>
+                <div class="company-location">Sansiri PLC | Data Analytics & Business Intelligence, Bangkok, Thailand</div>
+            </div>
+            <div class="col-4 date">OCT 2017 - MAR 2019</div>
+        </div>
+        <div class="row role-details">
+            <div class="col-12">
+                <ul>
+                    <li>Created a land recommendation system using real estate market data, POIs, and infrastructure insights, increasing location acquisition by 30%.</li>
+                    <li>Developed churn prediction models and ETL pipelines, enhancing data accessibility for business performance analysis.</li>
+                    <li>Built and maintained Tableau dashboards for multiple business units, streamlining reporting processes.</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="row role-details">
-        <div class="col-12">
+
+    <div class="container mt-5">
+        <div class="experience-header" id="education">EDUCATION</div>
+        <!-- Education Section: Georgia Institute of Technology -->
+        <div class="experience-section row">
+            <div class="col-8">
+                <div class="position-title">Georgia Institute of Technology</div>
+                <div class="company-location">Master of Science in Urban Analytics</div>
+                <ul class="role-details">
+                    <li>GPA: N/A</li>
+                    <li>Focused courses: Computation Data Analytics, Data & Visual Analytics, Transportation Network Analytics</li>
+                </ul>
+            </div>
+            <div class="col-4 date">Atlanta, GA<br>Aug 2024 - Present</div>
+        </div>
+
+        <!-- Education Section: Vidyasirimedhi Institute of Science and Technology (VISTEC) -->
+        <div class="experience-section row">
+            <div class="col-8">
+                <div class="position-title">Vidyasirimedhi Institute of Science and Technology (VISTEC)</div>
+                <div class="company-location">Master of Chemical Engineering</div>
+                <ul class="role-details">
+                    <li>Researched on developing the Mathematical model of the cocrystallization process using CBZ-NCT cocrystal system and optimizing the cocrystallization via simulation using Python</li>
+                    <li>GPA: 3.94/4.00</li>
+                </ul>
+            </div>
+            <div class="col-4 date">Rayong, Thailand<br>Jul 2015 - Feb 2018</div>
+        </div>
+
+        <!-- Education Section: Chulalongkorn University -->
+        <div class="experience-section row">
+            <div class="col-8">
+                <div class="position-title">Chulalongkorn University</div>
+                <div class="company-location">Bachelor of Chemical Engineering</div>
+                <ul class="role-details">
+                    <li>GPA: 3.69/4.00</li>
+                    <li>First-Class Honor</li>
+                    <li>Researched on optimization of the Solid State Fuel Cell with natural gas feed via simulation using MATLAB</li>
+                    <li>Awarded 2 consecutive years for the excellent academic performance (2013-2014)</li>
+                </ul>
+            </div>
+            <div class="col-4 date">Bangkok, Thailand<br>May 2011 - Jun 2015</div>
+        </div>
+    </div>
+
+    <!-- Projects Header -->
+    <div class="container mt-5">
+        <div class="experience-header" id="projects">PROJECTS</div>
+
+        <!-- Projects List -->
+        <div class="experience-section">
             <ul>
-                <li>Analyzed spatial patterns of TANF recipients in focused states, utilizing ArcGIS StoryMaps to make complex data accessible for policy recommendations and stakeholder engagement.</li>
+                <li>Spatiotemporal Analysis of Parking Demand and Supply in Major Cities – In class project</li>
+                <li>Why Bangkok’s Traffic is Really Bad - Answer from Transportation Networks Perspective – In class project</li>
+                <li>Improvement of Accessibility Measurement using Public Transportation and Visualization – In class project</li>
+                <li>COVID-19 Risk Assessment Model – Developed a predictive model to assess COVID-19 risk levels, which was adopted by the Department of Disease Control to support resource management in the most vulnerable areas.</li>
             </ul>
         </div>
     </div>
 
-    <!-- Experience Section: CJ Express Group -->
-    <div class="experience-section row">
-        <div class="col-8">
-            <div class="position-title">SENIOR DATA SCIENTIST</div>
-            <div class="company-location">CJ Express Group, Bangkok, Thailand</div>
-        </div>
-        <div class="col-4 date">APR 2023 - JUL 2024</div>
-    </div>
-    <div class="row role-details">
-        <div class="col-12">
-            <ul>
-                <li>Developed a retail store clustering model using POI and sales data to optimize product assortments for each store, improving inventory efficiency.</li>
-                <li>Built a promotion optimization model leveraging predictive analytics and non-linear optimization, reducing workload by 50% and increasing profitability by 25%.</li>
-                <li>Collaborated with non-technical team members to enhance data-driven decision-making.</li>
-            </ul>
-        </div>
-    </div>
+    <div class="container mt-5">
+        <!-- Online Courses and Professional Certifications Header -->
+        <div class="experience-header" id="certificates">Online Courses and Professional Certifications</div>
 
-    <!-- Experience Section: True Digital Group -->
-    <div class="experience-section row">
-        <div class="col-8">
-            <div class="position-title">SENIOR DATA SCIENTIST</div>
-            <div class="company-location">True Digital Group | Analytics & AI, Bangkok, Thailand</div>
-        </div>
-        <div class="col-4 date">JAN 2021 - MAR 2023</div>
-    </div>
-    <div class="row role-details">
-        <div class="col-12">
+        <!-- Courses and Certifications List -->
+        <div class="experience-section">
             <ul>
-                <li>Led a team of 4 data scientists to develop analytics products, including Location Intelligence Dashboards and Customer Segment Analytics, aligning with business strategy.</li>
-                <li>Collaborated with cross-functional stakeholders to set clear project goals and align analytics products with business strategy, enabling actionable insights for decision-making.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="experience-section row">
-        <div class="col-8">
-            <div class="position-title">DATA SCIENTIST</div>
-            <div class="company-location">True Digital Group | Analytics & AI, Bangkok, Thailand</div>
-        </div>
-        <div class="col-4 date">APR 2019 - DEC 2020</div>
-    </div>
-    <div class="row role-details">
-        <div class="col-12">
-            <ul>
-                <li>Developed customer segmentation models using telecom data, enabling targeted marketing and improving customer acquisition and retention.</li>
-                <li>Created location-based recommendations to inform retail expansion strategies, leading to data-backed decision-making for store placements.</li>
-                <li>Spearheaded the optimization of targeted SMS campaigns with machine learning models, improving campaign performance metrics significantly.</li>
-                <li>Automated post-campaign analysis, enabling faster performance evaluation and strategic adjustments through data visualizations and reporting.</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Experience Section: Sansiri PLC -->
-    <div class="experience-section row">
-        <div class="col-8">
-            <div class="position-title">DATA ANALYST</div>
-            <div class="company-location">Sansiri PLC | Data Analytics & Business Intelligence, Bangkok, Thailand</div>
-        </div>
-        <div class="col-4 date">OCT 2017 - MAR 2019</div>
-    </div>
-    <div class="row role-details">
-        <div class="col-12">
-            <ul>
-                <li>Created a land recommendation system using real estate market data, POIs, and infrastructure insights, increasing location acquisition by 30%.</li>
-                <li>Developed churn prediction models and ETL pipelines, enhancing data accessibility for business performance analysis.</li>
-                <li>Built and maintained Tableau dashboards for multiple business units, streamlining reporting processes.</li>
+                <li><a href="https://coursera.org/verify/U5SU6FFPRTD4" target="_blank"><strong>Leading Teams: Developing as a Leader</strong></a> – 2023</li>
+                <li><a href="https://coursera.org/verify/specialization/T29NF8RHQCAU" target="_blank"><strong>Machine Learning Specialization</strong></a> by Stanford University & DeepLearning.AI on Coursera – 2023</li>
+                <li><a href="https://coursera.org/share/51dd73d27dcab4c494f271ed8f88f902" target="_blank"><strong>Google Cloud Big Data and Machine Learning Fundamental</strong></a> – 2022</li>
+                <li><a href="https://coursera.org/verify/specialization/BEFVLXHEZ2QJ" target="_blank"><strong>Accelerated Computer Science Fundamental</strong></a> by University of Illinois Urbana-Champaign on Coursera – 2022</li>
+                <li><a href="https://www.coursera.org/account/accomplishments/specialization/S69ZVT6W2WNS" target="_blank"><strong>Deep Learning Specialization</strong></a> by DeepLearning.AI on Coursera – 2021</li>
+                <li><a href="https://courses.edx.org/certificates/07716971b0344fceb9476667373abe84?_gl=1*1b9wrmn*_gcl_au*MTcwMDE5NTkzMS4xNzMxMTIyNDU2*_ga*MTE1NTU2Njk1OS4xNzMxMTIyNDU2*_ga_D3KS4KMDT0*MTczMTEyMjQ1Ni4xLjEuMTczMTEyMjU1OC4yOS4wLjA." target="_blank"><strong>Introduction to Computer Science (CS50)</strong></a> by Harvard University on EdX – 2021</li>
+                <li><a href="#" target="_blank"><strong>Product Management</strong></a> by General Assembly x True Digital Academy – 2020</li>
+                <li><a href="https://coursera.org/verify/specialization/3WFLN44SSBVA" target="_blank"><strong>Mathematics for Machine Learning Specialization</strong></a> by ICL on Coursera – 2019</li>
+                <li><a href="https://coursera.org/verify/NV5HRYHKQLL9" target="_blank"><strong>Machine Learning</strong></a> by Stanford University on Coursera – 2019</li>
+                <li><a href="https://drive.google.com/file/d/18bq0cAWUauaaW4OqtsBNuNrWQfOunQ8I/view?usp=sharing" target="_blank"><strong>Tableau Desktop Specialist</strong></a> by Tableau – 2019</li>
             </ul>
         </div>
     </div>
 </div>
 
-<div class="container mt-5">
-    <div class="experience-header" id="education">EDUCATION</div>
-    <!-- Education Section: Georgia Institute of Technology -->
-    <div class="experience-section row">
-        <div class="col-8">
-            <div class="position-title">Georgia Institute of Technology</div>
-            <div class="company-location">Master of Science in Urban Analytics</div>
-            <ul class="role-details">
-                <li>GPA: N/A</li>
-                <li>Focused courses: Computation Data Analytics, Data & Visual Analytics, Transportation Network Analytics</li>
-            </ul>
-        </div>
-        <div class="col-4 date">Atlanta, GA<br>Aug 2024 - Present</div>
-    </div>
-
-    <!-- Education Section: Vidyasirimedhi Institute of Science and Technology (VISTEC) -->
-    <div class="experience-section row">
-        <div class="col-8">
-            <div class="position-title">Vidyasirimedhi Institute of Science and Technology (VISTEC)</div>
-            <div class="company-location">Master of Chemical Engineering</div>
-            <ul class="role-details">
-                <li>Researched on developing the Mathematical model of the cocrystallization process using CBZ-NCT cocrystal system and optimizing the cocrystallization via simulation using Python</li>
-                <li>GPA: 3.94/4.00</li>
-            </ul>
-        </div>
-        <div class="col-4 date">Rayong, Thailand<br>Jul 2015 - Feb 2018</div>
-    </div>
-
-    <!-- Education Section: Chulalongkorn University -->
-    <div class="experience-section row">
-        <div class="col-8">
-            <div class="position-title">Chulalongkorn University</div>
-            <div class="company-location">Bachelor of Chemical Engineering</div>
-            <ul class="role-details">
-                <li>GPA: 3.69/4.00</li>
-                <li>First-Class Honor</li>
-                <li>Researched on optimization of the Solid State Fuel Cell with natural gas feed via simulation using MATLAB</li>
-                <li>Awarded 2 consecutive years for the excellent academic performance (2013-2014)</li>
-            </ul>
-        </div>
-        <div class="col-4 date">Bangkok, Thailand<br>May 2011 - Jun 2015</div>
-    </div>
-</div>
-
-<!-- Projects Header -->
-<div class="container mt-5">
-    <div class="experience-header" id="projects">PROJECTS</div>
-
-    <!-- Projects List -->
-    <div class="experience-section">
-        <ul>
-            <li>Spatiotemporal Analysis of Parking Demand and Supply in Major Cities – In class project</li>
-            <li>Why Bangkok’s Traffic is Really Bad - Answer from Transportation Networks Perspective – In class project</li>
-            <li>Improvement of Accessibility Measurement using Public Transportation and Visualization – In class project</li>
-            <li>COVID-19 Risk Assessment Model – Developed a predictive model to assess COVID-19 risk levels, which was adopted by the Department of Disease Control to support resource management in the most vulnerable areas.</li>
-        </ul>
-    </div>
-</div>
-
-<div class="container mt-5">
-    <!-- Online Courses and Professional Certifications Header -->
-    <div class="experience-header" id="certificates">Online Courses and Professional Certifications</div>
-
-    <!-- Courses and Certifications List -->
-    <div class="experience-section">
-        <ul>
-            <li><a href="https://coursera.org/verify/U5SU6FFPRTD4" target="_blank"><strong>Leading Teams: Developing as a Leader</strong></a> – 2023</li>
-            <li><a href="https://coursera.org/verify/specialization/T29NF8RHQCAU" target="_blank"><strong>Machine Learning Specialization</strong></a> by Stanford University & DeepLearning.AI on Coursera – 2023</li>
-            <li><a href="https://coursera.org/share/51dd73d27dcab4c494f271ed8f88f902" target="_blank"><strong>Google Cloud Big Data and Machine Learning Fundamental</strong></a> – 2022</li>
-            <li><a href="https://coursera.org/verify/specialization/BEFVLXHEZ2QJ" target="_blank"><strong>Accelerated Computer Science Fundamental</strong></a> by University of Illinois Urbana-Champaign on Coursera – 2022</li>
-            <li><a href="https://www.coursera.org/account/accomplishments/specialization/S69ZVT6W2WNS" target="_blank"><strong>Deep Learning Specialization</strong></a> by DeepLearning.AI on Coursera – 2021</li>
-            <li><a href="https://courses.edx.org/certificates/07716971b0344fceb9476667373abe84?_gl=1*1b9wrmn*_gcl_au*MTcwMDE5NTkzMS4xNzMxMTIyNDU2*_ga*MTE1NTU2Njk1OS4xNzMxMTIyNDU2*_ga_D3KS4KMDT0*MTczMTEyMjQ1Ni4xLjEuMTczMTEyMjU1OC4yOS4wLjA." target="_blank"><strong>Introduction to Computer Science (CS50)</strong></a> by Harvard University on EdX – 2021</li>
-            <li><a href="#" target="_blank"><strong>Product Management</strong></a> by General Assembly x True Digital Academy – 2020</li>
-            <li><a href="https://coursera.org/verify/specialization/3WFLN44SSBVA" target="_blank"><strong>Mathematics for Machine Learning Specialization</strong></a> by ICL on Coursera – 2019</li>
-            <li><a href="https://coursera.org/verify/NV5HRYHKQLL9" target="_blank"><strong>Machine Learning</strong></a> by Stanford University on Coursera – 2019</li>
-            <li><a href="https://drive.google.com/file/d/18bq0cAWUauaaW4OqtsBNuNrWQfOunQ8I/view?usp=sharing" target="_blank"><strong>Tableau Desktop Specialist</strong></a> by Tableau – 2019</li>
-        </ul>
-    </div>
-</div>
 
 <br>
 <br>
