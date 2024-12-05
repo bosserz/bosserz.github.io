@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imbalanced Parking Demand and Supply</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .tab-content {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-top: none;
+      border-radius: 0 0 5px 5px;
+    }
+    .nav-tabs .nav-link.active {
+      background-color: #007bff;
+      color: white;
+      border-color: #007bff;
+    }
+    .img-style {
+        max-width: 80%;
+    }
+    .name-link {
+        text-decoration: none;
+        color: #002a5c;
+    }
+    .gif-img {
+        width: 45%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h1 class="text-center">Spatiotemporal Analysis of Imbalanced Parking Demand and Supply</h1>
+  <h3 class="text-center">CP 8883 - Fall 2024, Final Project Report</h3>
+  <h4 class="text-center">Jaegeon Lee, Seungjae Lieu, and <a href="https://www.linkedin.com/in/thanawit-suwannikom/" class="name-link">Thanawit Suwannikom</a></h4>
+  <ul class="nav nav-tabs mt-4" id="topicTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="intro-tab" data-bs-toggle="tab" data-bs-target="#introduction" type="button" role="tab" aria-controls="introduction" aria-selected="true">Introduction</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="goals-tab" data-bs-toggle="tab" data-bs-target="#goals" type="button" role="tab" aria-controls="goals" aria-selected="false">Research Goals</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="data-tab" data-bs-toggle="tab" data-bs-target="#data" type="button" role="tab" aria-controls="data" aria-selected="false">Data</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="method-tab" data-bs-toggle="tab" data-bs-target="#methodology" type="button" role="tab" aria-controls="methodology" aria-selected="false">Methodology</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="results-tab" data-bs-toggle="tab" data-bs-target="#results" type="button" role="tab" aria-controls="results" aria-selected="false">Results</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="conclusion-tab" data-bs-toggle="tab" data-bs-target="#conclusion" type="button" role="tab" aria-controls="conclusion" aria-selected="false">Conclusion</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="improve-tab" data-bs-toggle="tab" data-bs-target="#improvement" type="button" role="tab" aria-controls="improvement" aria-selected="false">Limitations & Improvement</button>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade show active" id="introduction" role="tabpanel" aria-labelledby="intro-tab">
+      <h3>Introduction</h3>
+      <div class="text-center">
+        <div>
+            <img src="assets/img/parking.png" alt="Parking Lot" style="max-height: 400px;">
+        </div>
+        <caption>Parking Lot</caption>
+      </div>
+      
+      <p>In rapidly growing urban areas, the availability and equitable distribution of parking spaces are essential for 
+        sustaining urban mobility and ensuring the efficient functionality of cities. An imbalance between parking demand 
+        and supply has significant implications, contributing to issues such as traffic congestion, inefficient land use, 
+        and environmental challenges. Moreover, the increasing pace of urbanization, coupled with fluctuating vehicle usage 
+        patterns throughout the day, poses additional challenges for cities attempting to address this imbalance effectively.
+        </p>
+        <p>
+            The imbalance between parking demand and supply in urban areas has been extensively studied, revealing significant 
+            impacts on traffic congestion, land use efficiency, and environmental quality. Ibrahim (2017) identifies the rapid 
+            increase in car ownership and ineffective land use planning as primary contributors to parking shortages, leading to 
+            traffic congestion and inefficient land utilization.
+            Shoup (2005) discusses how underpriced or free parking exacerbates urban congestion, as drivers spend additional time 
+            searching for available spaces, thereby increasing traffic volumes and associated emissions. Furthermore, the proliferation 
+            of parking infrastructure consumes substantial urban land, which could otherwise support housing or green spaces, thus 
+            affecting urban density and environmental quality. The environmental consequences of excessive parking infrastructure 
+            are also notable. The abundance of parking spaces encourages car use, leading to increased emissions of pollutants such 
+            as nitrogen oxides and carbon monoxide, which degrade air quality and contribute to environmental degradation.
+        </p>
+        <p>
+            Additionally, the impervious surfaces of parking lots contribute to urban heat island effects and water runoff issues, 
+            further impacting urban ecosystems. Addressing the imbalance between parking demand and supply is crucial for enhancing urban mobility, 
+            optimizing land use, and mitigating environmental impacts. Strategies such as dynamic performance-based pricing for parking 
+            spaces have been proposed to reduce vehicle circling and improve space utilization, thereby decreasing traffic congestion and emissions.
+            Moreover, the adoption of smart parking systems can lead to more efficient use of existing parking structures and land, 
+            as well as reductions in congestion caused by drivers searching for parking.
+        </p>
+        <h5>References</h5>
+        <ol>
+            <li>Ibrahim, H. (2017). The Rapid Increase in Car Ownership and Ineffective Land Use Planning as Contributors to Parking Shortages.</li>
+            <li>Shoup, D. (2005). The High Cost of Free Parking. Chicago: Planners Press, American Planning Association.</li>
+            <li>Huntsman, B., Lasley, P., Galarza, M. (2017). Finding the Value of Urban Parking: An Analysis of the Impacts of Smart Parking Systems on 
+                Congestion and Land Values in Downtown Houston.</li>
+            <li>Daniel, M., Yun, B., Yanfeng, O. (2015). Dynamic Performance-Based Pricing for Parking to Reduce Vehicle Circling and Improve Utilization.</li>
+        </ol>
+    </div>
+    <div class="tab-pane fade" id="goals" role="tabpanel" aria-labelledby="goals-tab">
+      <h3>Research Goals</h3>
+      <p>Our research goal is to evaluate the imbalance between parking lot supply and demand at different times of day and days of the week by analyzing the following scenarios:​</p>
+      <ol>
+        <li>Parking supply remains constant, but demand varies based on time of day and day of the week.​</li>
+        <li>Parking supply is measured by the total number of the parking spaces available in a parking lot.​</li>
+        <li>Parking demand is estimated based on visits to nearby points of interest using the inverse-2SFCA method.</li>
+      </ol>
+      <div class="text-center">
+        <img src="assets/img/goals.png" alt="Research Goals" style="max-width: 80%">
+      </div>
+      
+    </div>
+    <div class="tab-pane fade" id="data" role="tabpanel" aria-labelledby="data-tab">
+      <h3>Data</h3>
+      <div id="parking-lot">
+        <h4>Parking Lots Data</h4>
+        <p>Describe Parking Lots Data from SafeGraph and OSM</p>
+      </div>
+      <div >
+        <h4>Demand / Visitor Counts</h4>
+        <p>Describe Advan Research POIs visitors data</p>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="methodology" role="tabpanel" aria-labelledby="method-tab">
+      <h3>Methodology</h3>
+      <div>
+        <h4>Parking Spaces Regression</h4>
+        <p>The parking lots data from SafeGraph offers more data points but lack of parking spaces information. 
+            In contrast, the parking lots data from OSM provides parking spaces information. We then combine these two 
+            sources has apply linear regression to estimate the number of parking spaces using parking lots geometry area.
+        </p>
+        <p>
+            The following shows the scatter plot between parking spaces and parking lot geometry areas. We can see some linear trend.
+        </p>
+        <div class="text-center">
+            <img src="assets/img/ParkingSpacesVSGeometryArea.png" alt="Parking Lot Geometry Area (sqm) vs Parking Spaces (#)" class="w-50">
+        </div>
+
+      </div>
+      <div>
+        <h4>2SCFA</h4>
+        <p>Descibe 2SCFA</p>
+      </div>
+      <div>
+        <h4>i-2SCFA</h4>
+        <p>Descibe i-2SCFA</p>
+      </div>
+      <div>
+        <h5>Step 1: Distributing parking demand of each POI to nearby parking lots</h5>
+        <div class="text-center">
+            <img src="assets/img/i2SFCA-1.png" alt="" class="w-75">
+        </div>
+      </div>
+      <div>
+        <h5>Step 2: Summing up the loaded demands by parking lot</h5>
+        <div class="text-center">
+            <img src="assets/img/i2SFCA-2.png" alt="" class="w-75">
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="results" role="tabpanel" aria-labelledby="results-tab">
+      <h3>Results & Discussion</h3>
+      <div>
+        <h4>Parking Supply</h4>
+        <hr>
+        <p>
+            In the figure below shows the linear regression results using parking lot geometry area as independent variable to predict parking spaces.
+            The r-square value is 0.69 which is not high but indicates a some level of linear relationship between geometry area and parking spaces.
+        </p>
+        <div class="text-center">
+            <div>
+                <img src="assets/img/results/parking_supply_regression.png" alt="Parking Spaces Regression" class="w-75">
+            </div>
+            <caption>Parking Spaces Regression Analysis Results</caption>
+        </div>
+      </div>
+      <div>
+        <h4>Parking Demand</h4>
+        <hr>
+        <h5>Demand Over Time</h5>
+        <p>
+            The following animation shows the parking demand in Atlanta's city area as a choropleth map. The animation on the left displays the average 
+            demand over time on weekdays, while the right shows the average demand over time on weekends.
+        </p>
+        <p>
+            The choropleth map highlights areas with high parking demand. From the two charts, we observe that Midtown and Downtown 
+            consistently experience high demand, while certain areas show elevated demand only during specific times of the day.
+        </p>
+        <div class=text-center>
+            <div class="row">
+                <div class="col-sm">
+                    <div>
+                        <img src="assets/img/results/weekday_animation.gif" alt="Weekday Demand Over Time" class="w-100">
+                    </div>
+                    <caption>Weekday Demand Over Time</caption>
+                </div>
+                <div class="col-sm">
+                    <div>
+                        <img src="assets/img/results/weekend_animation.gif" alt="Weekend Demand Over Time" class="w-100">
+                    </div>
+                    <caption>Weekend Demand Over Time</caption>
+                </div>
+            </div>
+        </div>
+        <p>The following is interactive visualization where user can pick time of day and day type (weekday or weekend) to see parking demand of particular location.</p>
+        <div class="text-center">
+            <div class='tableauPlaceholder' id='viz1733360980275' style='position: relative'>
+                <noscript>
+                <a href='#'>
+                    <img alt='Parking Demand ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;At&#47;AtlantaParkingDemandOverTime&#47;ParkingDemand&#47;1_rss.png' 
+                    style='border: none' />
+                </a>
+                </noscript>
+                <object class='tableauViz'  style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                    <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
+                    <param name='name' value='AtlantaParkingDemandOverTime&#47;ParkingDemand' />
+                    <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;At&#47;AtlantaParkingDemandOverTime&#47;ParkingDemand&#47;1.png' /> 
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='en-US' />
+                    <param name='filter' value='publish=yes' />
+                </object>
+            </div>                
+            <script type='text/javascript'>                    
+                var divElement = document.getElementById('viz1733360980275');                    
+                var vizElement = divElement.getElementsByTagName('object')[0];                    
+                // if ( divElement.offsetWidth > 800 ) { vizElement.style.width='800px';vizElement.style.height='827px';} 
+                // else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='800px';vizElement.style.height='827px';} 
+                // else { vizElement.style.width='100%';vizElement.style.height='727px';}   
+                vizElement.style.width='100%';vizElement.style.height='827px';                  
+                var scriptElement = document.createElement('script');                    
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+            </script>
+        </div>
+        
+        <h5>Demand By Location</h5>
+        <p>
+            Using the estimated parking demand by time of day, we can identify periods with high demand issues in specific areas. Three locations were selected for analysis: Downtown, Glenwood Park, and Beltline & Ponce City Market.
+        </p>
+        <div class="text-center">
+            <div>
+                <img src="assets/img/results/DemandOverTime.png" alt="" class='w-100'>
+            </div>
+            <caption>Demand Over Time of Selected Locations</caption>
+        </div>
+        <p>
+            The results show that Downtown consistently faces over-demand issues throughout the day, whereas Glenwood Park and BeltLine & Ponce City Market experiences over-demand in specific periods of time.
+        </p>
+      </div>
+      <div>
+        <h4>Imbalanced Parking Demand and Supply</h4>
+        <p>
+            We developed an interactive dashboard to visualize the imbalance in the parking demand-to-supply ratio using a choropleth map. 
+            The dashboard includes filters for parameters such as the exponential decay parameter (k), day type (weekday or weekend), demand estimation mode, and time of day.
+        </p>
+        <p>
+            The map displays the locations and spatial geometries of parking lots in the City of Atlanta. Polygons are color-coded to 
+            represent the degree of imbalance between parking demand and supply: darker reds indicate areas with high over-demand, while 
+            darker greens highlight areas of oversupply. On the right-hand side, the top bar chart shows the distribution of parking imbalance 
+            in the area, and the bottom bar chart illustrates the demand versus referenced supply of the parking lots over time.
+        </p>
+        <p>
+            Users can select specific polygons on the map using Tableau’s selection tools to filter parking lots within their areas of interest. 
+            The bar charts dynamically update to reflect data corresponding to the selected polygons, offering a focused view of the parking dynamics in the chosen regions.
+        </p>
+
+        <p>For better visualization, please view this dashboard on laptop or desktop monitor.</p>
+        <div class='tableauPlaceholder' id='viz1733273423230' style='position: relative'>
+            <noscript>
+                <a href='#'>
+                    <img alt='Demand&#47;Supply ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final_Viz_Published&#47;DemandSupply&#47;1_rss.png' 
+                    style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz'  style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='site_root' value='' />
+                <param name='name' value='Final_Viz_Published&#47;DemandSupply' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final_Viz_Published&#47;DemandSupply&#47;1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='en-US' />
+            </object></div> 
+            <script type='text/javascript'>                    
+                var divElement = document.getElementById('viz1733273423230');                    
+                var vizElement = divElement.getElementsByTagName('object')[0];                    
+                // if ( divElement.offsetWidth > 800 ) { 
+                //     vizElement.style.width='1600px';vizElement.style.height='927px';
+                // } else if ( divElement.offsetWidth > 500 ) { 
+                //     vizElement.style.width='1600px';vizElement.style.height='927px';
+                // } else { 
+                //     vizElement.style.width='100%';vizElement.style.height='1327px';
+                // }            
+                vizElement.style.width='100%';vizElement.style.height='1327px';         
+                var scriptElement = document.createElement('script');                    
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+            </script>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="conclusion" role="tabpanel" aria-labelledby="conclusion-tab">
+      <h3>Conclusion</h3>
+      <p>This is the conclusion section.</p>
+    </div>
+    <div class="tab-pane fade" id="improvement" role="tabpanel" aria-labelledby="improve-tab">
+      <h3>Limitations & Improvement</h3>
+      <h4>Limitations</h4>
+      <hr>
+      <ol>
+        <li>
+            The regression model used to estimate parking capacities achieved an R-squared value of 0.69, indicating a moderate fit and leaving room for improvement in prediction accuracy.
+        </li>
+        <li>
+            The study relies on assumptions about walking or public transit usage to estimate the proportion of visitors requiring parking, which may not reflect actual behavior.
+        </li>
+        <li>
+            A simplified assumption of one visitor per vehicle was made, potentially oversimplifying the complexity of visitor behavior and vehicle occupancy patterns.
+        </li>
+      </ol>
+
+      <h4>Improvements</h4>
+      <hr>
+      <p>To address the above limitations, we propose the following improvements for future studies:</p>
+      <ol>
+        <li>
+            Incorporating additional features, such as the number of nearby points of interest (POIs) and the built environment characteristics of the area, and applying advanced machine learning models, could enhance the predictive accuracy of parking capacity estimates.
+        </li>
+        <li>
+            Validating the proportion of visitors who travel by car would improve the reliability of the demand estimates. This can be achieved by collecting data on car-traveling visitors from a representative sample of locations and fine-tuning the model based on the collected data.
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
