@@ -129,12 +129,19 @@
     </div>
     <div class="tab-pane fade" id="methodology" role="tabpanel" aria-labelledby="method-tab">
       <h3>Methodology</h3>
-      <div>
+      <div class="mb-4">
         <h4>Parking Spaces Regression</h4>
+        <hr>
         <p>The parking lots data from SafeGraph offers more data points but lack of parking spaces information. 
             In contrast, the parking lots data from OSM provides parking spaces information. We then combine these two 
             sources has apply linear regression to estimate the number of parking spaces using parking lots geometry area.
         </p>
+        <div class="text-center mb-4">
+            <div>
+                <img src="assets/img/parking_space_process.png" alt="" class='w-75'>
+            </div>
+            <caption>Process of Estimating Parking Spaces from Two Data Sources</caption>
+        </div>
         <p>
             The following shows the scatter plot between parking spaces and parking lot geometry areas. We can see some linear trend.
         </p>
@@ -143,29 +150,76 @@
         </div>
 
       </div>
-      <div>
-        <h4>2SCFA</h4>
-        <p>Descibe 2SCFA</p>
+      <div class="mb-4">
+        <h4>Parking Demand Estimation</h4>
+        <hr>
+        <p>We used the Two-step Floating Catchment Area (2SFCA) method to estimate the parking demands loaded to each parking lot. 
+            2SFCA is a widely used accessibility measure to see how many resources (i.e., facilities) an individual can access to within 
+            certain geographical distributions of resources supplied and individuals in demand (Luo and Wang, 2003). In detail, the 2SFCA 
+            method consists of the following two steps:
+        </p>
+        <ol>
+            <li>
+                Measure how much resources, provided by each supplying facility, are available with respect to an individual in demand, 
+                considering the competition she or he (they) face with others for the resources at that facility.
+            </li>
+            <li>
+                Sum up the available resources from multiple supply facilities within a certain boundary of each individual.
+            </li>
+        </ol>
+        <p>
+            Since our study focuses on the degree of scarcity or over-supply of parking lots in Atlanta, we decided to use the inverted 
+            version of 2SFCA, which was suggested and theoretically verified by Wang (2018). In the inverted version of 2SFCA, the unit 
+            of analysis changes from individuals to facilities, parking lots in our study. Along with illustrations, our method of estimating 
+            parking demands consists of two steps:
+        </p>
+        <ol>
+            <li>
+                Distribute parking demand of each POI to nearby parking lots: Presume that there are 20 visitors to POI C. The parking 
+                demands of these 20 visitors are split into the two nearby parking lots. Here, we consider the distance decay effect where 
+                the possibility of an individual visitor choosing a certain parking lot is inverse to the distance between the POI she or he 
+                intends to visit and the parking lot (please refer to the equation below). Walking distances between POIs and parking lots were 
+                calculated using the Open Street Routing Machine (OSRM), and the decay effect has been considered for only the parking lots within 
+                the 10-minute walking distance from each POI. Three distance decay parameters (k=1, 2, 3) were used, according to the literature 
+                (Luo and Wang, 2003), but we mainly discuss the outputs based on the parameter k=2 in our Result section.
+            </li>
+            <div class="text-center">
+                \[
+                \text{Prob}_{ij} = \frac{D_j d_{ij}^{-k}}{\sum_{l=1}^{n} \left( D_l d_{il}^{-k} \right)}
+                \]
+                <div>
+                    <img src="assets/img/i2SFCA-1.png" alt="" class="w-75">
+                </div>
+                <caption>Step 1 of inverse-2SFCA</caption>
+            </div>
+            <br>
+            <li>
+                Summing up the loaded demands by parking lot: The next step is to sum up the parking demands loaded to each parking lot from 
+                the visitor groups of multiple nearby POIs. These aggregated parking demands will be compared with the capacity of each parking lot.
+            </li>
+            <div class="text-center">
+                <div>
+                    <img src="assets/img/i2SFCA-2.png" alt="" class="w-75">
+                </div>
+                <caption>Step 2 of inverse-2SFCA</caption>
+            </div>
+            <br>
+        </ol>
       </div>
       <div>
-        <h4>i-2SCFA</h4>
-        <p>Descibe i-2SCFA</p>
-      </div>
-      <div>
-        <h5>Step 1: Distributing parking demand of each POI to nearby parking lots</h5>
-        <div class="text-center">
-            <img src="assets/img/i2SFCA-1.png" alt="" class="w-75">
-        </div>
-      </div>
-      <div>
-        <h5>Step 2: Summing up the loaded demands by parking lot</h5>
-        <div class="text-center">
-            <img src="assets/img/i2SFCA-2.png" alt="" class="w-75">
-        </div>
+        <h4>References</h4>
+        <ol>
+            <li>
+                Luo, W., and Fahui, W. Measures of Spatial Accessibility to Health Care in a GIS Environment: Synthesis and a Case Study in the Chicago Region. Environment and Planning B: Planning and Design, 30(6), 865–884. https://doi.org/10.1068/b29120.
+            </li>
+            <li>
+                Wang, F. “Inverted Two-Step Floating Catchment Area Method for Measuring Facility Crowdedness.” The Professional Geographer, 70(2), 251–260. https://doi.org/10.1080/00330124.2017.1365308.
+            </li>
+        </ol>
       </div>
     </div>
     <div class="tab-pane fade" id="results" role="tabpanel" aria-labelledby="results-tab">
-      <h3>Results & Discussion</h3>
+      <h3>Results</h3>
       <div>
         <h4>Parking Supply</h4>
         <hr>
@@ -298,7 +352,8 @@
                 <param name='display_overlay' value='yes' />
                 <param name='display_count' value='yes' />
                 <param name='language' value='en-US' />
-            </object></div> 
+            </object>
+        </div> 
             <script type='text/javascript'>                    
                 var divElement = document.getElementById('viz1733273423230');                    
                 var vizElement = divElement.getElementsByTagName('object')[0];                    
@@ -318,7 +373,70 @@
     </div>
     <div class="tab-pane fade" id="conclusion" role="tabpanel" aria-labelledby="conclusion-tab">
       <h3>Conclusion</h3>
-      <p>This is the conclusion section.</p>
+      <p>Based on our analysis, we would like to discuss the following three points particularly regarding parking management policies in cities.</p>
+
+        <div class=>
+            <p>
+                First, we notice that even places with fairly high transit access face parking overdemand issues. Two metro lines, line Red 
+                and Gold, go through the Midtown Atlanta area, placing the area as one of the places with higher levels of transit accessibility 
+                in the city. However, as we can see from the figure below, the Midtown also suffers from parking over-demand issues. This might 
+                be because the transit accessibility here is not high enough to promote people to opt for public transit over personal vehicles 
+                or there are other problems besides accessibility to stations in the public transit system (e.g., long headways and dispatch intervals).
+            </p>
+        </div>
+        <div class="text-center">
+            <div>
+                <img src="assets/img/conclusion/conclusion_1.png" alt="" class="w-100">
+            </div>
+            <caption>Imbalance between Parking Demand and Supply in Atlanta</caption>
+        </div>
+        <br>
+        <div>
+            <p>
+                Second, focusing on local scales, parking demands do not often spread across nearby parking lots. The figure below shows a zoomed-in 
+                distribution of estimated parking demands near the Ponce City Market area, a famous attraction in Atlanta. While there are spaces available 
+                across the Ponce de Leon Avenue, those spaces are estimated to be not fully used by the visitors of the Ponce City Market. While further 
+                investigations on the actual parking usages are needed, we would like to note that chances that people are reluctant to cross roads after 
+                parking can exist. What if the roads that visitors need to cross after parking to get to their final destinations (i.e., POIs) have crosswalks 
+                without traffic lights? What if the average speed of vehicles on roads is so high that people feel unsafe to cross the road. These 
+                hazards may affect visitors' parking behaviors and as a result lead to inefficient uses of parking spaces across urban areas. For planning 
+                practices, we suggest that walkability between parking lots and POIs should be improved to enhance parking imbalance problems and eventually 
+                downsize parking lots or at least avoid from enlarging them based on inefficient uses.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 text-center mb-4">
+                <div>
+                    <img src="assets/img/conclusion/conclusion_2_1.png" alt="" class="w-100">
+                </div>
+                <caption>Whole Foods Market and Home Depot Parking</caption>
+            </div>
+            <div class="col-sm-12 col-md-6 text-center mb-4">
+                <div>
+                    <img src="assets/img/conclusion/conclusion_2_2.png" alt="" class="w-100">
+                </div>
+                <caption>Ponce City Market Parking</caption>
+            </div>
+        </div>
+        
+        <div>
+            <p>
+                Third, we created an interactive map dashboard, which can be used for parking management policies. There is much debate going on 
+                regarding the reform of parking requirement policies in cities across the US (Marsden, 2006; Willson, 2018). Such policies 
+                require both assessments on status quo and simulations based on projections of future parking demands. Additionally, the supply 
+                and demand dynamics of parking varies across contexts, specifically the density of development, the overall transportation 
+                infrastructure in the city, and the categories of POIs, etc. This implies that the assessment of parking imbalance should be 
+                monitored and estimated for each case and from the perspective of diverse stakeholders. We suggest that our interactive map, 
+                which allows users to adjust different time periods and parameters, can be instrumental to facilitating the debate on the parking 
+                management policies and to assisting local businesses and building facility operators.
+            </p>
+            <p>
+                Below is the interactive map or you can click <a href="https://public.tableau.com/views/Final_Viz_Published/DemandSupply?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">
+                    here</a> to see in full page.
+            </p>
+            <div class='tableauPlaceholder' id='viz1733460755549' style='position: relative'><noscript><a href='#'><img alt='Demand&#47;Supply ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final_Viz_Published&#47;DemandSupply&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Final_Viz_Published&#47;DemandSupply' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Fi&#47;Final_Viz_Published&#47;DemandSupply&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1733460755549');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.minWidth='1100px';vizElement.style.maxWidth='1600px';vizElement.style.width='100%';vizElement.style.height='927px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        </div>
+        
     </div>
     <div class="tab-pane fade" id="improvement" role="tabpanel" aria-labelledby="improve-tab">
       <h3>Limitations & Improvement</h3>
@@ -348,10 +466,13 @@
         </li>
       </ol>
     </div>
-  </div>
+  <!-- </div> -->
 </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </body>
 </html>
