@@ -13,6 +13,18 @@ nav a {
     font-weight: bold;
 }
 
+@media screen and (max-width: 600px) {
+    .profile-img {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+  }
+
+.profile-img {
+    width: 75%;
+}
+
+
 .hero, h2 {
     font-family: "Spline Sans Mono", monospace;
 }
