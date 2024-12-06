@@ -1,0 +1,75 @@
+body {
+    padding-top: 60px;
+    font-family: "Halvetica", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+#greeting-section {
+    font-family: "Roboto Mono", sans-serif;
+}
+
+.greeting {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.experience-header {
+    font-family: "Roboto Mono", sans-serif;
+    font-weight: bold;
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+.position-title {
+    font-family: "Roboto Mono", sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.company-location {
+    color: #6c757d;
+    font-style: italic;
+}
+.date {
+    color: #6c757d;
+    text-align: right;
+}
+.experience-section {
+    margin-bottom: 20px;
+}
+.role-details {
+    padding-left: 20px;
+}
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 220px;
+    background-color: #343a40;
+    padding-top: 10%;
+}
+.sidebar .nav-link {
+    color: #ffffff;
+    font-size: 1.1rem;
+}
+.sidebar .nav-link:hover {
+    background-color: #495057;
+}
+/* Main content margin to avoid overlap */
+.content {
+    margin-left: 240px; /* Space for sidebar on large screens */
+    padding: 20px;
+}
+/* Adjust content margin on small screens */
+@media (max-width: 991.98px) {
+    .content {
+        margin-left: 0; /* Full width on smaller screens */
+    }
+}
+  

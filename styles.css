@@ -1,74 +1,64 @@
+/* styles.css */
+
 body {
-    padding-top: 60px;
-    font-family: "Halvetica", sans-serif;
+    font-family: Arial, sans-serif;
+}
+
+header .logo {
+    font-size: 1.5rem;
+}
+
+nav a {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: bold;
+}
+
+.hero, h2 {
+    font-family: "Spline Sans Mono", monospace;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.hero h2 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.hero p {
+    font-size: 1rem;
+}
+
+.contact h2 {
+    margin-bottom: 1rem;
+}
+
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1%;
+}
+
+.card .badge {
+    font-size: 0.8rem;
+}
+
+.contact p a:hover {
+    text-decoration: underline;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.bg-tag {
+    background-color: #002a5c;
 }
 
 a {
-    text-decoration: none;
     color: black;
+    text-decoration: none;
 }
-
-#greeting-section {
-    font-family: "Roboto Mono", sans-serif;
-}
-
-.greeting {
-    font-size: 60px;
-    font-weight: bold;
-}
-
-.experience-header {
-    font-family: "Roboto Mono", sans-serif;
-    font-weight: bold;
-    margin-top: 30px;
-    font-size: 1.5rem;
-}
-.position-title {
-    font-family: "Roboto Mono", sans-serif;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-.company-location {
-    color: #6c757d;
-    font-style: italic;
-}
-.date {
-    color: #6c757d;
-    text-align: right;
-}
-.experience-section {
-    margin-bottom: 20px;
-}
-.role-details {
-    padding-left: 20px;
-}
-
-/* Sidebar styling */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 220px;
-    background-color: #343a40;
-    padding-top: 10%;
-}
-.sidebar .nav-link {
-    color: #ffffff;
-    font-size: 1.1rem;
-}
-.sidebar .nav-link:hover {
-    background-color: #495057;
-}
-/* Main content margin to avoid overlap */
-.content {
-    margin-left: 240px; /* Space for sidebar on large screens */
-    padding: 20px;
-}
-/* Adjust content margin on small screens */
-@media (max-width: 991.98px) {
-    .content {
-        margin-left: 0; /* Full width on smaller screens */
-    }
-}
-  
