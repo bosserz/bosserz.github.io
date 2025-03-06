@@ -5,95 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>thanawit.com</title>
     <link rel="shortcut icon" href="assets/icon/page-icon.ico">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 2rem 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 1em;
+        }
+        img {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 1em;
+        }
+        .profile-pic {
+            filter: grayscale(30%);
+        }
+        .tagline {
+            font-style: italic;
+            font-size: 1.2em;
+            margin-bottom: 2em;
+        }
+        nav {
+            margin-bottom: 2em;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background: #333;
+        }
+        .main-content {
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.6;
+        }
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .social-buttons a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+        }
+        .social-buttons a:hover {
+            background: #ddd;
+        }
+        .social-btn {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            margin: auto;
+            text-align: center;
+        }
 
+        @media screen and (max-width: 768px) {
+            .main-content {
+                max-width: 90%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="bg-light border-bottom py-3">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="logo fw-bold">thanawit</div>
-            <nav>
-                <a href="#projects" class="text-decoration-none mx-2">projects</a>
-                <a href="https://thanawit.blog" class="text-decoration-none mx-2">blog</a>
-                <a href="resume" class="text-decoration-none mx-2">resume</a>
-                <a href="#contact" class="text-decoration-none mx-2">contact</a>
-            </nav>
-        </div>
-    </header>
 
-    <section class="hero py-5 bg-light">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="assets/img/profile.jpg" alt="Thanawit Suwannikom" class="profile-img rounded-circle shadow">
-                </div>
-                <div class="col-lg-8 order-2 order-lg-1">
-                    <h1>I'm Thanawit (Boss).</h1>
-                    <h2 class="mt-3">A Data Scientist Specialized in Spatial Analytics, Machine Learning Development, and Data Visualization
-                    </h2>
-                    <p class="mt-4">I am currently pursuing an MS in Urban Analytics at the Georgia Institute of Technology, <br>
-                        with a strong interest in complex systems analytics and simulation. My focus includes areas such as transportation systems, social network analysis, computer vision, and visual analytics. I am passionate about solving business challenges and leveraging technology to enhance efficiency and empower people in their work.</p>
-                </div>
-                
-            </div>
-        </div>
-    </section>
+    <img class="profile-pic" src="assets/img/profile-pic.jpeg" alt="Thanawit Suwannikom">
+    <h1>Thanawit Suwannikom</h1>
+    <p class="tagline">Solving Problems with Data Science and Technology</p>
 
-    <section id="projects" class="projects py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Projects</h2>
-            <div class="row mb-4">
-                <div class="col-md-6 col-lg-4">
-                    <a href="projects/ImbalancedParkingAnalysis">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Spatiotemporal Analysis of Imbalanced Parking Demand and Supply <br><span class="badge bg-tag">Spatial Analytics</span></h5>
-                                <p class="card-text">Evaluate the mismatch between parking demand and supply across a city at different times of the day. By leveraging spatial and temporal data, the study aims to analyze whether specific areas experience a surplus or deficit of parking spaces, identify patterns of imbalance, and propose strategies to optimize parking space utilization. The findings will provide insights into improving parking infrastructure efficiency and reducing urban congestion, contributing to better urban planning and sustainable city development.</p>
-                            </div>
-                        </div>
-                    </a>
-                    
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Why Bangkok's Traffic is So Bad: Analyzing the Transportation Networks of Thailand's Capital City <br><span class="badge bg-tag">Network Analytics</span> 
-                                <span class="badge bg-tag">Transport</span> <span class="badge bg-tag">Simulation</span></h5>
-                            <p class="card-text">Investigate the underlying causes of Bangkok's persistent traffic problems by examining the city's transportation networks. Utilizing data from road infrastructure, public transit systems, and traffic patterns, the study analyzes factors such as network design, congestion hotspots, and public transport accessibility. The goal is to identify critical inefficiencies and propose actionable insights to alleviate traffic congestion, improve urban mobility, and support sustainable transportation planning in one of the world's most congested cities.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Measuring Accessibility of Public Transit in London, UK. <br><span class="badge bg-tag">Network Analytics</span></h5>
-                            <p class="card-text">Evaluate the accessibility of key infrastructure points, such as hospitals, schools, and supermarkets, through public transportation systems, including buses, trains, and metro networks. By dividing the city into grids and calculating travel times from each grid to selected POIs, the study develops a comprehensive accessibility index. It further compares public transit accessibility with driving accessibility and introduces a new method combining isochrone analysis and accessibility ratios. The findings aim to provide actionable insights into urban mobility and equity in infrastructure access, with an interactive map for visualizing accessibility across London neighborhoods.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <nav>
+        <a href="resume.html">Resume</a>
+        <a href="projects.html">Projects</a>
+        <a href="https://thanawit.blog">Blogs</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
-    <section id="contact" class="contact bg-light py-5">
-        <div class="container text-center">
-            <h2>Contact</h2>
-            <p><strong>Email:</strong> thanawit.suw@gmail.com, tsuwannikom3@gatech.edu</p>
-            <p><strong>Social:</strong>
-                <a href="https://github.com/bosserz" class="text-decoration-none mx-2">GitHub</a>
-                <a href="https://facebook.com/bosserz.thanawit" class="text-decoration-none mx-2">Facebook</a>
-                <a href="https://instagram.com/bosserz" class="text-decoration-none mx-2">Instagram</a>
-            </p>
+    <div class="main-content">
+        <h2>
+            A Data Scientist Specialized in Geoppatial Analytics, Machine Learning, and Data Visualization
+        </h2>
+        <p class="text-start">I am currently pursuing an MS in Urban Analytics at the Georgia Institute of Technology,
+            with a strong interest in complex systems analytics and simulation. My focus includes areas such as transportation systems, social network analysis, computer vision, and visual analytics. I am passionate about solving business challenges and leveraging technology to enhance efficiency and empower people in their work.
+        </p>
+ 
+        <div class="social-buttons">
+    
+            <a href="https://www.linkedin.com/in/thanawit-suwannikom" class="align-middle text-center">
+                <svg viewBox="0 0 24 24" width="24" height="24" class="social-btn">
+                    <path fill="#000" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </a>
+            <a href="https://github.com/bosserz">
+                <svg viewBox="0 0 24 24" width="24" height="24" class="social-btn">
+                    <path fill="#000" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+            <a href="https://rpubs.com/bosserz">
+                <p class="social-btn"> RPub</p>
+            </a>
         </div>
-    </section>
-
-    <!-- Bootstrap Bundle with Popper -->
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
