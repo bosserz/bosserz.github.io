@@ -1,76 +1,308 @@
-/* styles.css */
-
-body {
-    font-family: Arial, sans-serif;
-}
-
-header .logo {
-    font-size: 1.5rem;
-}
-
-nav a {
-    font-family: "Noto Sans", sans-serif;
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base styles */
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0a192f;
+    color: #fffffb;
+    scroll-behavior: smooth;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  /* Wrapper to center everything */
+  .page-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Main layout: sidebar + content */
+  .main-layout {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: #0a192f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10rem 1rem 2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  
+  .logo {
+    font-size: 1.8rem;
     font-weight: bold;
-}
-
-@media screen and (max-width: 992px) {
-    .profile-img {
-        width: 40% !important;
-        margin-bottom: 20px;
+    color: #fffffb;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .social-txt {
+    color: #fffffb;
+    padding: 0.15rem;
+  }
+  
+  .role {
+    margin-bottom: 3rem;;
+    text-align: center ;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .nav-links a {
+    color: #ccd6f6;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #fffffb;
+    font-weight: bold;
+  }
+  
+  /* Social Icons */
+  .social-icons {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icons a img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Content */
+  .content {
+    flex: 1;
+    padding: 4rem 2rem;
+  }
+  
+  /* Section */
+  .section {
+    width: 100%;
+    max-width: 750px;
+    padding: 6rem 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Section title */
+  .section-title {
+    font-size: 2rem;
+    color: #FF007F;
+    margin-bottom: 1rem;
+    display: none;
+  }
+  
+  /* Experience Section */
+  
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .experience-item {
+    border: 1px solid transparent;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .experience-item:hover {
+    border-color: #FF007F;
+    background-color: rgba(255, 0, 127, 0.05); /* Light pink highlight */
+  }
+  
+  /* .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  } */
+  
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  }
+  
+  .experience-date {
+    font-size: 0.9rem;
+    color: #8892b0;
+    min-width: 150px;
+  }
+  
+  .experience-title h3 {
+    font-size: 1.2rem;
+    color: #fffffb;
+  }
+  
+  .past-position{
+    color: #c1c1c1 !important; 
+  }
+  
+  .experience-description p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #fffffb;
+  }
+  
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .project-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background-color: #121826;
+    padding: 1.5rem;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+  }
+  
+  .project-item:hover {
+    background-color: #1c2233;
+  }
+  
+  .project-thumb {
+    width: 240px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  
+  .project-content h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    color: #ffffff;
+  }
+  
+  .project-content p {
+    color: #cfd1d4;
+    line-height: 1.6;
+  }
+  
+  /* Button */
+  .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 1px solid #FF007F;
+    color: #FF007F;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background: #FF007F;
+    color: #0a192f;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 6rem;
+    font-size: 0.9rem;
+    color: #8892b0;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .page-wrapper {
+      padding: 0 1rem;
+    }
+    
+    .section {
+      width: 100%;
     }
   }
-
-.profile-img {
-    width: 90%;
-}
-
-
-.hero, h2 {
-    font-family: "Spline Sans Mono", monospace;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-.hero h2 {
-    font-size: 1.5rem;
-    line-height: 1.5;
-}
-
-.hero p {
-    font-size: 1rem;
-}
-
-.contact h2 {
-    margin-bottom: 1rem;
-}
-
-.card {
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1%;
-}
-
-.card .badge {
-    font-size: 0.8rem;
-}
-
-.contact p a:hover {
-    text-decoration: underline;
-}
-
-.card-title {
-    font-weight: bold;
-}
-
-.bg-tag {
-    background-color: #002a5c;
-}
-
-a {
-    color: black;
-    text-decoration: none;
-}
+  
+  @media (max-width: 768px) {
+    .main-layout {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding: 3rem 1rem;;
+      position: relative;
+    }
+  
+    .logo {
+      margin-bottom: 1rem;
+    }
+  
+    .nav-links {
+      display: none; /* Hide nav links */
+    }
+  
+    .social-icons {
+      display: flex; /* SHOW social icons under logo */
+      margin-top: 1rem;
+    }
+  
+    .section-title {
+      display: block; /* Show section title */
+    }
+  
+    .content {
+      padding: 2rem 1rem;
+      margin-left: 0;
+    }
+  
+    .experience-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.3rem;
+    }
+  
+    .project-item {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+  
+    .project-thumb {
+      width: 100%;
+      height: auto;
+      margin-top: 1rem;
+    }
+  
+    .project-content {
+      width: 100%;
+    }
+  }
+  
+  

@@ -1,141 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>thanawit.com</title>
-    <link rel="shortcut icon" href="assets/icon/page-icon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            margin: 0;
-            padding: 2rem 0;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 1em;
-        }
-        img {
-            width: 150px;
-            height: auto;
-            border-radius: 50%;
-            margin-bottom: 1em;
-        }
-        .profile-pic {
-            filter: grayscale(30%);
-        }
-        .tagline {
-            font-style: italic;
-            font-size: 1.2em;
-            margin-bottom: 2em;
-        }
-        nav {
-            margin-bottom: 2em;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 5px 10px;
-            margin: 0 5px;
-            border: 1px solid #fff;
-            border-radius: 5px;
-        }
-        nav a:hover {
-            background: #333;
-        }
-        .main-content {
-            max-width: 600px;
-            margin: auto;
-            line-height: 1.6;
-        }
-        .social-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        .social-buttons a {
-            position: relative;
-            display: inline-block;
-            padding: 10px 20px;
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            border-radius: 15px;
-            font-weight: bold;
-            width: 50px;
-            height: 50px;
-        }
-        .social-buttons a:hover {
-            background: #ddd;
-        }
-        .social-btn {
-            position: absolute;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-            left: 0;
-            right: 0;
-            margin: auto;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>thanawit.com</title>
 
-        @media screen and (max-width: 768px) {
-            .main-content {
-                max-width: 90%;
-            }
-        }
-    </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-    <img class="profile-pic" src="assets/img/profile-pic.jpeg" alt="Thanawit Suwannikom">
-    <h1>Thanawit Suwannikom</h1>
-    <p class="tagline">Solving Problems with Data Science and Technology</p>
+  <div class="page-wrapper">
+    <main class="main-layout">
 
-    <nav>
-        <a href="resume.html">Resume</a>
-        <a href="projects.html">Projects</a>
-        <!-- <a href="https://thanawit.blog">Blogs</a> -->
-        <a href="contact.html">Contact</a>
-    </nav>
-
-    <div class="main-content">
-        <h2>
-            A Data Scientist Specialized in Geoppatial Analytics, Machine Learning, and Data Visualization
-        </h2>
-        <p class="text-start">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am currently pursuing an MS in Urban Analytics at the Georgia Institute of Technology,
-            with a strong interest in complex systems analytics and simulation. 
-            My focus includes areas such as network analytics, machine learning, computer vision, and visual analytics. 
-            I am passionate about solving business challenges and leveraging technology to enhance efficiency and empower people in their work.
-        </p>
- 
-        <div class="social-buttons">
-    
-            <a href="https://www.linkedin.com/in/thanawit-suwannikom" class="align-middle text-center">
-                <svg viewBox="0 0 24 24" width="24" height="24" class="social-btn">
-                    <path fill="#000" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-            </a>
-            <a href="https://github.com/bosserz">
-                <svg viewBox="0 0 24 24" width="24" height="24" class="social-btn">
-                    <path fill="#000" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-            </a>
-            <a href="https://rpubs.com/bosserz">
-                <p class="social-btn"> RPub</p>
-            </a>
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="logo">Thanawit Suwannikom</div>
+        <div class="role">
+          <h3>Data Scientist</h3>
+          <!-- <p>I build data-driven solutions that transform raw information into actionable insights using machine learning and analytics.</p> -->
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+          </ul>
+        </nav>
+
+        <div class="social-icons">
+          <a href="https://github.com/bosserz"><img src="assets/github-icon.svg" alt="GitHub"></a>
+          <a href="https://rpubs.com/bosserz"><p class="social-txt">RPub</p></a>
+          <a href="https://www.linkedin.com/in/thanawit-suwannikom"><img src="assets/linkedin-icon.svg" alt="LinkedIn"></a>
+        </div>
+      </aside>
+
+      <!-- Content Area -->
+      <div class="content">
+
+        <section id="about" class="section" data-aos="fade-up">
+          <h2 class="section-title">About Me</h2>
+          <p>
+            I’m a data scientist and machine learning engineer passionate about building intelligent systems that connect data to real-world impact. My work lies at the intersection of spatial analytics, machine learning, and user-centered decision support—transforming messy, complex data into models and tools that drive business and societal value.
+          </p>
+          <br>
+          <p>
+            Currently, I’m pursuing a Master’s in Urban Analytics at Georgia Tech, where my research focuses on location intelligence, transportation access, and computer vision applications for urban systems. Previously, I led machine learning projects as a Senior Data Scientist at CJ Express and True Digital Group, where I developed solutions ranging from product recommendation systems to geospatial models for customer profiling and infrastructure planning.
+          </p>
+          <br>
+          <p>
+            Over the past 7+ years, I’ve worked across industries including telecom, retail, and real estate—designing ML pipelines, deploying production models, and mentoring junior teams. I’ve also created interactive data visualizations and visual storytelling projects that make complex insights more intuitive and accessible.
+          </p>
+          <br>
+          <p>
+            Whether it's optimizing mobility networks, analyzing POI accessibility, or training deep learning models to audit shelf compliance, I’m most excited when solving problems that combine domain complexity with tangible outcomes.
+          </p>
+        </section>
+
+        <section id="experience" class="section" data-aos="fade-up">
+          <h2 class="section-title">Experience</h2>
+          <div class="experience-list">
+
+            <a href="https://resilience.research.gatech.edu/" target="_blank">
+              <div class="experience-item">
+                <div class="experience-header">
+                  <span class="experience-date">Aug 2024 — Present</span>
+                  <div class="experience-title">
+                    <h3>Graduate Research Assistant · Center for Urban Resilience and Analytics</h3>
+                    <div class="experience-description">
+                      <p>Design and implement machine learning and geospatial models to analyze infrastructure access and urban mobility. Collaborate with faculty and policy partners on projects involving sidewalk quality detection from imagery and job accessibility modeling across U.S. states.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            
+            <a href="https://www.cjexpress.co.th/" target="_blank">
+              <div class="experience-item">
+                <div class="experience-header">
+                  <span class="experience-date">Apr 2023 — Jul 2024</span>
+                  <div class="experience-title">
+                    <h3>Senior Data Scientist · CJ Express</h3>
+                    <div class="experience-description">
+                      <p>Develop end-to-end machine learning solutions for retail optimization. Deployed computer vision models for shelf auditing and built customer segmentation with real-time product recommendations to improve marketing effectiveness and operational efficiency.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            
+            <a href="https://www.truedigital.com/true-analytics/" target="_blank">
+              <div class="experience-item">
+                <div class="experience-header">
+                  <span class="experience-date">Apr 2019 — Mar 2023</span>
+                  <div class="experience-title">
+                    <h3>Senior Data Scientist · True Digital Group</h3>
+                    <h3 class="past-position">Data Scientist</h3>
+                    <div class="experience-description">
+                      <p>Led a team delivering large-scale analytics using telecom and geospatial data. Built a Customer360 dataset from 30M+ users, developed location recommendation models, and created real-time COVID-19 risk dashboards for the Ministry of Public Health.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            
+            <a href="https://www.sansiri.com/en/" target="_blank">
+              <div class="experience-item">
+                <div class="experience-header">
+                  <span class="experience-date">Oct 2017 — Mar 2019</span>
+                  <div class="experience-title">
+                    <h3>Data Scientist · Sansiri PLC.</h3>
+                    <div class="experience-description">
+                      <p>Designed geospatial intelligence tools for land acquisition and urban planning. Developed semantic segmentation models from satellite imagery and dashboards for C-level executives to support data-driven real estate development decisions.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            
+          </div>
+        </section>
+
+        <section id="projects" class="section" data-aos="fade-up">
+          <h2 class="section-title">Projects</h2>
+          <div class="project-list">
+
+            <div class="project-item">
+              <img src="assets/tokyo-bus.png" alt="Autonomous Bus System" class="project-thumb">
+              <div class="project-content">
+                <h3>Data-Driven Design of Autonomous Bus System in Tokyo Bay</h3>
+                <p>Analyzed GPS trajectory data and applied clustering to identify trip hotspots. Used TSP optimization to plan routes and semantic segmentation on Google Street View to verify stop suitability in the urban environment.</p>
+              </div> 
+            </div>
+
+            <a href="https://thanawit.com/projects/ImbalancedParkingAnalysis/">
+              <div class="project-item">
+                <img src="assets/parking_demand.gif" alt="Parking Demand Imbalance" class="project-thumb">
+                <div class="project-content">
+                  <h3>Spatiotemporal Analysis of Parking Demand and Supply Imbalance</h3>
+                  <p>Mapped spatial-temporal parking mismatches using the inverse 2SFCA method. Built classification models using satellite and street view imagery to identify parking types (e.g., public vs private, surface vs multi-story).</p>
+                </div> 
+              </div>
+            </a>
+  
+            <div class="project-item">
+              <img src="assets/london-train.png" alt="Public Transit Accessibility" class="project-thumb">
+              <div class="project-content">
+                <h3>Public Transit Accessibility Analysis (London)</h3>
+                <p>Modeled multimodal accessibility to hospitals and schools across London using GTFS and OSM data. Identified transit access inequities and informed transit planning with dynamic programming and spatial equity analysis.</p>
+              </div> 
+            </div>
+
+            <a href="https://thanawit.com/wildfire-scrollytelling/">
+              <div class="project-item">
+                <img src="assets/wildfire.png" alt="Wildfires Scrollytelling" class="project-thumb">
+                <div class="project-content">
+                  <h3>Wildfires in America - Scrollytelling</h3>
+                  <p>Developed an interactive, scroll-driven narrative that visualizes the spread and impact of wildfires across the U.S. Utilizing dynamic maps and data visualizations, offering 
+                    an immersive experience to educate users on the frequency, scale, and consequences of wildfires over time.</p>
+                </div> 
+              </div>
+            </a>
+            
+
+            <a href="https://arcg.is/1nT0qq">
+              <div class="project-item">
+                <img src="assets/healthcare-accessibility.png" alt="Healthcare Accessibility and Network Analysis" class="project-thumb">
+                <div class="project-content">
+                  <h3>Atlanta Healthcare Accessibility and Network Analysis</h3>
+                  <p>Analyzed hospital accessibility and optimizing healthcare facility distribution in Atlanta using GIS and Python.</p>
+                </div> 
+              </div>
+            </a>
+            
+
+          </div>
+          
+        </section>
+
+        <footer class="footer">
+          <p>&copy; 2025 Thanawit Suwannikom.</p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- AOS and Custom Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+
 </body>
 </html>
