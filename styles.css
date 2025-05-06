@@ -12,6 +12,10 @@
     color: #fffffb;
     scroll-behavior: smooth;
   }
+
+  body::selection {
+    background-color: #FF007F;
+  }
   
   a {
     text-decoration: none;
@@ -279,14 +283,14 @@
     }
   
     .content {
-      padding: 2rem 1rem;
+      padding: 1rem 0.5rem;
       margin-left: 0;
     }
   
     .experience-header {
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.3rem;
+      gap: 0.1rem;
     }
   
     .project-item {
