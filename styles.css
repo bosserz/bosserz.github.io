@@ -175,6 +175,47 @@
     margin-bottom: 0.5rem;
     color: #fffffb;
   }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 80px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(10,25,47,0.6);
+  }
+  
+  .modal-content {
+    /* background-color: #0a192f; */
+    background-color: white;
+    color: #0a192f;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .close {
+    color: #aaa;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: #333;
+  }
   
   .project-list {
     display: flex;
