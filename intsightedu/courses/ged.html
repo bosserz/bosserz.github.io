@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private GED | 60 hrs / 100 hrs | Intsight Education</title>
+
+  <!-- Tailwind (layout utilities) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Alpine -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Shared Global CSS (your new reusable file) -->
+  <link rel="stylesheet" href="/assets/css/intsight.css">
+</head>
+
+<body class="bg-white text-slate-800" x-data="{ mobile:false, plan:'60' }">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <a href="/" class="flex items-center gap-3">
+          <img src="logo-1.png" alt="Intsight Education" class="h-10">
+        </a>
+
+        <div class="hidden md:flex gap-8 items-center">
+          <a href="/#about" class="text-sm font-semibold hover:text-brand-navy transition">About</a>
+          <a href="/#courses" class="text-sm font-semibold hover:text-brand-navy transition">Courses</a>
+          <a href="/#blog" class="text-sm font-semibold hover:text-brand-navy transition">Blog</a>
+          <a href="/about.html" class="text-sm font-semibold hover:text-brand-navy transition">Company</a>
+          <a href="#enroll" class="bg-brand-navy text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition">
+            สมัครเรียน
+          </a>
+        </div>
+
+        <button class="md:hidden text-brand-navy" @click="mobile=!mobile" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div x-show="mobile" x-transition class="md:hidden bg-white border-t border-slate-100 p-4 space-y-4">
+      <a href="/#about" @click="mobile=false" class="block text-base font-semibold">About</a>
+      <a href="/#courses" @click="mobile=false" class="block text-base font-semibold">Courses</a>
+      <a href="/#blog" @click="mobile=false" class="block text-base font-semibold">Blog</a>
+      <a href="/about.html" @click="mobile=false" class="block text-base font-semibold">Company</a>
+      <a href="#enroll" @click="mobile=false" class="block text-base font-bold text-brand-navy">สมัครเรียน</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="pt-32 lg:pt-40 pb-14 bg-soft bg-grid">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7" data-animate>
+          <div class="flex flex-wrap items-center gap-2 mb-6">
+            <span class="badge badge-blue">GED</span>
+            <span class="badge badge-soft">Private</span>
+            <span class="badge badge-open">Open</span>
+          </div>
+
+          <h1 class="serif-heading text-4xl lg:text-6xl text-brand-navy leading-[1.12] mb-6">
+            Private GED Program
+            <span class="block italic text-slate-400 font-light">เลือกแพ็กเกจตามพื้นฐาน: 60 หรือ 100 ชั่วโมง</span>
+          </h1>
+
+          <p class="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-2xl">
+            โปรแกรม GED แบบตัวต่อตัวที่ออกแบบตามพื้นฐานของผู้เรียน
+            วัดระดับก่อนเริ่ม จัดแผนการเรียนให้เหมาะสม และเน้น “ทำคะแนนจริง” พร้อมกลยุทธ์ข้อสอบ
+            เพื่อให้พร้อมสอบในกรอบเวลาที่คุณต้องการ
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="#plans" class="btn btn-primary">
+              ดูแพ็กเกจ 60/100 ชั่วโมง
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี / จองวัดระดับ</a>
+          </div>
+
+          <!-- Mini stats -->
+          <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4" data-animate>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Format</p>
+              <p class="font-bold text-slate-900">Private 1:1</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Plans</p>
+              <p class="font-bold text-slate-900">60 / 100 hrs</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Approach</p>
+              <p class="font-bold text-slate-900">Diagnostic + Plan</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Goal</p>
+              <p class="font-bold text-slate-900">Ready to Test</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Plan selector -->
+        <aside class="lg:col-span-5 lg:sticky lg:top-28" data-animate="fade-left">
+          <div class="surface p-8 card-shadow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold tracking-widest uppercase text-slate-400">Private GED</p>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2">เลือกแพ็กเกจที่เหมาะกับพื้นฐาน</h2>
+              </div>
+              <span class="badge badge-open">Open</span>
+            </div>
+
+            <!-- Pills -->
+            <div class="mt-6 flex gap-2">
+              <button type="button"
+                class="pill"
+                :class="plan==='60' ? 'pill-active' : ''"
+                @click="plan='60'">
+                60 hrs
+              </button>
+              <button type="button"
+                class="pill"
+                :class="plan==='100' ? 'pill-active' : ''"
+                @click="plan='100'">
+                100 hrs
+              </button>
+            </div>
+
+            <!-- Plan details -->
+            <div class="mt-6 space-y-4">
+              <div x-show="plan==='60'" x-transition.opacity.duration.250ms>
+                <div class="surface-soft p-6">
+                  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Plan: 60 Hours</p>
+                  <p class="font-bold text-slate-900 mb-2">เหมาะสำหรับผู้เรียนที่มีพื้นฐานดี/เคยเรียนอินเตอร์/ใช้ภาษาอังกฤษได้คล่อง</p>
+                  <ul class="space-y-2 text-sm text-slate-600">
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>เน้นกลยุทธ์ข้อสอบ + ฝึกทำโจทย์เข้มข้น</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>สรุปหัวข้อสำคัญแบบ High-ROI</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>จัดตารางให้ทันสอบในกรอบเวลาที่ต้องการ</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div x-show="plan==='100'" x-transition.opacity.duration.250ms style="display:none;">
+                <div class="surface-soft p-6">
+                  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Plan: 100 Hours</p>
+                  <p class="font-bold text-slate-900 mb-2">เหมาะสำหรับผู้เรียนที่ต้องเสริมพื้นฐานและสร้างความมั่นใจแบบเป็นระบบ</p>
+                  <ul class="space-y-2 text-sm text-slate-600">
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ปูพื้น + ไล่หัวข้ออย่างมีลำดับ (Foundation → Practice)</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>เพิ่มทักษะภาษา/การอ่านโจทย์ + accuracy</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ทำแบบฝึกและทบทวนผิดซ้ำ (Error log)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <a id="enroll" href="https://line.me/R/ti/p/@YOUR_LINE_OA"
+               target="_blank" rel="noopener noreferrer"
+               class="mt-7 w-full btn btn-primary">
+              ปรึกษาฟรี / จองวัดระดับผ่าน LINE
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+
+            <p class="mt-4 text-xs text-slate-500 leading-relaxed">
+              แนะนำให้ส่งข้อมูลก่อนเริ่ม: เป้าหมาย (สอบเมื่อไร/ยื่นที่ไหน) • คะแนน/พื้นฐาน (ถ้ามี) • เวลาที่สะดวกเรียน
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- PLANS (COMPARISON MATRIX) -->
+  <section id="plans" class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">เลือกแพ็กเกจ 60 หรือ 100 ชั่วโมง</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          ตารางเปรียบเทียบแบบชัดเจน เพื่อช่วยเลือกแพ็กเกจตามพื้นฐานและกรอบเวลาสอบ
+        </p>
+      </div>
+
+      <div class="overflow-x-auto surface card-shadow" data-animate="zoom-in">
+        <table class="min-w-[980px] w-full text-left">
+          <thead>
+            <tr class="border-b border-slate-200">
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Dimension</th>
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Private GED 60 hrs</th>
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Private GED 100 hrs</th>
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Notes / Recommendation</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="p-5 font-bold text-slate-900">เหมาะกับใคร</td>
+              <td class="p-5 text-slate-600">พื้นฐานดี/พร้อมเร่งทำข้อสอบ</td>
+              <td class="p-5 text-slate-600">ต้องเสริมพื้นฐาน + เพิ่มความมั่นใจ</td>
+              <td class="p-5 text-slate-600">ถ้าไม่แน่ใจ แนะนำวัดระดับก่อน</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">สไตล์การเรียน</td>
+              <td class="p-5 text-slate-600">Turbo practice + strategy</td>
+              <td class="p-5 text-slate-600">Foundation → practice → review</td>
+              <td class="p-5 text-slate-600">100 ชม. ช่วยลดช่องว่างความรู้</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">จุดเน้นหลัก</td>
+              <td class="p-5 text-slate-600">ความเร็ว/เทคนิค/ข้อสอบออกบ่อย</td>
+              <td class="p-5 text-slate-600">ความเข้าใจ/accuracy/ภาษาโจทย์</td>
+              <td class="p-5 text-slate-600">ถ้าพลาดบ่อยจากพื้นฐาน → 100 ชม.</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">ความยืดหยุ่น</td>
+              <td class="p-5 text-slate-600">สูง (จัดให้ทันสอบได้ง่าย)</td>
+              <td class="p-5 text-slate-600">สูง (เหมาะกับการเรียนต่อเนื่อง)</td>
+              <td class="p-5 text-slate-600">Private ทั้งคู่ เลือกเวลาเรียนได้</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">ผลลัพธ์ที่คาดหวัง</td>
+              <td class="p-5 text-slate-600">พร้อมสอบไว + คะแนนดีขึ้นเร็ว</td>
+              <td class="p-5 text-slate-600">พร้อมสอบแบบมั่นคงและยั่งยืน</td>
+              <td class="p-5 text-slate-600">ขึ้นกับเวลาฝึกเองและวินัยการทำโจทย์</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-6 text-xs text-slate-500 text-center" data-animate>
+        * สามารถปรับสัดส่วนเวลารายวิชาได้ตามผลวัดระดับ (Diagnostic)
+      </p>
+    </div>
+  </section>
+
+  <!-- SUBJECTS / STRUCTURE -->
+  <section class="section bg-soft border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">โครงสร้างการเรียน GED (ภาพรวม)</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          GED มีหลายส่วน/ทักษะที่เกี่ยวข้องกัน เราจะวางแผนแบบ “จับจุดอ่อน + ฝึกทำข้อจริง + ทบทวนผิดซ้ำ”
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8" data-animate>
+        <div class="surface-soft p-8 hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Language</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Reading & Writing Skills</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ฝึกอ่านจับใจความ, วิเคราะห์ข้อความ, grammar ที่ออกบ่อย, และโครงสร้างการเขียนให้ได้คะแนน
+          </p>
+        </div>
+
+        <div class="surface-soft p-8 hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Math</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Math Foundations & Practice</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ปูพื้นฐาน algebra/word problems/graphs และฝึกทำโจทย์แบบจับเวลาตามแนวข้อสอบ
+          </p>
+        </div>
+
+        <div class="surface-soft p-8 hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Science / Social</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Evidence & Data Reasoning</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            เน้นทักษะอ่านกราฟ/ตาราง/ข้อมูล และตอบคำถามเชิงเหตุผลแบบ evidence-based
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNING FLOW (STEP-BY-STEP) -->
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">วิธีเรียนของ Intsight (Step-by-step)</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          เพื่อให้เหมาะกับ Private และความแตกต่างของผู้เรียน เราใช้กระบวนการที่ชัดเจนและวัดผลได้
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8" data-animate>
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 1</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Diagnostic & Goal Setting</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            วัดระดับพื้นฐาน + กำหนดเป้าหมาย (สอบเมื่อไร/ต้องการคะแนนเท่าไร/ยื่นที่ไหน) เพื่อเลือก 60 หรือ 100 ชั่วโมงให้เหมาะจริง
+          </p>
+        </div>
+
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 2</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Personalized Study Plan</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            วางแผนรายสัปดาห์ แบ่งสัดส่วนวิชาตามจุดอ่อน พร้อมกำหนด milestone และการบ้านที่จำเป็น
+          </p>
+        </div>
+
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 3</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Practice + Error Log</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ทำโจทย์เข้มข้น พร้อมบันทึกข้อผิดพลาด (concept / careless / time / language) แล้วแก้ซ้ำแบบ targeted
+          </p>
+        </div>
+
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 4</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Readiness Check</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ตรวจความพร้อมก่อนสอบ: timed set, กลยุทธ์ทำข้อ, และแผนเก็บแต้มช่วงท้าย เพื่อมั่นใจในวันสอบจริง
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-soft border-y border-slate-100" x-data="{ open: 1 }">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">คำถามที่พบบ่อย</h2>
+        <p class="text-slate-500">ช่วยให้เลือกแพ็กเกจและเริ่มเรียนได้เร็วขึ้น</p>
+      </div>
+
+      <div class="space-y-4" data-animate>
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===1 ? 0 : 1)">
+            <span class="font-bold text-slate-900">ควรเลือก 60 หรือ 100 ชั่วโมงดี?</span>
+            <span class="text-slate-400 font-bold" x-text="open===1 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===1" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            แนะนำวัดระดับก่อนเริ่ม (Diagnostic) เพื่อดูช่องว่างพื้นฐานและกรอบเวลาสอบ
+            หากพื้นฐานดีและต้องการเร่งทำข้อสอบ → 60 ชั่วโมง
+            หากต้องเสริมพื้นฐาน + ทำข้ออย่างเป็นระบบ → 100 ชั่วโมง
+          </div>
+        </div>
+
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===2 ? 0 : 2)">
+            <span class="font-bold text-slate-900">เรียน Private เลือกเวลาเรียนเองได้ไหม?</span>
+            <span class="text-slate-400 font-bold" x-text="open===2 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===2" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            ได้ครับ/ค่ะ — Private 1:1 สามารถเลือกวันและเวลาได้ตามตารางของผู้เรียน
+            และเราจะช่วยจัดแผนให้เหมาะกับวันสอบ/เป้าหมาย
+          </div>
+        </div>
+
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===3 ? 0 : 3)">
+            <span class="font-bold text-slate-900">ต้องเตรียมอะไรบ้างก่อนเริ่มเรียน?</span>
+            <span class="text-slate-400 font-bold" x-text="open===3 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===3" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            ถ้ามีให้ส่ง: คะแนนเดิม/ผลฝึกทำข้อสอบ, เป้าหมายคณะหรือประเทศ, วันสอบ, และเวลาที่สะดวกเรียน
+            เพื่อจัดแผนให้ตรงจุดตั้งแต่ชั่วโมงแรก
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+      <h2 class="serif-heading text-4xl text-brand-navy mb-6">เริ่ม GED แบบ Private ได้ทันที</h2>
+      <p class="text-slate-600 mb-10">
+        จองวัดระดับ/ปรึกษาฟรี แล้วให้ทีม Intsight จัดแผน 60 หรือ 100 ชั่วโมงให้เหมาะกับคุณ
+      </p>
+      <a href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        ปรึกษาฟรีผ่าน LINE
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-navy text-white pt-16 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="logo-2.png" alt="Intsight" class="h-10 mb-4">
+          <p class="text-white/70 text-sm leading-relaxed">
+            Insight | Intelligence | International Excellence
+          </p>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">คอร์ส</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/#courses" class="hover:text-white">SAT</a></li>
+            <li><a href="/#courses" class="hover:text-white">GED</a></li>
+            <li><a href="/#courses" class="hover:text-white">IELTS</a></li>
+            <li><a href="/#courses" class="hover:text-white">Admissions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">บริษัท</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/about.html" class="hover:text-white">เกี่ยวกับเรา</a></li>
+            <li><a href="/#team" class="hover:text-white">ทีมผู้สอน</a></li>
+            <li><a href="/#blog" class="hover:text-white">บทความ</a></li>
+            <li><a href="/#contact" class="hover:text-white">ติดต่อ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">ติดต่อ</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li>contact@intsightedu.com</li>
+            <li>Bangkok, Thailand</li>
+            <li>LINE: @YOUR_LINE_OA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/10 text-xs text-white/50 flex flex-col md:flex-row justify-between items-center">
+        <p>© 2026 Intsight Education. All rights reserved.</p>
+        <p class="mt-3 md:mt-0 italic">Cultivating Insight, Inspiring Future.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky LINE Floating Button -->
+  <a class="line-float" href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" aria-label="Chat on LINE" data-animate="zoom-in">
+    <span class="line-badge" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3C6.477 3 2 6.582 2 11c0 2.62 1.6 4.95 4.1 6.43V21l3.14-1.72c.88.2 1.82.31 2.76.31 5.523 0 10-3.582 10-8s-4.477-8-10-8zm-4 9a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2z"/>
+      </svg>
+    </span>
+    <span class="hidden sm:block">
+      <span class="block text-xs font-bold tracking-widest uppercase text-slate-400">LINE</span>
+      <span class="block text-sm font-bold text-slate-900 leading-tight">ปรึกษาฟรี</span>
+    </span>
+  </a>
+
+  <!-- On-scroll animation script (use external /assets/js/animate.js if you created it) -->
+  <script>
+    (function () {
+      const els = document.querySelectorAll("[data-animate]");
+      if (!("IntersectionObserver" in window) || els.length === 0) {
+        els.forEach(el => el.classList.add("in-view"));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+
+</body>
+</html>

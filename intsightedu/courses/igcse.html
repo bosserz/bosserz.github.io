@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IGCSE | 1:1 Private | 1,250 THB/hr | Intsight Education</title>
+
+  <!-- Tailwind (layout utilities) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Alpine -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Shared Global CSS (your reusable file) -->
+  <link rel="stylesheet" href="/assets/css/intsight.css">
+</head>
+
+<body class="bg-white text-slate-800" x-data="{ mobile:false, plan:'foundation' }">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <a href="/" class="flex items-center gap-3">
+          <img src="logo-1.png" alt="Intsight Education" class="h-10">
+        </a>
+
+        <div class="hidden md:flex gap-8 items-center">
+          <a href="/#about" class="text-sm font-semibold hover:text-brand-navy transition">About</a>
+          <a href="/#courses" class="text-sm font-semibold hover:text-brand-navy transition">Courses</a>
+          <a href="/#blog" class="text-sm font-semibold hover:text-brand-navy transition">Blog</a>
+          <a href="/about.html" class="text-sm font-semibold hover:text-brand-navy transition">Company</a>
+          <a href="#enroll" class="bg-brand-navy text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition">
+            สมัครเรียน
+          </a>
+        </div>
+
+        <button class="md:hidden text-brand-navy" @click="mobile=!mobile" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div x-show="mobile" x-transition class="md:hidden bg-white border-t border-slate-100 p-4 space-y-4">
+      <a href="/#about" @click="mobile=false" class="block text-base font-semibold">About</a>
+      <a href="/#courses" @click="mobile=false" class="block text-base font-semibold">Courses</a>
+      <a href="/#blog" @click="mobile=false" class="block text-base font-semibold">Blog</a>
+      <a href="/about.html" @click="mobile=false" class="block text-base font-semibold">Company</a>
+      <a href="#enroll" @click="mobile=false" class="block text-base font-bold text-brand-navy">สมัครเรียน</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="pt-32 lg:pt-40 pb-14 bg-soft bg-grid">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7" data-animate>
+          <div class="flex flex-wrap items-center gap-2 mb-6">
+            <span class="badge badge-blue">IGCSE</span>
+            <span class="badge badge-soft">Private 1:1</span>
+            <span class="badge badge-open">Open</span>
+          </div>
+
+          <h1 class="serif-heading text-4xl lg:text-6xl text-brand-navy leading-[1.12] mb-6">
+            IGCSE Private Tutoring
+            <span class="block italic text-slate-400 font-light">เรียนตัวต่อตัว • ปรับตามบอร์ด/วิชา • เน้นคะแนนจริง</span>
+          </h1>
+
+          <p class="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-2xl">
+            คอร์ส IGCSE แบบ Private 1:1 สำหรับนักเรียนอินเตอร์/สองภาษา
+            วางแผนตาม <span class="font-semibold">บอร์ด</span> (Cambridge / Edexcel / AQA) และ <span class="font-semibold">วิชา</span> ที่เรียนจริง
+            เน้นสรุปคอนเซ็ปต์ + ฝึกทำโจทย์ Past Papers + เทคนิคตอบให้ได้คะแนนตาม mark scheme
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="#plans" class="btn btn-primary">
+              ดูแพ็กเกจแนะนำ
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี / ประเมินระดับ</a>
+          </div>
+
+          <!-- Mini stats -->
+          <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4" data-animate>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Format</p>
+              <p class="font-bold text-slate-900">Private 1:1</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Hourly Rate</p>
+              <p class="font-bold text-slate-900">1,250 THB/hr</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Approach</p>
+              <p class="font-bold text-slate-900">Concept + Past Papers</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Goal</p>
+              <p class="font-bold text-slate-900">A–A* Improvement</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Plan selector -->
+        <aside class="lg:col-span-5 lg:sticky lg:top-28" data-animate="fade-left">
+          <div class="surface p-8 card-shadow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold tracking-widest uppercase text-slate-400">IGCSE Private 1:1</p>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2">เลือกแนวทางการเรียน</h2>
+              </div>
+              <span class="badge badge-open">Open</span>
+            </div>
+
+            <!-- Pills -->
+            <div class="mt-6 flex gap-2 flex-wrap">
+              <button type="button"
+                class="pill"
+                :class="plan==='foundation' ? 'pill-active' : ''"
+                @click="plan='foundation'">
+                Foundation Boost
+              </button>
+              <button type="button"
+                class="pill"
+                :class="plan==='exam' ? 'pill-active' : ''"
+                @click="plan='exam'">
+                Exam Intensive
+              </button>
+              <button type="button"
+                class="pill"
+                :class="plan==='ongoing' ? 'pill-active' : ''"
+                @click="plan='ongoing'">
+                Ongoing Support
+              </button>
+            </div>
+
+            <!-- Plan details -->
+            <div class="mt-6 space-y-4">
+              <div x-show="plan==='foundation'" x-transition.opacity.duration.250ms>
+                <div class="surface-soft p-6">
+                  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Foundation Boost</p>
+                  <p class="font-bold text-slate-900 mb-2">เหมาะสำหรับผู้เรียนที่ต้อง “ปิดช่องว่างความรู้” ให้ทันห้องเรียน</p>
+                  <ul class="space-y-2 text-sm text-slate-600">
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>สรุปคอนเซ็ปต์ตาม syllabus ของบอร์ดที่เรียน</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ฝึกโจทย์แบบไล่ระดับ เพื่อเพิ่มความมั่นใจ</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>จัดแผนการบ้าน + ทบทวนผิดซ้ำ (Error log)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div x-show="plan==='exam'" x-transition.opacity.duration.250ms style="display:none;">
+                <div class="surface-soft p-6">
+                  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Exam Intensive</p>
+                  <p class="font-bold text-slate-900 mb-2">เหมาะสำหรับผู้เรียนที่ใกล้สอบ ต้องการ “เร่งคะแนน” ด้วย Past Papers</p>
+                  <ul class="space-y-2 text-sm text-slate-600">
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ทำ Past Papers แบบจับเวลา + review เชิงลึก</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>เทคนิคตอบตาม mark scheme / command words</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>สรุปหัวข้อออกบ่อย + จุดพลาดที่ทำให้เสียคะแนน</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div x-show="plan==='ongoing'" x-transition.opacity.duration.250ms style="display:none;">
+                <div class="surface-soft p-6">
+                  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Ongoing Support</p>
+                  <p class="font-bold text-slate-900 mb-2">เหมาะสำหรับผู้เรียนที่ต้องการเรียนเสริมควบคู่โรงเรียนอย่างต่อเนื่อง</p>
+                  <ul class="space-y-2 text-sm text-slate-600">
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ช่วยทำความเข้าใจบทเรียน/การบ้าน/quiz ของโรงเรียน</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ทบทวนก่อนสอบย่อย และเพิ่มความแม่นยำ</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ติดตามผลรายสัปดาห์ พร้อมแผนปรับปรุง</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <a id="enroll" href="https://line.me/R/ti/p/@YOUR_LINE_OA"
+               target="_blank" rel="noopener noreferrer"
+               class="mt-7 w-full btn btn-primary">
+              ปรึกษาฟรี / จองคลาสทดลองผ่าน LINE
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+
+            <p class="mt-4 text-xs text-slate-500 leading-relaxed">
+              ส่งข้อมูลก่อนเริ่มเพื่อจัดแผนให้ตรง: บอร์ด/วิชา • ระดับชั้น • คะแนนล่าสุด/ผลสอบ • วันสอบ • หัวข้อที่อ่อน • เอกสาร/หนังสือที่โรงเรียนใช้
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- PLANS (PACKAGES MATRIX) -->
+  <section id="plans" class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">แพ็กเกจแนะนำ (คำนวณตาม 1,250 THB/hr)</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          เลือกจำนวนชั่วโมงให้เหมาะกับเป้าหมาย: ปูพื้น / เร่งก่อนสอบ / เรียนเสริมต่อเนื่อง
+          (สามารถปรับได้ตาม Diagnostic และตารางของผู้เรียน)
+        </p>
+      </div>
+
+      <div class="overflow-x-auto surface card-shadow" data-animate="zoom-in">
+        <table class="min-w-[980px] w-full text-left">
+          <thead>
+            <tr class="border-b border-slate-200">
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Package</th>
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Hours</th>
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Total Price</th>
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Best for</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="p-5 font-bold text-slate-900">Starter</td>
+              <td class="p-5 text-slate-600">10 hrs</td>
+              <td class="p-5 text-slate-600">12,500 THB</td>
+              <td class="p-5 text-slate-600">ทดลองระบบการเรียน + ปิดจุดอ่อนเฉพาะหัวข้อ</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">Foundation Boost</td>
+              <td class="p-5 text-slate-600">20 hrs</td>
+              <td class="p-5 text-slate-600">25,000 THB</td>
+              <td class="p-5 text-slate-600">ปูพื้น/ทบทวนบทเรียนให้ทันโรงเรียน + ทำโจทย์เสริม</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">Exam Intensive</td>
+              <td class="p-5 text-slate-600">30 hrs</td>
+              <td class="p-5 text-slate-600">37,500 THB</td>
+              <td class="p-5 text-slate-600">เร่งก่อนสอบด้วย Past Papers + เทคนิค mark scheme</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">Full Prep</td>
+              <td class="p-5 text-slate-600">40 hrs</td>
+              <td class="p-5 text-slate-600">50,000 THB</td>
+              <td class="p-5 text-slate-600">ปูพื้น + ฝึกข้อสอบครบวงจร เหมาะกับเป้าหมายยกระดับเกรดชัดเจน</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-6 text-xs text-slate-500 text-center" data-animate>
+        * ราคาเป็นการคำนวณตามอัตราชั่วโมง 1,250 THB/hr • เวลาเรียนยืดหยุ่น • ปรับแผนได้ตามวิชา/บอร์ด/เป้าหมาย
+      </p>
+    </div>
+  </section>
+
+  <!-- SUBJECTS / OPTIONS -->
+  <section class="section bg-soft border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">วิชา IGCSE ที่สอนได้ (ปรับตามบอร์ด)</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          เลือกวิชาและบอร์ดที่เรียนจริง แล้วเราจะจัดแผนตาม syllabus + สไตล์ข้อสอบของบอร์ดนั้น
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8" data-animate>
+        <div class="surface-soft p-8 hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Math</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">IGCSE Mathematics</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            concept → problem solving → past papers (algebra, geometry, trig, stats)
+            เน้นขั้นตอนให้ได้คะแนนเต็ม
+          </p>
+        </div>
+
+        <div class="surface-soft p-8 hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Science</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Physics / Chemistry / Biology</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ฝึกคำศัพท์วิทย์ + command words + โจทย์คำนวณ/อธิบายตาม mark scheme
+          </p>
+        </div>
+
+        <div class="surface-soft p-8 hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">English / Humanities</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">ESL / First Language / Business / Econ</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ฝึกตอบแบบ evidence-based, โครงสร้างการเขียน, และเทคนิคทำข้อสอบ reading/writing
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-10 surface p-8 card-shadow" data-animate>
+        <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Tip</p>
+        <p class="text-sm text-slate-600 leading-relaxed">
+          ถ้าส่ง <span class="font-semibold">syllabus / code วิชา</span> และ <span class="font-semibold">past papers ที่โรงเรียนแนะนำ</span>
+          เราจะจัดลำดับหัวข้อ (high-yield) และทำแผนให้ตรงข้อสอบของบอร์ดนั้นได้แม่นยำขึ้น
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEARNING FLOW (STEP-BY-STEP) -->
+  <section class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">วิธีเรียนของ Intsight (Step-by-step)</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          โฟกัส “คะแนนจริง” ด้วยกระบวนการที่ชัดเจน: ปิดจุดอ่อน → ฝึกข้อสอบ → ตรวจละเอียด → ปรับให้ดีขึ้นทุกสัปดาห์
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8" data-animate>
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 1</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Diagnostic & Syllabus Mapping</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ดูพื้นฐาน + หัวข้อที่เรียนจริง + โครงสร้างข้อสอบของบอร์ด (Cambridge/Edexcel/AQA)
+            แล้ว map เป็นแผนเรียนรายสัปดาห์
+          </p>
+        </div>
+
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 2</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Concept Clarity + Worked Examples</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            สรุปคอนเซ็ปต์ให้เข้าใจจริง พร้อมตัวอย่างแบบ step-by-step
+            เพื่อทำโจทย์ได้ถูกต้องและอธิบายได้ตามเกณฑ์ให้คะแนน
+          </p>
+        </div>
+
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 3</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Past Papers + Mark Scheme Training</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ฝึก past papers แบบจับเวลา พร้อมเรียนรู้ mark scheme / command words
+            เพื่อ “ตอบให้ได้คะแนน” ไม่ใช่แค่ตอบถูก
+          </p>
+        </div>
+
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 4</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Review & Score Maximization</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            สรุปข้อผิดพลาดแบบเป็นระบบ (careless vs concept) ปรับวิธีคิด/วิธีเขียนคำตอบ
+            และทำชุดทบทวนก่อนสอบเพื่อเก็บคะแนนช่วงท้าย
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-soft border-y border-slate-100" x-data="{ open: 1 }">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">คำถามที่พบบ่อย</h2>
+        <p class="text-slate-500">คำตอบสั้น ๆ ที่ช่วยให้เริ่มเรียนได้เร็ว</p>
+      </div>
+
+      <div class="space-y-4" data-animate>
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===1 ? 0 : 1)">
+            <span class="font-bold text-slate-900">เรียน IGCSE ต้องรู้บอร์ด (Cambridge/Edexcel/AQA) ไหม?</span>
+            <span class="text-slate-400 font-bold" x-text="open===1 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===1" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            แนะนำให้ทราบครับ/ค่ะ เพราะรูปแบบข้อสอบและรายละเอียด syllabus ต่างกัน
+            แต่ถ้ายังไม่แน่ใจ ส่งชื่อวิชา/หนังสือ/เอกสารโรงเรียนมาได้ เราช่วยเช็คให้และจัดแผนให้ตรงบอร์ด
+          </div>
+        </div>
+
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===2 ? 0 : 2)">
+            <span class="font-bold text-slate-900">อัตราค่าเรียนคิดอย่างไร?</span>
+            <span class="text-slate-400 font-bold" x-text="open===2 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===2" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            คิดตามชั่วโมงเรียน <span class="font-semibold">1,250 THB/ชั่วโมง</span>
+            โดยสามารถเลือกแพ็กเกจ 10/20/30/40 ชั่วโมง หรือกำหนดจำนวนชั่วโมงเองได้ตามเป้าหมาย
+          </div>
+        </div>
+
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===3 ? 0 : 3)">
+            <span class="font-bold text-slate-900">ควรเริ่มเรียนก่อนสอบนานแค่ไหน?</span>
+            <span class="text-slate-400 font-bold" x-text="open===3 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===3" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            ถ้าใกล้สอบ (1–2 เดือน) แนะนำโหมด <span class="font-semibold">Exam Intensive</span> เน้น past papers และ mark scheme
+            ถ้ายังมีเวลาและอยากยกระดับยั่งยืน เริ่มแบบ <span class="font-semibold">Foundation Boost</span> จะคุ้มกว่า
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+      <h2 class="serif-heading text-4xl text-brand-navy mb-6">เริ่มเรียน IGCSE แบบ Private ได้ทันที</h2>
+      <p class="text-slate-600 mb-10">
+        ส่งบอร์ด/วิชา/วันสอบ แล้วให้ทีม Intsight จัดแผนตามอัตรา 1,250 THB/hr
+        เพื่อช่วยดันเกรดและความมั่นใจแบบตรงจุด
+      </p>
+      <a href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        ปรึกษาฟรีผ่าน LINE
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-navy text-white pt-16 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="logo-2.png" alt="Intsight" class="h-10 mb-4">
+          <p class="text-white/70 text-sm leading-relaxed">
+            Insight | Intelligence | International Excellence
+          </p>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">คอร์ส</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/#courses" class="hover:text-white">SAT</a></li>
+            <li><a href="/#courses" class="hover:text-white">GED</a></li>
+            <li><a href="/#courses" class="hover:text-white">IELTS</a></li>
+            <li><a href="/#courses" class="hover:text-white">IGCSE</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">บริษัท</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/about.html" class="hover:text-white">เกี่ยวกับเรา</a></li>
+            <li><a href="/#team" class="hover:text-white">ทีมผู้สอน</a></li>
+            <li><a href="/#blog" class="hover:text-white">บทความ</a></li>
+            <li><a href="/#contact" class="hover:text-white">ติดต่อ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">ติดต่อ</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li>contact@intsightedu.com</li>
+            <li>Bangkok, Thailand</li>
+            <li>LINE: @YOUR_LINE_OA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/10 text-xs text-white/50 flex flex-col md:flex-row justify-between items-center">
+        <p>© 2026 Intsight Education. All rights reserved.</p>
+        <p class="mt-3 md:mt-0 italic">Cultivating Insight, Inspiring Future.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky LINE Floating Button -->
+  <a class="line-float" href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" aria-label="Chat on LINE" data-animate="zoom-in">
+    <span class="line-badge" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3C6.477 3 2 6.582 2 11c0 2.62 1.6 4.95 4.1 6.43V21l3.14-1.72c.88.2 1.82.31 2.76.31 5.523 0 10-3.582 10-8s-4.477-8-10-8zm-4 9a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2z"/>
+      </svg>
+    </span>
+    <span class="hidden sm:block">
+      <span class="block text-xs font-bold tracking-widest uppercase text-slate-400">LINE</span>
+      <span class="block text-sm font-bold text-slate-900 leading-tight">ปรึกษาฟรี</span>
+    </span>
+  </a>
+
+  <!-- On-scroll animation script -->
+  <script>
+    (function () {
+      const els = document.querySelectorAll("[data-animate]");
+      if (!("IntersectionObserver" in window) || els.length === 0) {
+        els.forEach(el => el.classList.add("in-view"));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+
+</body>
+</html>

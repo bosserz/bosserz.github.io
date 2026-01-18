@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Private Courses | GED • SAT • IGCSE • IELTS • CU-ATS | Intsight Education</title>
+
+  <!-- Tailwind (layout utilities) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Alpine -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Shared Global CSS -->
+  <link rel="stylesheet" href="/assets/css/intsight.css">
+</head>
+
+<body class="bg-white text-slate-800" x-data="{ mobile:false, tab:'private' }">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <a href="/" class="flex items-center gap-3">
+          <img src="logo-1.png" alt="Intsight Education" class="h-10">
+        </a>
+
+        <div class="hidden md:flex gap-8 items-center">
+          <a href="/#about" class="text-sm font-semibold hover:text-brand-navy transition">About</a>
+          <a href="/#courses" class="text-sm font-semibold hover:text-brand-navy transition">Courses</a>
+          <a href="/#blog" class="text-sm font-semibold hover:text-brand-navy transition">Blog</a>
+          <a href="/about.html" class="text-sm font-semibold hover:text-brand-navy transition">Company</a>
+          <a href="#enroll" class="bg-brand-navy text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition">
+            สมัครเรียน
+          </a>
+        </div>
+
+        <button class="md:hidden text-brand-navy" @click="mobile=!mobile" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div x-show="mobile" x-transition class="md:hidden bg-white border-t border-slate-100 p-4 space-y-4">
+      <a href="/#about" @click="mobile=false" class="block text-base font-semibold">About</a>
+      <a href="/#courses" @click="mobile=false" class="block text-base font-semibold">Courses</a>
+      <a href="/#blog" @click="mobile=false" class="block text-base font-semibold">Blog</a>
+      <a href="/about.html" @click="mobile=false" class="block text-base font-semibold">Company</a>
+      <a href="#enroll" @click="mobile=false" class="block text-base font-bold text-brand-navy">สมัครเรียน</a>
+    </div>
+  </nav>
+
+  <!-- FEATURED COURSE -->
+  <section id="featured" class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">Featured Course</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          คอร์สเข้มข้น “เร่งคะแนน” สำหรับช่วงเวลาจำกัด เน้นกลยุทธ์ข้อสอบและการทำโจทย์จริงแบบเข้ม
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-stretch" data-animate>
+        <div class="lg:col-span-7 surface p-10 card-shadow hover-lift">
+          <div class="flex flex-wrap items-center gap-2 mb-5">
+            <span class="badge badge-blue">SAT</span>
+            <span class="badge badge-soft">Turbo</span>
+            <span class="badge badge-open">Full / Limited Seats</span>
+          </div>
+
+          <h3 class="text-3xl font-bold text-slate-900 mb-4">SAT Math Turbo</h3>
+          <p class="text-slate-600 leading-relaxed">
+            คอร์ส SAT Math แบบเข้มข้นสำหรับผู้ที่ต้องการอัปคะแนนเร็ว
+            เน้น <span class="font-semibold">ทุก Topic + Trick สำคัญ</span> พร้อมแนวข้อสอบอัปเดต
+            และ <span class="font-semibold">เทคนิค Desmos</span> ทำโจทย์ไวขึ้น
+          </p>
+
+          <div class="mt-6 grid sm:grid-cols-3 gap-4">
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Format</p>
+              <p class="font-bold text-slate-900">Private 20 hrs</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Focus</p>
+              <p class="font-bold text-slate-900">Speed + Accuracy</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Tools</p>
+              <p class="font-bold text-slate-900">Desmos Strategy</p>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="/courses/sat-math-turbo.html" class="btn btn-primary">
+              ดูรายละเอียด SAT Math Turbo
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี / เช็คที่นั่ง</a>
+          </div>
+
+          <p class="mt-6 text-xs text-slate-500">
+            * หากต้องการทำให้ “ตรงวันสอบจริง” แนะนำแจ้งวันสอบและคะแนนเป้าหมาย เพื่อจัดแผน 20 ชั่วโมงให้คุ้มที่สุด
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 surface-soft p-10 hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Why Featured?</p>
+          <ul class="space-y-3 text-sm text-slate-700">
+            <li class="flex gap-3">
+              <span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>
+              ออกแบบสำหรับ “ช่วงเวลาจำกัด” เน้นหัวข้อทำคะแนนสูง (High-ROI)
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>
+              ฝึกทำโจทย์เข้มข้น พร้อมเทคนิคตัดช้อยส์และจัดลำดับทำข้อ
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>
+              วางระบบ error log ช่วยลดพลาดซ้ำ (careless / concept / time)
+            </li>
+          </ul>
+
+          <div class="mt-8 surface p-6">
+            <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Best fit</p>
+            <p class="font-bold text-slate-900">พื้นฐานพอมีแล้ว + ต้องการเร่งคะแนน</p>
+            <p class="text-sm text-slate-600 mt-2">
+              ถ้ายังไม่แน่ใจพื้นฐาน แนะนำเริ่มจาก Private SAT Math ปกติ แล้วค่อยเข้าสู่ Turbo
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRIVATE COURSES GRID -->
+  <section id="private" class="section bg-soft border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">Private Courses (All)</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          เลือกคอร์สที่ใช่ แล้วจัดแผนตามเป้าหมายของผู้เรียน (สามารถเรียนเดี่ยว หรือผสมเป็นแผนยื่นมหาวิทยาลัยได้)
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-animate>
+
+        <!-- GED -->
+        <article class="surface p-8 card-shadow hover-lift">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge badge-blue">GED</span>
+            <span class="badge badge-soft">Private</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Private GED</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            เลือกแพ็กเกจตามพื้นฐาน (60/100 ชั่วโมง) เน้นทำคะแนนจริงด้วย Diagnostic + Plan + Practice + Review
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/courses/private-ged.html" class="btn btn-primary">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+          </div>
+        </article>
+
+        <!-- SAT Math -->
+        <article class="surface p-8 card-shadow hover-lift">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge badge-blue">SAT</span>
+            <span class="badge badge-soft">Math</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Private SAT Math</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            ปูพื้น/เก็บคะแนนตามหัวข้อ + ฝึกข้อสอบแบบจับเวลา พร้อมเทคนิค Desmos และ error log ลดพลาดซ้ำ
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/courses/private-sat-math.html" class="btn btn-primary">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+          </div>
+        </article>
+
+        <!-- SAT Verbal -->
+        <article class="surface p-8 card-shadow hover-lift">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge badge-blue">SAT</span>
+            <span class="badge badge-soft">Verbal</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Private SAT Verbal</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            Reading & Writing แบบใหม่ เน้น grammar ที่ออกบ่อย, rhetoric, และกลยุทธ์ทำข้อให้เร็วและแม่น
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/courses/private-sat-verbal.html" class="btn btn-primary">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+          </div>
+        </article>
+
+        <!-- IGCSE -->
+        <article class="surface p-8 card-shadow hover-lift">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge badge-blue">IGCSE</span>
+            <span class="badge badge-soft">Private 1:1</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">IGCSE Private Tutoring</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            ปรับตามบอร์ด (Cambridge/Edexcel/AQA) และวิชาที่เรียนจริง เน้น past papers + mark scheme
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/courses/igcse-private.html" class="btn btn-primary">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+          </div>
+        </article>
+
+        <!-- IELTS -->
+        <article class="surface p-8 card-shadow hover-lift">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge badge-blue">IELTS</span>
+            <span class="badge badge-soft">Private</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">IELTS (Private)</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            เตรียมครบ 4 ทักษะ Listening/Reading/Writing/Speaking เน้น band strategies + feedback แบบละเอียด
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/courses/ielts-private.html" class="btn btn-primary">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+          </div>
+        </article>
+
+        <!-- CU-ATS -->
+        <article class="surface p-8 card-shadow hover-lift">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge badge-blue">CU-ATS</span>
+            <span class="badge badge-soft">Aptitude</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">CU-ATS Prep</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            เตรียมสอบ CU-ATS เน้นข้อสอบจริง + reasoning + time management พร้อม mock และ error log
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/courses/cu-ats.html" class="btn btn-primary">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="mt-12 surface p-8 card-shadow" data-animate>
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div>
+            <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Need a combined plan?</p>
+            <h3 class="text-2xl font-bold text-slate-900">อยากจัด “แผนยื่นมหาวิทยาลัย” แบบรวมหลายคอร์ส?</h3>
+            <p class="text-slate-600 mt-2">
+              เราช่วยวางแผนลำดับการเรียน (เช่น IELTS + SAT + Admissions) ให้เหมาะกับเดดไลน์และเป้าหมายได้
+            </p>
+          </div>
+          <a href="#enroll" class="btn btn-primary">
+            ขอแผนเรียนส่วนตัวผ่าน LINE
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-white" x-data="{ open: 1 }">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">คำถามที่พบบ่อย</h2>
+        <p class="text-slate-500">เกี่ยวกับคอร์ส Private และ Featured Course</p>
+      </div>
+
+      <div class="space-y-4" data-animate>
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===1 ? 0 : 1)">
+            <span class="font-bold text-slate-900">Private 1:1 เลือกเวลาเรียนเองได้ไหม?</span>
+            <span class="text-slate-400 font-bold" x-text="open===1 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===1" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            ได้ครับ/ค่ะ — ผู้เรียนสามารถเลือกวัน/เวลาได้ตามตารางของตัวเอง และทีมงานจะช่วยจัดแผนให้เหมาะกับวันสอบหรือเดดไลน์
+          </div>
+        </div>
+
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===2 ? 0 : 2)">
+            <span class="font-bold text-slate-900">ควรเริ่มจาก Private ปกติ หรือเข้า Featured (Turbo) เลย?</span>
+            <span class="text-slate-400 font-bold" x-text="open===2 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===2" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            ถ้าพื้นฐานพอมีและใกล้สอบ แนะนำ Featured (Turbo) เพื่อเร่งคะแนน
+            หากยังไม่แน่ใจพื้นฐานหรือมีช่องว่างคอนเซ็ปต์ แนะนำวัดระดับก่อน แล้วเริ่มจาก Private ปกติเพื่อปูพื้นให้แน่น
+          </div>
+        </div>
+
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===3 ? 0 : 3)">
+            <span class="font-bold text-slate-900">ต้องเตรียมอะไรบ้างก่อนเริ่มเรียน?</span>
+            <span class="text-slate-400 font-bold" x-text="open===3 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===3" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            ส่งได้เลย: เป้าหมาย (ยื่นที่ไหน/คณะอะไร), วันสอบ/เดดไลน์, คะแนนเดิม (ถ้ามี), และเวลาที่สะดวกเรียน
+            เพื่อจัดแผนและเลือกชุดฝึกให้ตรงตั้งแต่ครั้งแรก
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-soft border-t border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+      <h2 class="serif-heading text-4xl text-brand-navy mb-6">เลือกคอร์ส แล้วเริ่มได้เลย</h2>
+      <p class="text-slate-600 mb-10">
+        แจ้งคอร์สที่สนใจ + เป้าหมาย + วันสอบ แล้วให้ทีม Intsight จัดแผนเรียนแบบ Private ให้ตรงที่สุด
+      </p>
+      <a href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        ปรึกษาฟรีผ่าน LINE
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-navy text-white pt-16 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="logo-2.png" alt="Intsight" class="h-10 mb-4">
+          <p class="text-white/70 text-sm leading-relaxed">
+            Insight | Intelligence | International Excellence
+          </p>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">คอร์ส</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/#courses" class="hover:text-white">SAT</a></li>
+            <li><a href="/#courses" class="hover:text-white">GED</a></li>
+            <li><a href="/#courses" class="hover:text-white">IELTS</a></li>
+            <li><a href="/#courses" class="hover:text-white">IGCSE</a></li>
+            <li><a href="/#courses" class="hover:text-white">CU-ATS</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">บริษัท</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/about.html" class="hover:text-white">เกี่ยวกับเรา</a></li>
+            <li><a href="/#team" class="hover:text-white">ทีมผู้สอน</a></li>
+            <li><a href="/#blog" class="hover:text-white">บทความ</a></li>
+            <li><a href="/#contact" class="hover:text-white">ติดต่อ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">ติดต่อ</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li>contact@intsightedu.com</li>
+            <li>Bangkok, Thailand</li>
+            <li>LINE: @YOUR_LINE_OA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/10 text-xs text-white/50 flex flex-col md:flex-row justify-between items-center">
+        <p>© 2026 Intsight Education. All rights reserved.</p>
+        <p class="mt-3 md:mt-0 italic">Cultivating Insight, Inspiring Future.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky LINE Floating Button -->
+  <a class="line-float" href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" aria-label="Chat on LINE" data-animate="zoom-in">
+    <span class="line-badge" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3C6.477 3 2 6.582 2 11c0 2.62 1.6 4.95 4.1 6.43V21l3.14-1.72c.88.2 1.82.31 2.76.31 5.523 0 10-3.582 10-8s-4.477-8-10-8zm-4 9a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2z"/>
+      </svg>
+    </span>
+    <span class="hidden sm:block">
+      <span class="block text-xs font-bold tracking-widest uppercase text-slate-400">LINE</span>
+      <span class="block text-sm font-bold text-slate-900 leading-tight">ปรึกษาฟรี</span>
+    </span>
+  </a>
+
+  <!-- On-scroll animation script -->
+  <script>
+    (function () {
+      const els = document.querySelectorAll("[data-animate]");
+      if (!("IntersectionObserver" in window) || els.length === 0) {
+        els.forEach(el => el.classList.add("in-view"));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAT Math | Intsight Education</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Alpine -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    :root{
+      --brand-navy:#002a5c;
+      --bg-soft:#f7f9fc;
+    }
+    body{font-family:'Noto Sans Thai','Inter',sans-serif;}
+    .serif-heading{font-family:'Playfair Display','Noto Sans Thai',serif;letter-spacing:-0.02em;}
+    .glass-nav{
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,42,92,.10);
+    }
+    .card-shadow{box-shadow:0 18px 45px rgba(2,6,23,.12);}
+    .hover-lift{transition:transform .35s ease, box-shadow .35s ease;}
+    .hover-lift:hover{transform:translateY(-6px);box-shadow:0 30px 70px rgba(2,6,23,.18);}
+
+    /* On-scroll animations */
+    @media (prefers-reduced-motion: reduce){
+      [data-animate]{opacity:1!important;transform:none!important;transition:none!important;}
+    }
+    [data-animate]{opacity:0;transform:translateY(14px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1);}
+    [data-animate].in-view{opacity:1;transform:none;}
+    [data-animate="fade-left"]{transform:translateX(18px);}
+    [data-animate="fade-right"]{transform:translateX(-18px);}
+    [data-animate="zoom-in"]{transform:scale(.98);}
+    .stagger>*{transition-delay:var(--d,0ms);}
+
+    /* Sticky LINE */
+    .line-float{
+      position:fixed;right:18px;bottom:18px;z-index:60;
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 14px;border-radius:999px;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(15,23,42,.12);
+      box-shadow:0 18px 45px rgba(2,6,23,.14);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .line-float:hover{transform:translateY(-2px);box-shadow:0 24px 60px rgba(2,6,23,.18);}
+    .line-badge{
+      width:42px;height:42px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      background:#06C755;color:#fff;box-shadow:0 12px 26px rgba(6,199,85,.30);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-slate-800" x-data="{ mobile:false, faqOpen: null }">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <a href="/" class="flex items-center gap-3">
+          <img src="logo-1.png" alt="Intsight Education" class="h-10">
+        </a>
+
+        <div class="hidden md:flex gap-8 items-center">
+          <a href="/#about" class="text-sm font-semibold hover:text-[var(--brand-navy)] transition">About</a>
+          <a href="/#courses" class="text-sm font-semibold hover:text-[var(--brand-navy)] transition">Courses</a>
+          <a href="/#blog" class="text-sm font-semibold hover:text-[var(--brand-navy)] transition">Blog</a>
+          <a href="/about.html" class="text-sm font-semibold hover:text-[var(--brand-navy)] transition">Company</a>
+          <a href="#enroll" class="bg-[var(--brand-navy)] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition">
+            สมัครเรียน
+          </a>
+        </div>
+
+        <button class="md:hidden text-[var(--brand-navy)]" @click="mobile=!mobile" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div x-show="mobile" x-transition class="md:hidden bg-white border-t border-slate-100 p-4 space-y-4">
+      <a href="/#about" @click="mobile=false" class="block text-base font-semibold">About</a>
+      <a href="/#courses" @click="mobile=false" class="block text-base font-semibold">Courses</a>
+      <a href="/#blog" @click="mobile=false" class="block text-base font-semibold">Blog</a>
+      <a href="/about.html" @click="mobile=false" class="block text-base font-semibold">Company</a>
+      <a href="#enroll" @click="mobile=false" class="block text-base font-bold text-[var(--brand-navy)]">สมัครเรียน</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="pt-32 lg:pt-40 pb-14 bg-[var(--bg-soft)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7" data-animate="fade-up">
+          <div class="flex flex-wrap items-center gap-2 mb-6">
+            <span class="text-[10px] font-bold tracking-[0.22em] uppercase px-3 py-1 rounded-full bg-blue-50 text-[var(--brand-navy)]">
+              SAT • Digital
+            </span>
+            <span class="text-[10px] font-bold tracking-[0.22em] uppercase px-3 py-1 rounded-full bg-emerald-50 text-emerald-700">
+              Math
+            </span>
+            <span class="text-[10px] font-bold tracking-[0.22em] uppercase px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-500">
+              On-site / Online
+            </span>
+          </div>
+
+          <h1 class="serif-heading text-4xl lg:text-6xl text-[var(--brand-navy)] leading-[1.12] mb-6">
+            SAT Math Mastery
+            <span class="block italic text-slate-400 font-light">From Fundamentals to 800</span>
+          </h1>
+
+          <p class="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-2xl">
+            คอร์สติว SAT Math แบบ “เข้าใจจริง” + ฝึกโจทย์แบบ Digital SAT เต็มรูปแบบ
+            พร้อมแผนการเรียนเฉพาะบุคคล (Bespoke Roadmap) เพื่อพาคุณไปถึงคะแนนเป้าหมาย
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="#enroll" class="bg-[var(--brand-navy)] text-white px-10 py-4 rounded-full font-bold hover:bg-opacity-90 transition inline-flex items-center justify-center gap-2">
+              สมัครเรียน / ปรึกษาฟรี
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#syllabus" class="border border-slate-200 px-10 py-4 rounded-full font-bold hover:bg-white transition inline-flex items-center justify-center">
+              ดูเนื้อหาคอร์ส
+            </a>
+          </div>
+
+          <!-- Mini stats -->
+          <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4" data-animate="fade-up">
+            <div class="bg-white border border-slate-200 rounded-2xl p-4">
+              <p class="text-xs text-slate-500">Format</p>
+              <p class="font-bold text-slate-900">Digital SAT</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-4">
+              <p class="text-xs text-slate-500">Level</p>
+              <p class="font-bold text-slate-900">Beginner–Advanced</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-4">
+              <p class="text-xs text-slate-500">Focus</p>
+              <p class="font-bold text-slate-900">Accuracy + Speed</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-4">
+              <p class="text-xs text-slate-500">Support</p>
+              <p class="font-bold text-slate-900">Weekly Plan</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky course card -->
+        <aside class="lg:col-span-5 lg:sticky lg:top-28" data-animate="fade-left">
+          <div class="bg-white border border-slate-200 rounded-2xl p-8 card-shadow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold tracking-widest uppercase text-slate-400">Course Package</p>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2">SAT Math (Flagship)</h2>
+              </div>
+              <span class="text-[10px] font-bold tracking-[0.22em] uppercase px-3 py-1 rounded-full bg-emerald-50 text-emerald-700">
+                Open
+              </span>
+            </div>
+
+            <div class="mt-6 space-y-3 text-sm text-slate-600">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Duration</span>
+                <span class="font-semibold text-slate-900">24–48 hours (choose)</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Mode</span>
+                <span class="font-semibold text-slate-900">Group / Private</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Homework</span>
+                <span class="font-semibold text-slate-900">Weekly set + review</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">Mock Test</span>
+                <span class="font-semibold text-slate-900">Digital-style practice</span>
+              </div>
+            </div>
+
+            <div class="mt-8 p-5 rounded-2xl bg-[var(--bg-soft)] border border-slate-200">
+              <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-1">Best for</p>
+              <p class="text-slate-700 leading-relaxed">
+                นักเรียนที่ต้องการยกระดับคะแนน Math อย่างเป็นระบบ
+                ตั้งแต่พื้นฐานจนถึงโจทย์ Hard พร้อมกลยุทธ์กดเวลา
+              </p>
+            </div>
+
+            <a id="enroll" href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer"
+               class="mt-8 w-full bg-[var(--brand-navy)] text-white py-4 rounded-full font-bold inline-flex items-center justify-center gap-2 hover:bg-opacity-90 transition">
+              สมัครเรียนผ่าน LINE
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+
+            <p class="mt-4 text-xs text-slate-400 leading-relaxed">
+              * ราคาและตารางเรียนขึ้นอยู่กับรูปแบบ (Group/Private) และระดับผู้เรียน
+              แนะนำให้ส่งคะแนนเป้าหมาย + วันสอบ เพื่อจัด Roadmap ให้เหมาะสม
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST STRIP -->
+  <section class="py-12 border-y border-slate-100 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="flex gap-4 items-start" data-animate="fade-up">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
+            <svg class="w-6 h-6 text-[var(--brand-navy)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
+              <path stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-slate-900">Concept-first Teaching</p>
+            <p class="text-sm text-slate-600">ปูพื้นฐานให้เข้าใจจริง ก่อนเร่งทำโจทย์</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start" data-animate="fade-up">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
+            <svg class="w-6 h-6 text-[var(--brand-navy)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="2" d="M9 17v-2a4 4 0 014-4h4"/>
+              <path stroke-width="2" d="M7 7h.01M7 11h.01M7 15h.01M17 7h.01M17 11h.01M17 15h.01"/>
+              <path stroke-width="2" d="M3 3h18v18H3z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-slate-900">Digital SAT Strategy</p>
+            <p class="text-sm text-slate-600">กลยุทธ์จับเวลา + เทคนิคใช้เครื่องมือบนระบบ</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 items-start" data-animate="fade-up">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
+            <svg class="w-6 h-6 text-[var(--brand-navy)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-width="2" d="M12 8v4l3 3"/>
+              <path stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-slate-900">Weekly Roadmap</p>
+            <p class="text-sm text-slate-600">แผนรายสัปดาห์ + การบ้าน + feedback เป็นระบบ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYLLABUS -->
+  <section id="syllabus" class="py-24 bg-white" x-data="{ tab: 'concept' }">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12" data-animate="fade-up">
+        <div>
+          <h2 class="serif-heading text-4xl text-[var(--brand-navy)] mb-3">เนื้อหาคอร์ส (Course Syllabus)</h2>
+          <p class="text-slate-500 max-w-2xl">ครอบคลุมทุกหัวข้อของ SAT Math พร้อมจัดลำดับการเรียนให้เหมาะกับพื้นฐานและคะแนนเป้าหมาย</p>
+        </div>
+        <div class="flex gap-2">
+            <button type="button"
+                @click="tab='concept'"
+                :class="tab==='concept'
+                ? 'bg-blue-50 text-[var(--brand-navy)] border-transparent'
+                : 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50'"
+                class="px-4 py-2 rounded-full text-xs font-bold border transition">
+                Concept
+            </button>
+
+            <button type="button"
+                @click="tab='drills'"
+                :class="tab==='drills'
+                ? 'bg-blue-50 text-[var(--brand-navy)] border-transparent'
+                : 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50'"
+                class="px-4 py-2 rounded-full text-xs font-bold border transition">
+                Drills
+            </button>
+
+            <button type="button"
+                @click="tab='mock'"
+                :class="tab==='mock'
+                ? 'bg-blue-50 text-[var(--brand-navy)] border-transparent'
+                : 'bg-white text-slate-500 border-slate-200 hover:bg-slate-50'"
+                class="px-4 py-2 rounded-full text-xs font-bold border transition">
+                Mock
+            </button>
+        </div>
+
+      </div>
+
+      <div x-show="tab==='concept'" x-transition.opacity.duration.250ms>
+        <div class="grid lg:grid-cols-2 gap-8 stagger" data-animate="fade-up">    
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-8" style="--d:0ms">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Module 1: Heart of Algebra</h3>
+            <ul class="space-y-3 text-slate-600">
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Linear equations & inequalities</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Systems of equations</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Functions & interpreting graphs</li>
+            </ul>
+            </div>
+
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-8" style="--d:120ms">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Module 2: Problem Solving & Data Analysis</h3>
+            <ul class="space-y-3 text-slate-600">
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Ratios, rates, percentages</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Statistics (mean, median, spread)</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Data interpretation & word problems</li>
+            </ul>
+            </div>
+
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-8" style="--d:240ms">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Module 3: Passport to Advanced Math</h3>
+            <ul class="space-y-3 text-slate-600">
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Quadratics & polynomials</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Exponents & radicals</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Nonlinear functions & transformations</li>
+            </ul>
+            </div>
+
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-8" style="--d:360ms">
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Module 4: Additional Topics</h3>
+            <ul class="space-y-3 text-slate-600">
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Geometry & coordinate geometry</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Trigonometry basics</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Calculator strategy (Desmos & tools)</li>
+            </ul>
+            </div>
+        </div>
+      </div>
+      <div x-show="tab==='drills'" x-transition.opacity.duration.250ms style="display:none;">
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Skill Drills: Accuracy Builder</h3>
+            <ul class="space-y-3 text-slate-600">
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Topic-based drills (Easy → Medium → Hard)</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Error log: สรุปข้อผิดพลาด + วิธีแก้</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Pattern recognition: โจทย์ซ้ำบ่อย + ทางลัด</li>
+            </ul>
+            </div>
+
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Speed Drills: Time Strategy</h3>
+            <ul class="space-y-3 text-slate-600">
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Timed sets (เหมือนจริงตาม module)</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Question triage: เลือกทำก่อน-หลัง</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Desmos tactics: ใช้เครื่องมือให้คุ้ม</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+
+        <div x-show="tab==='mock'" x-transition.opacity.duration.250ms style="display:none;">
+        <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Mock Test: Digital-Style</h3>
+            <ul class="space-y-3 text-slate-600">
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Full practice set (adaptive mindset)</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Timing simulation + stress handling</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Score estimation + improvement plan</li>
+            </ul>
+            </div>
+
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Review: Deep Analysis</h3>
+            <ul class="space-y-3 text-slate-600">
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>แยกประเภทความผิด (concept / careless / time)</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>แก้โจทย์แบบ multiple approaches</li>
+                <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-[var(--brand-navy)]"></span>Personalized remediation list</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-24 bg-[var(--bg-soft)] border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-animate="fade-up">
+        <h2 class="serif-heading text-4xl text-[var(--brand-navy)] mb-4">เรียนยังไงให้เห็นผล</h2>
+        <p class="text-slate-500 max-w-2xl mx-auto">โครงสร้างการเรียนแบบเป็นระบบ เพื่อเพิ่มคะแนนเร็วและยั่งยืน</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 stagger">
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 card-shadow hover-lift" data-animate="fade-up" style="--d:0ms">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Step 1</p>
+          <h3 class="text-xl font-bold mb-3">Diagnostic & Goal</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            ประเมินพื้นฐาน + ตั้งคะแนนเป้าหมาย + วางแผนรายสัปดาห์ตามวันสอบจริง
+          </p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 card-shadow hover-lift" data-animate="fade-up" style="--d:120ms">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Step 2</p>
+          <h3 class="text-xl font-bold mb-3">Concept + Drills</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            อธิบาย Concept ให้เข้าใจ แล้วฝึกโจทย์แบบแยกทักษะเพื่อแก้จุดอ่อน
+          </p>
+        </div>
+
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 card-shadow hover-lift" data-animate="fade-up" style="--d:240ms">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Step 3</p>
+          <h3 class="text-xl font-bold mb-3">Mock & Review</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            ฝึกทำข้อสอบจับเวลาแบบ Digital SAT + วิเคราะห์ผิดพลาด + ปรับแผนต่อเนื่อง
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-5" data-animate="fade-right">
+          <div class="relative overflow-hidden rounded-2xl border border-slate-200">
+            <img src="kru-boss.jpg" alt="Instructor" class="w-full h-[420px] object-cover grayscale hover:grayscale-0 transition duration-700">
+            <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/65 to-transparent">
+              <p class="text-white text-xs font-bold tracking-widest uppercase">Lead Math Mentor</p>
+              <p class="text-white text-2xl font-bold mt-1">Kru Boss</p>
+              <p class="text-white/80 text-sm">MSc, Georgia Tech</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7" data-animate="fade-up">
+          <h2 class="serif-heading text-4xl text-[var(--brand-navy)] mb-6">ผู้สอนและแนวทางการสอน</h2>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            เน้นการสอนแบบ “แตก Concept ให้เข้าใจ” และฝึกโจทย์ให้เป็นระบบ
+            พร้อมเทคนิคการทำข้อสอบที่เหมาะกับ Digital SAT เช่น การเลือกใช้เครื่องมือ (เช่น Desmos)
+            การจัดลำดับทำข้อ และการลดความผิดพลาดจากการคำนวณ
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-6">
+              <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Teaching style</p>
+              <p class="font-semibold text-slate-900">Concept → Pattern → Speed</p>
+              <p class="text-sm text-slate-600 mt-2">เข้าใจแนวคิด → เห็นแพทเทิร์น → ทำได้เร็วขึ้น</p>
+            </div>
+            <div class="bg-[var(--bg-soft)] border border-slate-200 rounded-2xl p-6">
+              <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Support</p>
+              <p class="font-semibold text-slate-900">Weekly Homework Review</p>
+              <p class="text-sm text-slate-600 mt-2">ตรวจการบ้าน + อธิบายจุดผิดพลาดแบบละเอียด</p>
+            </div>
+          </div>
+
+          <div class="mt-10">
+            <a href="#enroll" class="inline-flex items-center gap-2 font-bold text-[var(--brand-navy)] border-b border-[var(--brand-navy)] pb-1 hover:text-slate-400 hover:border-slate-400 transition">
+              ขอ Roadmap คะแนนเป้าหมายของคุณ →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-24 bg-[var(--bg-soft)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-animate="fade-up">
+        <h2 class="serif-heading text-4xl text-[var(--brand-navy)] mb-4">ผลลัพธ์จากผู้เรียน</h2>
+        <p class="text-slate-500 max-w-2xl mx-auto">ตัวอย่างเสียงจริงและผลลัพธ์ที่วัดได้ (ตัวอย่าง)</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 stagger" data-animate="fade-up">
+        <article class="bg-white border border-slate-200 rounded-2xl p-8 card-shadow hover-lift" style="--d:0ms">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
+                   class="w-12 h-12 rounded-full object-cover border border-slate-200" alt="Student">
+              <div>
+                <p class="font-bold text-slate-900">น้องพี (ม.5)</p>
+                <p class="text-xs text-slate-500">SAT Math • Group</p>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-blue-50 text-[var(--brand-navy)]">+90</span>
+          </div>
+          <p class="text-slate-600 leading-relaxed">
+            “เริ่มจากพื้นฐานไม่แน่น แต่พอเรียนเป็นระบบ + ฝึกโจทย์แบบแยกทักษะ
+            ทำให้จับแนวได้เร็วขึ้นมาก”
+          </p>
+        </article>
+
+        <article class="bg-white border border-slate-200 rounded-2xl p-8 card-shadow hover-lift" style="--d:120ms">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+                   class="w-12 h-12 rounded-full object-cover border border-slate-200" alt="Parent">
+              <div>
+                <p class="font-bold text-slate-900">คุณแม่ของน้องเอ</p>
+                <p class="text-xs text-slate-500">SAT Math • Private</p>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-emerald-50 text-emerald-700">800 goal</span>
+          </div>
+          <p class="text-slate-600 leading-relaxed">
+            “ชอบที่มีการบ้านและตรวจละเอียด ทำให้รู้เลยว่าผิดตรงไหน
+            ลูกมั่นใจขึ้นมากก่อนสอบ”
+          </p>
+        </article>
+
+        <article class="bg-white border border-slate-200 rounded-2xl p-8 card-shadow hover-lift" style="--d:240ms">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
+                   class="w-12 h-12 rounded-full object-cover border border-slate-200" alt="Student">
+              <div>
+                <p class="font-bold text-slate-900">น้องม.6</p>
+                <p class="text-xs text-slate-500">SAT Math • Intensive</p>
+              </div>
+            </div>
+            <span class="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-violet-50 text-violet-700">speed</span>
+          </div>
+          <p class="text-slate-600 leading-relaxed">
+            “เทคนิคจับเวลา + การเลือกทำข้อก่อนหลังช่วยมาก
+            จากทำไม่ทัน กลายเป็นมีเวลาเช็คคำตอบ”
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-animate="fade-up">
+        <h2 class="serif-heading text-4xl text-[var(--brand-navy)] mb-4">คำถามที่พบบ่อย</h2>
+        <p class="text-slate-500">ช่วยตัดสินใจได้เร็วขึ้นก่อนสมัครเรียน</p>
+      </div>
+
+      <div class="space-y-4" data-animate="fade-up">
+        <!-- FAQ 1 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden">
+          <button class="w-full text-left p-6 flex justify-between items-center"
+                  @click="faqOpen = (faqOpen === 1 ? null : 1)">
+            <span class="font-bold text-slate-900">ควรเริ่มเรียนก่อนสอบกี่เดือน?</span>
+            <span class="text-slate-400" x-text="faqOpen === 1 ? '–' : '+'"></span>
+          </button>
+          <div class="px-6 pb-6 text-slate-600" x-show="faqOpen === 1" x-collapse>
+            แนะนำ 8–12 สัปดาห์สำหรับการปั้นคะแนนแบบเป็นระบบ (ขึ้นอยู่กับคะแนนตั้งต้นและคะแนนเป้าหมาย)
+            หากต้องการเร่งด่วน สามารถจัด Intensive Plan ได้
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden">
+          <button class="w-full text-left p-6 flex justify-between items-center"
+                  @click="faqOpen = (faqOpen === 2 ? null : 2)">
+            <span class="font-bold text-slate-900">พื้นฐานไม่แน่น เรียนได้ไหม?</span>
+            <span class="text-slate-400" x-text="faqOpen === 2 ? '–' : '+'"></span>
+          </button>
+          <div class="px-6 pb-6 text-slate-600" x-show="faqOpen === 2" x-collapse>
+            ได้แน่นอน เราจะเริ่มจาก Diagnostic เพื่อหา gap และจัดลำดับเรียนใหม่
+            จากพื้นฐาน → Intermediate → Hard พร้อมโจทย์แยกทักษะเพื่อเร่งความแม่น
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="border border-slate-200 rounded-2xl overflow-hidden">
+          <button class="w-full text-left p-6 flex justify-between items-center"
+                  @click="faqOpen = (faqOpen === 3 ? null : 3)">
+            <span class="font-bold text-slate-900">Group กับ Private ต่างกันอย่างไร?</span>
+            <span class="text-slate-400" x-text="faqOpen === 3 ? '–' : '+'"></span>
+          </button>
+          <div class="px-6 pb-6 text-slate-600" x-show="faqOpen === 3" x-collapse>
+            Group เหมาะกับการเรียนตามหลักสูตรมาตรฐานและฝึกโจทย์ร่วมกัน
+            ส่วน Private จะปรับความเร็ว+ลำดับบทเรียนตามจุดอ่อนของผู้เรียน และโค้ชเฉพาะคะแนนเป้าหมาย
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-14 text-center" data-animate="fade-in">
+        <a href="#enroll" class="inline-flex items-center gap-2 bg-[var(--brand-navy)] text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition">
+          ขอคำแนะนำคอร์สที่เหมาะกับคุณ
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[var(--brand-navy)] text-white pt-16 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="logo-2.png" alt="Intsight" class="h-10 mb-4">
+          <p class="text-white/70 text-sm leading-relaxed">
+            Insight | Intelligence | International Excellence
+          </p>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">คอร์ส</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/#courses" class="hover:text-white">SAT</a></li>
+            <li><a href="/#courses" class="hover:text-white">IELTS</a></li>
+            <li><a href="/#courses" class="hover:text-white">IB/A-Level</a></li>
+            <li><a href="/#courses" class="hover:text-white">Admissions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">บริษัท</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/about.html" class="hover:text-white">เกี่ยวกับเรา</a></li>
+            <li><a href="/#team" class="hover:text-white">ทีมผู้สอน</a></li>
+            <li><a href="/#blog" class="hover:text-white">บทความ</a></li>
+            <li><a href="/#contact" class="hover:text-white">ติดต่อ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">ติดต่อ</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li>contact@intsightedu.com</li>
+            <li>กรุงเทพฯ, ประเทศไทย</li>
+            <li>LINE: @YOUR_LINE_OA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/10 text-xs text-white/50 flex flex-col md:flex-row justify-between items-center">
+        <p>© 2026 Intsight Education. All rights reserved.</p>
+        <p class="mt-3 md:mt-0 italic">Cultivating Insight, Inspiring Future.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky LINE Floating Button -->
+  <a class="line-float" href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" aria-label="Chat on LINE" data-animate="zoom-in">
+    <span class="line-badge" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3C6.477 3 2 6.582 2 11c0 2.62 1.6 4.95 4.1 6.43V21l3.14-1.72c.88.2 1.82.31 2.76.31 5.523 0 10-3.582 10-8s-4.477-8-10-8zm-4 9a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2z"/>
+      </svg>
+    </span>
+    <span class="hidden sm:block">
+      <span class="block text-xs font-bold tracking-widest uppercase text-slate-400">LINE</span>
+      <span class="block text-sm font-bold text-slate-900 leading-tight">ปรึกษาฟรี</span>
+    </span>
+  </a>
+
+  <!-- Animation Script -->
+  <script>
+    (function () {
+      const els = document.querySelectorAll("[data-animate]");
+      if (!("IntersectionObserver" in window) || els.length === 0) {
+        els.forEach(el => el.classList.add("in-view"));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CU-ATS | Aptitude Test Prep | Intsight Education</title>
+
+  <!-- Tailwind (layout utilities) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Alpine -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Shared Global CSS (your reusable file) -->
+  <link rel="stylesheet" href="/assets/css/intsight.css">
+</head>
+
+<body class="bg-white text-slate-800" x-data="{ mobile:false, track:'complete' }">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+        <a href="/" class="flex items-center gap-3">
+          <img src="logo-1.png" alt="Intsight Education" class="h-10">
+        </a>
+
+        <div class="hidden md:flex gap-8 items-center">
+          <a href="/#about" class="text-sm font-semibold hover:text-brand-navy transition">About</a>
+          <a href="/#courses" class="text-sm font-semibold hover:text-brand-navy transition">Courses</a>
+          <a href="/#blog" class="text-sm font-semibold hover:text-brand-navy transition">Blog</a>
+          <a href="/about.html" class="text-sm font-semibold hover:text-brand-navy transition">Company</a>
+          <a href="#enroll" class="bg-brand-navy text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition">
+            สมัครเรียน
+          </a>
+        </div>
+
+        <button class="md:hidden text-brand-navy" @click="mobile=!mobile" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div x-show="mobile" x-transition class="md:hidden bg-white border-t border-slate-100 p-4 space-y-4">
+      <a href="/#about" @click="mobile=false" class="block text-base font-semibold">About</a>
+      <a href="/#courses" @click="mobile=false" class="block text-base font-semibold">Courses</a>
+      <a href="/#blog" @click="mobile=false" class="block text-base font-semibold">Blog</a>
+      <a href="/about.html" @click="mobile=false" class="block text-base font-semibold">Company</a>
+      <a href="#enroll" @click="mobile=false" class="block text-base font-bold text-brand-navy">สมัครเรียน</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="pt-32 lg:pt-40 pb-14 bg-soft bg-grid">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7" data-animate>
+          <div class="flex flex-wrap items-center gap-2 mb-6">
+            <span class="badge badge-blue">CU-ATS</span>
+            <span class="badge badge-soft">Aptitude Test</span>
+            <span class="badge badge-open">Open</span>
+          </div>
+
+          <h1 class="serif-heading text-4xl lg:text-6xl text-brand-navy leading-[1.12] mb-6">
+            CU-ATS Preparation Program
+            <span class="block italic text-slate-400 font-light">คอร์สเตรียมสอบ CU-ATS แบบมีแผน • เน้นทำข้อจริง • วัดผลได้</span>
+          </h1>
+
+          <p class="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-2xl">
+            CU-ATS เป็นข้อสอบสำคัญสำหรับการยื่นเข้าจุฬาฯ หลายคณะ/หลักสูตร (โดยเฉพาะอินเตอร์)
+            คอร์สนี้ออกแบบให้ผู้เรียน “ทำข้อได้จริง” ทั้งทักษะภาษาอังกฤษเชิงข้อสอบและ reasoning ที่ออกบ่อย
+            พร้อมเทคนิคการบริหารเวลาและการเก็บคะแนนแบบเป็นระบบ
+          </p>
+
+          <div class="mt-10 flex flex-col sm:flex-row gap-4">
+            <a href="#plans" class="btn btn-primary">
+              ดูโครงสร้างคอร์ส
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี / ประเมินระดับ</a>
+          </div>
+
+          <!-- Mini stats -->
+          <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4" data-animate>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Focus</p>
+              <p class="font-bold text-slate-900">Exam Strategy</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Practice</p>
+              <p class="font-bold text-slate-900">Timed Sets</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Coverage</p>
+              <p class="font-bold text-slate-900">Core Skills</p>
+            </div>
+            <div class="surface-soft p-4">
+              <p class="text-xs text-slate-500">Outcome</p>
+              <p class="font-bold text-slate-900">Score Boost</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Track selector -->
+        <aside class="lg:col-span-5 lg:sticky lg:top-28" data-animate="fade-left">
+          <div class="surface p-8 card-shadow">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <p class="text-xs font-bold tracking-widest uppercase text-slate-400">CU-ATS</p>
+                <h2 class="text-2xl font-bold text-slate-900 mt-2">เลือกแนวทางการเตรียมสอบ</h2>
+              </div>
+              <span class="badge badge-open">Open</span>
+            </div>
+
+            <!-- Pills -->
+            <div class="mt-6 flex gap-2 flex-wrap">
+              <button type="button"
+                class="pill"
+                :class="track==='complete' ? 'pill-active' : ''"
+                @click="track='complete'">
+                Complete Prep
+              </button>
+              <button type="button"
+                class="pill"
+                :class="track==='intensive' ? 'pill-active' : ''"
+                @click="track='intensive'">
+                Intensive Boost
+              </button>
+              <button type="button"
+                class="pill"
+                :class="track==='target' ? 'pill-active' : ''"
+                @click="track='target'">
+                Targeted Weakness
+              </button>
+            </div>
+
+            <!-- Track details -->
+            <div class="mt-6 space-y-4">
+              <div x-show="track==='complete'" x-transition.opacity.duration.250ms>
+                <div class="surface-soft p-6">
+                  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Complete Prep</p>
+                  <p class="font-bold text-slate-900 mb-2">เหมาะสำหรับเริ่มจากศูนย์/อยากปั้นคะแนนแบบครบทุกพาร์ต</p>
+                  <ul class="space-y-2 text-sm text-slate-600">
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ปูคอนเซ็ปต์ + เทคนิคทำข้อสอบที่ออกบ่อย</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ทำโจทย์แบบจับเวลา + review เชิงลึก</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>วางแผนอ่าน/การบ้านเพื่อเร่งความคืบหน้า</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div x-show="track==='intensive'" x-transition.opacity.duration.250ms style="display:none;">
+                <div class="surface-soft p-6">
+                  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Intensive Boost</p>
+                  <p class="font-bold text-slate-900 mb-2">เหมาะสำหรับใกล้สอบ ต้องการ “เร่งสปีด + เก็บแต้ม”</p>
+                  <ul class="space-y-2 text-sm text-slate-600">
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ชุดโจทย์ high-yield แบบ timed</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>เทคนิคตัดช้อยส์/เดาคะแนนคุ้ม (risk management)</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>สรุปหัวข้อออกบ่อย + error log ปิดจุดพลาดเร็ว</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div x-show="track==='target'" x-transition.opacity.duration.250ms style="display:none;">
+                <div class="surface-soft p-6">
+                  <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Targeted Weakness</p>
+                  <p class="font-bold text-slate-900 mb-2">เหมาะสำหรับมีคะแนนเดิมแล้ว อยากแก้จุดอ่อนเฉพาะด้าน</p>
+                  <ul class="space-y-2 text-sm text-slate-600">
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>วิเคราะห์ข้อผิดพลาดจาก mock/ข้อสอบจริง</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ฝึก targeted drills แบบเจาะจุด</li>
+                    <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>ปรับกลยุทธ์ทำข้อเพื่อเพิ่มคะแนนอย่างมีประสิทธิภาพ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <a id="enroll" href="https://line.me/R/ti/p/@YOUR_LINE_OA"
+               target="_blank" rel="noopener noreferrer"
+               class="mt-7 w-full btn btn-primary">
+              ปรึกษาฟรี / จองคอร์สผ่าน LINE
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </a>
+
+            <p class="mt-4 text-xs text-slate-500 leading-relaxed">
+              แนะนำให้ส่งข้อมูลก่อนเริ่ม: เป้าหมายคณะ/หลักสูตร • วันสอบ • คะแนนเดิม (ถ้ามี) • จุดที่อ่อนที่สุด • เวลาที่สะดวกเรียน
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- COURSE STRUCTURE (MATRIX) -->
+  <section id="plans" class="section bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">โครงสร้างคอร์ส CU-ATS (ภาพรวม)</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          โครงสร้างด้านล่างเป็นแนวทางมาตรฐาน — ปรับสัดส่วนได้ตามระดับและเป้าหมายของผู้เรียน
+        </p>
+      </div>
+
+      <div class="overflow-x-auto surface card-shadow" data-animate="zoom-in">
+        <table class="min-w-[980px] w-full text-left">
+          <thead>
+            <tr class="border-b border-slate-200">
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Module</th>
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">What we train</th>
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Practice style</th>
+              <th class="p-5 text-xs font-bold tracking-widest uppercase text-slate-400">Outcome</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="p-5 font-bold text-slate-900">Diagnostic & Plan</td>
+              <td class="p-5 text-slate-600">ประเมินระดับ + ตั้งเป้าคะแนน + วาง timeline</td>
+              <td class="p-5 text-slate-600">quick test + review จุดอ่อน</td>
+              <td class="p-5 text-slate-600">แผนเรียนรายสัปดาห์ + priority list</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">Core English Skills</td>
+              <td class="p-5 text-slate-600">vocab/grammar + reading comprehension เชิงข้อสอบ</td>
+              <td class="p-5 text-slate-600">topic drills + timed sets</td>
+              <td class="p-5 text-slate-600">ความเร็ว + accuracy ดีขึ้น</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">Reasoning & Logic</td>
+              <td class="p-5 text-slate-600">pattern, inference, critical thinking ที่ออกบ่อย</td>
+              <td class="p-5 text-slate-600">step-by-step methods + practice</td>
+              <td class="p-5 text-slate-600">คิดเป็นระบบ ลดเดา</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">Time Management</td>
+              <td class="p-5 text-slate-600">การแบ่งเวลา/ลำดับทำข้อ/วิธีตัดช้อยส์</td>
+              <td class="p-5 text-slate-600">timed simulation + strategy review</td>
+              <td class="p-5 text-slate-600">ทำข้อทันและคุมคะแนนได้</td>
+            </tr>
+            <tr>
+              <td class="p-5 font-bold text-slate-900">Mock + Error Log</td>
+              <td class="p-5 text-slate-600">สรุปจุดพลาด + ทำชุดแก้ไขเฉพาะจุด</td>
+              <td class="p-5 text-slate-600">mini-mock / full mock ตามเวลา</td>
+              <td class="p-5 text-slate-600">คะแนนนิ่งขึ้นก่อนสอบจริง</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-6 text-xs text-slate-500 text-center" data-animate>
+        * หากผู้เรียนมีคะแนนเดิม/ผล mock สามารถปรับเป็น “Targeted Weakness Plan” เพื่อเร่งคะแนนได้ไวขึ้น
+      </p>
+    </div>
+  </section>
+
+  <!-- LEARNING FLOW -->
+  <section class="section bg-soft border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">วิธีเรียนของ Intsight (Step-by-step)</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto">
+          กระบวนการที่ทำให้คอร์ส CU-ATS มีทิศทางชัด และเห็นพัฒนาการจริง
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8" data-animate>
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 1</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Set Target & Baseline</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ตั้งเป้าคะแนนตามคณะ/หลักสูตรที่ต้องการยื่น และวัด baseline เพื่อรู้จุดแข็ง-จุดอ่อน
+          </p>
+        </div>
+
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 2</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Build Core + Strategy</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            สรุปคอนเซ็ปต์ที่ออกบ่อย พร้อมเทคนิคทำข้อและการตัดช้อยส์แบบประหยัดเวลา
+          </p>
+        </div>
+
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 3</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Timed Practice</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ฝึกทำข้อแบบจับเวลา เพื่อสร้างสปีดและความแม่น พร้อมปรับกลยุทธ์จากผลที่ทำได้จริง
+          </p>
+        </div>
+
+        <div class="surface p-8 card-shadow hover-lift">
+          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Step 4</p>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Mock + Final Review</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            ทำ mock เพื่อเช็คความพร้อม สรุป error log และจัด priority list ก่อนสอบจริง
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-white" x-data="{ open: 1 }">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12" data-animate>
+        <h2 class="serif-heading text-4xl text-brand-navy mb-4">คำถามที่พบบ่อย</h2>
+        <p class="text-slate-500">สำหรับผู้ที่กำลังวางแผนยื่นจุฬาฯ</p>
+      </div>
+
+      <div class="space-y-4" data-animate>
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===1 ? 0 : 1)">
+            <span class="font-bold text-slate-900">ควรเริ่มเตรียม CU-ATS ก่อนสอบนานแค่ไหน?</span>
+            <span class="text-slate-400 font-bold" x-text="open===1 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===1" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            ถ้ามีเวลา 2–3 เดือน จะจัดเป็น Complete Prep ได้สวยและมีเวลาทำ mock หลายรอบ
+            ถ้าใกล้สอบ (4–6 สัปดาห์) แนะนำ Intensive Boost เพื่อเร่งสปีดและเก็บแต้มจากโจทย์ high-yield
+          </div>
+        </div>
+
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===2 ? 0 : 2)">
+            <span class="font-bold text-slate-900">ถ้ามีคะแนนเดิมแล้ว จะเรียนแบบไหนคุ้มที่สุด?</span>
+            <span class="text-slate-400 font-bold" x-text="open===2 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===2" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            ส่งผลคะแนน/ผล mock ให้ทีมดู แล้วจัดเป็น Targeted Weakness Plan
+            โดยจะเจาะเฉพาะหัวข้อที่เสียคะแนนมากที่สุด เพื่อเร่งคะแนนได้ไวในชั่วโมงที่จำกัด
+          </div>
+        </div>
+
+        <div class="surface p-6">
+          <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===3 ? 0 : 3)">
+            <span class="font-bold text-slate-900">ต้องเตรียมอะไรบ้างก่อนเริ่มเรียน?</span>
+            <span class="text-slate-400 font-bold" x-text="open===3 ? '–' : '+'"></span>
+          </button>
+          <div x-show="open===3" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
+            แนะนำให้ส่ง: คณะที่จะยื่น, วันสอบ/เดดไลน์, คะแนนเดิม (ถ้ามี), และเวลาที่สะดวกเรียน
+            เพื่อจัดแผนและเลือกชุดฝึกให้ตรงตั้งแต่ชั่วโมงแรก
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-soft border-t border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+      <h2 class="serif-heading text-4xl text-brand-navy mb-6">พร้อมยื่นจุฬาฯ ด้วย CU-ATS ที่มั่นใจ</h2>
+      <p class="text-slate-600 mb-10">
+        จองประเมินระดับ/ปรึกษาฟรี แล้วให้ทีม Intsight วางแผนเตรียม CU-ATS ให้เหมาะกับเป้าหมายของคุณ
+      </p>
+      <a href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        ปรึกษาฟรีผ่าน LINE
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-navy text-white pt-16 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div>
+          <img src="logo-2.png" alt="Intsight" class="h-10 mb-4">
+          <p class="text-white/70 text-sm leading-relaxed">
+            Insight | Intelligence | International Excellence
+          </p>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">คอร์ส</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/#courses" class="hover:text-white">SAT</a></li>
+            <li><a href="/#courses" class="hover:text-white">GED</a></li>
+            <li><a href="/#courses" class="hover:text-white">IELTS</a></li>
+            <li><a href="/#courses" class="hover:text-white">Admissions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">บริษัท</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li><a href="/about.html" class="hover:text-white">เกี่ยวกับเรา</a></li>
+            <li><a href="/#team" class="hover:text-white">ทีมผู้สอน</a></li>
+            <li><a href="/#blog" class="hover:text-white">บทความ</a></li>
+            <li><a href="/#contact" class="hover:text-white">ติดต่อ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-bold mb-4">ติดต่อ</h5>
+          <ul class="space-y-3 text-sm text-white/70">
+            <li>contact@intsightedu.com</li>
+            <li>Bangkok, Thailand</li>
+            <li>LINE: @YOUR_LINE_OA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/10 text-xs text-white/50 flex flex-col md:flex-row justify-between items-center">
+        <p>© 2026 Intsight Education. All rights reserved.</p>
+        <p class="mt-3 md:mt-0 italic">Cultivating Insight, Inspiring Future.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky LINE Floating Button -->
+  <a class="line-float" href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" aria-label="Chat on LINE" data-animate="zoom-in">
+    <span class="line-badge" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3C6.477 3 2 6.582 2 11c0 2.62 1.6 4.95 4.1 6.43V21l3.14-1.72c.88.2 1.82.31 2.76.31 5.523 0 10-3.582 10-8s-4.477-8-10-8zm-4 9a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2z"/>
+      </svg>
+    </span>
+    <span class="hidden sm:block">
+      <span class="block text-xs font-bold tracking-widest uppercase text-slate-400">LINE</span>
+      <span class="block text-sm font-bold text-slate-900 leading-tight">ปรึกษาฟรี</span>
+    </span>
+  </a>
+
+  <!-- On-scroll animation script -->
+  <script>
+    (function () {
+      const els = document.querySelectorAll("[data-animate]");
+      if (!("IntersectionObserver" in window) || els.length === 0) {
+        els.forEach(el => el.classList.add("in-view"));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
+
+      els.forEach(el => io.observe(el));
+    })();
+  </script>
+
+</body>
+</html>

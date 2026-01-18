@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Intsight Education</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Alpine -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Shared Style (same as homepage) -->
+  <style>
+    :root {
+      --brand-navy:#002a5c;
+      --bg-soft:#f7f9fc;
+    }
+
+    body{
+      font-family:'Noto Sans Thai','Inter',sans-serif;
+      color:#0b1220;
+      background:white;
+    }
+
+    .serif-heading{
+      font-family:'Playfair Display','Noto Sans Thai',serif;
+      letter-spacing:-0.02em;
+    }
+
+    .glass-nav{
+      background:rgba(255,255,255,.9);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(0,42,92,.1);
+    }
+
+    .card-shadow{
+      box-shadow:0 18px 45px rgba(2,6,23,.12);
+    }
+
+    .hover-lift{
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .hover-lift:hover{
+      transform:translateY(-6px);
+      box-shadow:0 30px 70px rgba(2,6,23,.18);
+    }
+
+    /* Animations */
+    [data-animate]{opacity:0;transform:translateY(14px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+    [data-animate].in-view{opacity:1;transform:none}
+
+    /* LINE button */
+    .line-float{
+      position:fixed;right:18px;bottom:18px;z-index:60;
+      display:flex;gap:10px;align-items:center;
+      padding:12px 14px;border-radius:999px;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(15,23,42,.12);
+      box-shadow:0 18px 45px rgba(2,6,23,.14)
+    }
+    .line-badge{
+      width:42px;height:42px;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      background:#06C755;color:white
+    }
+
+    /* Map wrapper: keeps a stable aspect ratio and rounded corners */
+    .map-frame {
+      border: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem; /* 16px */
+    }
+  </style>
+</head>
+
+<body x-data="{mobile:false}">
+
+<!-- NAV -->
+<nav class="fixed w-full z-50 glass-nav">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <img src="logo-1.png" class="h-10" alt="Intsight">
+    </div>
+
+    <div class="hidden md:flex gap-8 items-center">
+      <a href="/" class="font-semibold text-slate-700 hover:text-[var(--brand-navy)]">Home</a>
+      <a href="/about.html" class="font-semibold text-[var(--brand-navy)]">About</a>
+      <a href="/#courses" class="font-semibold text-slate-700 hover:text-[var(--brand-navy)]">Courses</a>
+      <a href="/#blog" class="font-semibold text-slate-700 hover:text-[var(--brand-navy)]">Blog</a>
+      <a href="/#contact" class="bg-[var(--brand-navy)] text-white px-6 py-2.5 rounded-full font-bold">สมัครเรียน</a>
+    </div>
+
+    <button class="md:hidden" @click="mobile=!mobile">
+      <svg class="w-7 h-7 text-[var(--brand-navy)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pt-36 pb-24 bg-[var(--bg-soft)]">
+  <div class="max-w-5xl mx-auto px-6 text-center" data-animate>
+    <span class="text-xs tracking-widest uppercase font-bold text-slate-500">
+      About Intsight Education
+    </span>
+    <h1 class="serif-heading text-4xl lg:text-5xl text-[var(--brand-navy)] mt-4">
+      การศึกษาที่เริ่มจาก “ความเข้าใจ”
+      <span class="block italic text-slate-400 font-light">
+        และนำไปสู่ความสำเร็จที่แท้จริง
+      </span>
+    </h1>
+    <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+      Intsight Education คือสถาบันกวดวิชาหลักสูตรนานาชาติ
+      ที่ออกแบบการเรียนรู้เฉพาะบุคคล
+      เพื่อช่วยให้นักเรียนค้นพบศักยภาพของตนเอง
+      และเข้าถึงมหาวิทยาลัยชั้นนำทั้งในและต่างประเทศ
+    </p>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div data-animate>
+      <h2 class="serif-heading text-3xl text-[var(--brand-navy)] mb-6">
+        จุดเริ่มต้นของ Intsight
+      </h2>
+      <p class="text-slate-600 leading-relaxed mb-6">
+        Intsight Education เกิดขึ้นจากประสบการณ์ตรงในการสอนนักเรียนหลักสูตรนานาชาติ
+        และการแนะแนวเข้ามหาวิทยาลัยทั้งในไทยและต่างประเทศ
+        เราพบว่านักเรียนจำนวนมาก “มีศักยภาพ”
+        แต่ขาดแผนการเรียนที่เหมาะสมกับตัวเองจริง ๆ
+      </p>
+      <p class="text-slate-600 leading-relaxed">
+        เราจึงสร้างระบบการเรียนรู้ที่ไม่ใช่แค่ติวข้อสอบ
+        แต่เป็นการวาง Roadmap ทางการศึกษา
+        ตั้งแต่การประเมินระดับ ความถนัด
+        ไปจนถึงการเตรียมสอบ การทำ Portfolio
+        และการสัมภาษณ์
+      </p>
+    </div>
+
+    <div data-animate>
+      <img
+        src="kru-aon.png"
+        alt="Founder"
+        class="rounded-2xl shadow-2xl w-full object-cover"
+      >
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="py-24 bg-[var(--bg-soft)]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16" data-animate>
+      <h2 class="serif-heading text-3xl text-[var(--brand-navy)] mb-4">
+        ปรัชญาการสอนของเรา
+      </h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">
+        เราเชื่อว่าการเรียนที่ดี ต้องเริ่มจาก “ความเข้าใจตัวเอง”
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-8 rounded-2xl card-shadow hover-lift" data-animate>
+        <h3 class="font-bold text-lg mb-3">Insight</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          วิเคราะห์จุดแข็ง จุดอ่อน และเป้าหมายของผู้เรียน
+          เพื่อออกแบบแผนการเรียนที่เหมาะสม
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl card-shadow hover-lift" data-animate>
+        <h3 class="font-bold text-lg mb-3">Intelligence</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          เน้นการคิด วิเคราะห์ และการแก้ปัญหา
+          ไม่ใช่การท่องจำเพียงอย่างเดียว
+        </p>
+      </div>
+
+      <div class="bg-white p-8 rounded-2xl card-shadow hover-lift" data-animate>
+        <h3 class="font-bold text-lg mb-3">International Excellence</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          เตรียมผู้เรียนให้พร้อมสำหรับมาตรฐานสากล
+          และการแข่งขันในระดับนานาชาติ
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12" data-animate>
+      <h2 class="serif-heading text-3xl text-[var(--brand-navy)] mb-4">
+        สถานที่เรียน / Location
+      </h2>
+      <p class="text-slate-500 max-w-2xl mx-auto">
+        Intsight Education ตั้งอยู่ที่ Habito Mall (ชั้น 2) เดินทางสะดวก พร้อมที่จอดรถ
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 items-stretch">
+      <!-- MAP (mobile first) -->
+      <div class="order-1 md:order-2" data-animate>
+        <div class="bg-white rounded-2xl card-shadow overflow-hidden">
+          <div class="relative w-full aspect-[4/3] md:aspect-[16/9]">
+            <!-- Replace the src with your exact Google Maps embed URL -->
+            <iframe
+              class="absolute inset-0 w-full h-full map-frame"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Intsight%20Education&output=embed"
+              title="Intsight Education Map"
+              aria-label="Google Map showing Intsight Education location"
+            ></iframe>
+          </div>
+
+          <div class="p-5 border-t border-slate-100">
+            <div class="flex items-center justify-between gap-4 flex-wrap">
+              <p class="text-sm text-slate-600">
+                เปิดใน Google Maps เพื่อดูเส้นทาง
+              </p>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Intsight%20Education"
+                target="_blank"
+                class="inline-flex items-center gap-2 bg-[var(--brand-navy)] text-white px-4 py-2 rounded-full font-bold text-sm hover:bg-opacity-90 transition"
+              >
+                นำทาง
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="order-2 md:order-1" data-animate>
+        <div class="bg-white rounded-2xl card-shadow p-8 h-full flex flex-col justify-between">
+          <div>
+            <h3 class="serif-heading text-2xl text-[var(--brand-navy)] mb-6">
+              ติดต่อเรา
+            </h3>
+
+            <div class="space-y-5 text-slate-700">
+              <!-- Address -->
+              <div class="flex gap-3">
+                <div class="mt-0.5">
+                  <svg class="w-5 h-5 text-[var(--brand-navy)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-width="2" d="M12 21s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
+                    <path stroke-width="2" d="M12 11a3 3 0 100-6 3 3 0 000 6z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold">ที่อยู่</p>
+                  <p class="text-slate-600 leading-relaxed">
+                    Intsight Education (Habito Mall ชั้น 2)<br>
+                    <!-- Optional: Put your full street address here -->
+                    <!-- ถนนสุขุมวิท 77 (อ่อนนุช) เขต... กรุงเทพมหานคร ... -->
+                  </p>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="flex gap-3">
+                <div class="mt-0.5">
+                  <svg class="w-5 h-5 text-[var(--brand-navy)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-width="2" d="M3 5a2 2 0 012-2h3l2 5-2 1a16 16 0 007 7l1-2 5 2v3a2 2 0 01-2 2h-1C9.163 21 3 14.837 3 7V5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold">โทร</p>
+                  <p class="text-slate-600">
+                    <a class="hover:text-[var(--brand-navy)] font-semibold" href="tel:+66XXXXXXXXX">+66 XX-XXX-XXXX</a>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="flex gap-3">
+                <div class="mt-0.5">
+                  <svg class="w-5 h-5 text-[var(--brand-navy)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-width="2" d="M4 4h16v16H4V4z"/>
+                    <path stroke-width="2" d="M22 6l-10 7L2 6"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold">อีเมล</p>
+                  <p class="text-slate-600">
+                    <a class="hover:text-[var(--brand-navy)] font-semibold" href="mailto:contact@intsight.education">contact@intsight.education</a>
+                  </p>
+                </div>
+              </div>
+
+              <!-- LINE -->
+              <div class="flex gap-3">
+                <div class="mt-0.5">
+                  <svg class="w-5 h-5 text-[var(--brand-navy)]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 3C6.5 3 2 6.6 2 11c0 2.6 1.6 5 4.1 6.4V21l3.1-1.7c.9.2 1.8.3 2.8.3 5.5 0 10-3.6 10-8s-4.5-8-10-8z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold">LINE</p>
+                  <p class="text-slate-600">
+                    <a class="hover:text-[var(--brand-navy)] font-semibold" href="https://line.me/R/ti/p/@intsight" target="_blank">
+                      @intsight
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Optional: Opening hours -->
+          <div class="mt-8 pt-6 border-t border-slate-100">
+            <p class="font-bold text-slate-700 mb-2">เวลาเปิดทำการ</p>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              <!-- Customize as needed -->
+              ทุกวัน 10:00–20:00 (แนะนำให้นัดหมายล่วงหน้า)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="py-24">
+  <div class="max-w-4xl mx-auto px-6 text-center" data-animate>
+    <h2 class="serif-heading text-3xl text-[var(--brand-navy)] mb-6">
+      พร้อมเริ่มต้นเส้นทางการเรียนรู้ของคุณแล้วหรือยัง?
+    </h2>
+    <p class="text-slate-600 mb-10">
+      ปรึกษาแผนการเรียนส่วนตัวกับทีม Intsight Education
+      เพื่อค้นหาเส้นทางที่เหมาะกับคุณที่สุด
+    </p>
+    <a href="/#contact"
+       class="inline-flex items-center gap-2 bg-[var(--brand-navy)] text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition">
+      ปรึกษาฟรี
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- LINE FLOAT -->
+<a href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" class="line-float">
+  <span class="line-badge">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 3C6.5 3 2 6.6 2 11c0 2.6 1.6 5 4.1 6.4V21l3.1-1.7c.9.2 1.8.3 2.8.3 5.5 0 10-3.6 10-8s-4.5-8-10-8z"/>
+    </svg>
+  </span>
+  <span class="hidden sm:block">
+    <span class="text-xs uppercase font-bold text-slate-400">LINE</span>
+    <span class="text-sm font-bold">ปรึกษาฟรี</span>
+  </span>
+</a>
+
+<!-- Animation Script -->
+<script>
+  const els=document.querySelectorAll('[data-animate]');
+  const io=new IntersectionObserver(e=>{
+    e.forEach(i=>{
+      if(i.isIntersecting){i.target.classList.add('in-view');io.unobserve(i.target)}
+    })
+  },{threshold:.15});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

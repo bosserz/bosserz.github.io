@@ -1,0 +1,270 @@
+/* =========================================================
+   Intsight Education — Global Stylesheet
+   Usage:
+   - Include on every page: <link rel="stylesheet" href="/assets/css/intsight.css">
+   - Tailwind is still used for layout/spacing utilities.
+   - This file contains shared brand tokens, components, and animations.
+   ========================================================= */
+
+/* -----------------------
+   Brand Tokens
+------------------------ */
+:root{
+  --brand-navy:#002a5c;
+  --brand-ink:#0b1220;
+  --bg-soft:#f7f9fc;
+  --bg-soft-2:#f8fafc;
+  --line-green:#06C755;
+
+  --border: rgba(15,23,42,.12);
+  --border-strong: rgba(2,6,23,.14);
+
+  --shadow-sm: 0 10px 22px rgba(2,6,23,.10);
+  --shadow-md: 0 18px 45px rgba(2,6,23,.12);
+  --shadow-lg: 0 30px 70px rgba(2,6,23,.18);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+
+  --ease-out: cubic-bezier(.2,.8,.2,1);
+}
+
+/* -----------------------
+   Base
+------------------------ */
+html{ scroll-behavior:smooth; }
+body{
+  font-family:'Noto Sans Thai','Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color: var(--brand-ink);
+  background:#fff;
+}
+.serif-heading{
+  font-family:'Playfair Display','Noto Sans Thai',serif;
+  letter-spacing:-0.02em;
+}
+
+/* Tailwind helper-like tokens */
+.bg-brand-navy{ background-color: var(--brand-navy); }
+.text-brand-navy{ color: var(--brand-navy); }
+.border-brand-navy{ border-color: var(--brand-navy); }
+.bg-soft{ background-color: var(--bg-soft); }
+.bg-soft-2{ background-color: var(--bg-soft-2); }
+
+/* Optional subtle dot-grid background */
+.bg-grid{
+  background-image: radial-gradient(circle at 1px 1px, rgba(2,6,23,.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+/* -----------------------
+   Navigation
+------------------------ */
+.glass-nav{
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,42,92,.10);
+}
+
+/* -----------------------
+   Cards / Surfaces
+------------------------ */
+.card-shadow{ box-shadow: var(--shadow-md); }
+.card-shadow-sm{ box-shadow: var(--shadow-sm); }
+.card-shadow-lg{ box-shadow: var(--shadow-lg); }
+
+.surface{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.surface-soft{
+  background: var(--bg-soft);
+  border:1px solid rgba(148,163,184,.35);
+  border-radius: var(--radius-lg);
+}
+
+/* Hover lift */
+.hover-lift{
+  transition: transform 350ms ease, box-shadow 350ms ease, border-color 350ms ease;
+}
+.hover-lift:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* -----------------------
+   Buttons (optional shared)
+------------------------ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  font-weight:700;
+  border-radius:999px;
+  padding: 14px 22px;
+  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+.btn:active{ transform: translateY(1px); }
+
+.btn-primary{
+  background: var(--brand-navy);
+  color:#fff;
+}
+.btn-primary:hover{ background: rgba(0,42,92,.92); }
+
+.btn-outline{
+  background:#fff;
+  color: var(--brand-ink);
+  border:1px solid rgba(148,163,184,.45);
+}
+.btn-outline:hover{ background: rgba(248,250,252,1); }
+
+.btn-link{
+  font-weight:800;
+  color: var(--brand-navy);
+  border-bottom:1px solid var(--brand-navy);
+  padding-bottom:2px;
+}
+.btn-link:hover{
+  color: rgba(100,116,139,1);
+  border-bottom-color: rgba(100,116,139,1);
+}
+
+/* -----------------------
+   Badges
+------------------------ */
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  padding: 6px 10px;
+  border-radius:999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+.badge-open{
+  background-color: #ecfdf5;
+  color: #059669;
+}
+.badge-soft{
+  background:#fff;
+  color: rgba(100,116,139,1);
+  border-color: rgba(148,163,184,.45);
+}
+.badge-blue{
+  background:#eff6ff;
+  color: var(--brand-navy);
+}
+
+/* -----------------------
+   Tabs / Pills
+------------------------ */
+.pill{
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid rgba(148,163,184,.45);
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, transform 200ms ease;
+}
+.pill:hover{ background: rgba(248,250,252,1); }
+.pill-active{
+  background:#eff6ff;
+  border-color: transparent;
+  color: var(--brand-navy);
+}
+
+/* -----------------------
+   Media / Images
+------------------------ */
+.img-soft-mask{
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* -----------------------
+   Floating LINE Button
+------------------------ */
+.line-float{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:999px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.line-float:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.line-badge{
+  width:42px;height:42px;border-radius:999px;
+  display:inline-flex;align-items:center;justify-content:center;
+  background: var(--line-green);
+  color:#fff;
+  box-shadow: 0 12px 26px rgba(6,199,85,.30);
+}
+
+/* -----------------------
+   On-scroll Animations
+------------------------ */
+@media (prefers-reduced-motion: reduce){
+  [data-animate]{ opacity:1 !important; transform:none !important; transition:none !important; }
+}
+
+/* Default fade-up */
+[data-animate]{
+  opacity:0;
+  transform: translateY(14px);
+  transition:
+    opacity 700ms var(--ease-out),
+    transform 700ms var(--ease-out);
+}
+[data-animate].in-view{
+  opacity:1;
+  transform:none;
+}
+
+/* Direction variants */
+[data-animate="fade-left"]{ transform: translateX(18px); }
+[data-animate="fade-right"]{ transform: translateX(-18px); }
+[data-animate="zoom-in"]{ transform: scale(.985); }
+
+/* -----------------------
+   Optional utilities
+------------------------ */
+.container-intsight{
+  max-width: 80rem; /* ~ Tailwind max-w-7xl */
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px){
+  .container-intsight{ padding-left: 1.5rem; padding-right: 1.5rem; }
+}
+@media (min-width: 1024px){
+  .container-intsight{ padding-left: 2rem; padding-right: 2rem; }
+}
+
+/* Consistent section padding */
+.section{
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+.section-tight{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
