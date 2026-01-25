@@ -5,188 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intsight Education | สถาบันกวดวิชาหลักสูตรนานาชาติชั้นนำ</title>
 
-  <!-- Tailwind -->
+  <!-- Tailwind (layout utilities) -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&display=swap" rel="stylesheet">
 
   <!-- Alpine -->
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <style>
-    :root{
-      /* Brand */
-      --navy:#002a5c;
-      --ink:#0b1220;
-      --muted:#64748b;
-
-      /* Surfaces */
-      --bg:#ffffff;
-      --bg-soft:#f7f9fc;
-
-      /* UI */
-      --radius:18px;
-      --radius-sm:12px;
-
-      --shadow-sm: 0 8px 20px rgba(2, 6, 23, 0.06);
-      --shadow-md: 0 16px 40px rgba(2, 6, 23, 0.10);
-      --ring: 0 0 0 6px rgba(0, 42, 92, 0.08);
-    }
-
-    body{
-      font-family:'Noto Sans Thai','Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-    }
-    .serif{
-      font-family:'Playfair Display','Noto Sans Thai',serif;
-      letter-spacing:-0.02em;
-    }
-
-    /* Background pattern (subtle grid) */
-    .grid-pattern{
-      background-image:
-        linear-gradient(to right, rgba(2,6,23,0.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(2,6,23,0.06) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(ellipse at top, black 50%, transparent 75%);
-      -webkit-mask-image: radial-gradient(ellipse at top, black 50%, transparent 75%);
-      opacity: 0.25;
-    }
-
-    /* Glass nav */
-    .glass{
-      background: rgba(255,255,255,0.80);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(2, 6, 23, 0.08);
-    }
-
-    /* Buttons */
-    .btn-primary{
-      background: var(--navy);
-      color:#fff;
-      border-radius: 999px;
-      box-shadow: var(--shadow-sm);
-      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    }
-    .btn-primary:hover{ transform: translateY(-1px); box-shadow: var(--shadow-md); opacity: .95; }
-    .btn-secondary{
-      border: 1px solid rgba(2,6,23,0.12);
-      border-radius: 999px;
-      transition: background .2s ease, transform .2s ease;
-    }
-    .btn-secondary:hover{ background: rgba(2,6,23,0.03); transform: translateY(-1px); }
-
-    /* Cards */
-    .card{
-      border-radius: var(--radius);
-      border: 1px solid rgba(2,6,23,0.10);
-      background: #fff;
-      box-shadow: var(--shadow-sm);
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .card:hover{
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(0,42,92,0.28);
-    }
-
-    .chip{
-      border-radius: 999px;
-      padding: 6px 12px;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .badge-open{
-      background:#ecfdf5;
-      color:#059669;
-      border: 1px solid rgba(5,150,105,0.20);
-    }
-
-    /* Better focus */
-    a:focus, button:focus{
-      outline: none;
-      box-shadow: var(--ring);
-      border-radius: 14px;
-    }
-
-    /* ===== Subtle On-Scroll Animations ===== */
-    @media (prefers-reduced-motion: reduce) {
-      [data-animate] { opacity: 1 !important; transform: none !important; transition: none !important; }
-    }
-
-    [data-animate]{
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1);
-      will-change: opacity, transform;
-    }
-    [data-animate].in-view{
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Variants */
-    [data-animate="fade-in"]{ transform: none; }
-    [data-animate="fade-left"]{ transform: translateX(18px); }
-    [data-animate="fade-right"]{ transform: translateX(-18px); }
-    [data-animate="zoom-in"]{ transform: scale(.98); }
-
-    /* Stagger helper (optional) */
-    .stagger > * { transition-delay: var(--d, 0ms); }
-
-    /* ===== Sticky LINE Floating Button ===== */
-    .line-float{
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 60;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(15, 23, 42, 0.12);
-      box-shadow: 0 18px 45px rgba(2,6,23,0.14);
-      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    }
-    .line-float:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 24px 60px rgba(2,6,23,0.18);
-    }
-    .line-badge{
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #06C755; /* LINE green */
-      box-shadow: 0 12px 26px rgba(6,199,85,0.30);
-    }
-  </style>
-  <!-- <link rel="stylesheet" href="/assets/css/intsight.css"> -->
-
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="assets/css/intsight.css">
 </head>
 
 <body
-  x-data="{
-    mobileMenu:false,
-    courseFilter:'all',
-    courses:[
-      { id:1, type:'group', tag:'Test Prep', sub:'Standardized', title:'SAT Digital Mastery: Intensive Course', desc:'เจาะลึกเทคนิคการทำข้อสอบ SAT Digital ทั้งส่วน Reading & Writing และ Math ครบทุกหัวข้อ', hours:'48 Hours', start:'Starts Feb 15', badge:'Open for Enrollment', img:'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=1200' },
-      { id:2, type:'group', tag:'IELTS', sub:'English', title:'IELTS Academic: Band 7.5 Strategy', desc:'คอร์สเน้นกลยุทธ์ทำคะแนน IELTS สำหรับยื่นคณะอินเตอร์ จุฬาฯ และธรรมศาสตร์ โดยเฉพาะ', hours:'32 Hours', start:'Starts Mar 01', badge:'Fast Track', img:'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1200' },
-      { id:3, type:'private', tag:'IB Diploma', sub:'Internal Assessment', title:'IB Economics & Math AA HL Bootcamp', desc:'ติวเข้มโค้งสุดท้ายก่อนสอบและ Workshop การเขียน IA สำหรับนักเรียน IB Year 13', hours:'24 Hours', start:'Starts Mar 10', badge:'Open for Enrollment', img:'https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=1200' }
-    ]
-  }"
+  x-data="intsightHome()"
+  x-init="init()"
   class="antialiased"
 >
 
@@ -200,7 +37,7 @@
 
         <div class="hidden md:flex items-center gap-8">
           <a href="about.html" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">About</a>
-          <a href="#expertise" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Admission Prep</a>
+          <a href="#expertise" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Services</a>
           <a href="courses.html" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Courses</a>
           <a href="#blog" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Blogs</a>
           <a href="#team" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Team</a>
@@ -221,11 +58,11 @@
     <!-- Mobile Drawer -->
     <div x-show="mobileMenu" x-transition class="md:hidden border-t border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto px-4 py-5 space-y-3">
-        <a href="#about" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">เกี่ยวกับเรา</a>
-        <a href="#expertise" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">ความเชี่ยวชาญ</a>
-        <a href="courses.html" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">คอร์สเรียน</a>
-        <a href="#blog" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">บทความ</a>
-        <a href="#team" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">ทีมผู้สอน</a>
+        <a href="#about" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">About</a>
+        <a href="#expertise" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">Services</a>
+        <a href="courses.html" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">Courses</a>
+        <a href="#blog" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">Blogs</a>
+        <a href="#team" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">Team</a>
 
         <a href="#contact" @click="mobileMenu=false" class="btn-primary inline-flex items-center justify-center w-full px-6 py-3 font-bold">
           สมัครเรียน
@@ -252,14 +89,13 @@
         <!-- Copy -->
         <div class="lg:col-span-7">
           <div class="inline-flex items-center gap-2 chip bg-white border border-slate-200 text-[color:var(--navy)]">
-            <span class="w-2 h-2 rounded-full bg-[color:var(--navy)]"></span>
             Insight • Intelligence • International Excellence
           </div>
 
           <h1 class="serif mt-6 text-4xl sm:text-5xl lg:text-7xl leading-[1.08] text-[color:var(--navy)]">
-            ยกระดับศักยภาพ
+            มากกว่าการติว
             <span class="block text-slate-500 italic font-light">
-              สู่ความสำเร็จระดับสากล
+              คือการสร้างพื้นฐานสู่ความสำเร็จในอนาคต
             </span>
           </h1>
 
@@ -275,8 +111,8 @@
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
             </a>
-            <a href="#contact" class="btn-secondary px-8 py-4 text-base font-bold inline-flex items-center justify-center">
-              ปรึกษาการเรียนต่อ
+            <a href="#journey" class="btn-secondary px-8 py-4 text-base font-bold inline-flex items-center justify-center">
+              กระบวนการเรียนของเรา
             </a>
           </div>
 
@@ -316,11 +152,6 @@
                 <div class="text-white/80 text-sm">Mentorship • Admissions • Global Curriculum</div>
               </div>
             </div>
-
-            <!-- <div class="absolute -bottom-6 -left-6 card px-5 py-4">
-              <div class="text-sm font-bold text-slate-900">Personalized Roadmap</div>
-              <div class="text-xs text-slate-500 mt-1">วัดระดับ → วางแผน → ติว → ติดตามผล</div>
-            </div> -->
           </div>
         </div>
       </div>
@@ -372,8 +203,7 @@
 
       <div class="mt-14 grid md:grid-cols-3 gap-6">
         <div class="card p-8 text-center">
-          <div class="mx-auto w-14 h-14 rounded-2xl flex items-center justify-center"
-               style="background: rgba(0,42,92,0.08);">
+          <div class="mx-auto w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(0,42,92,0.08);">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[color:var(--navy)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M12 14l9-5-9-5-9 5 9 5z" />
               <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
@@ -386,8 +216,7 @@
         </div>
 
         <div class="card p-8 text-center">
-          <div class="mx-auto w-14 h-14 rounded-2xl flex items-center justify-center"
-               style="background: rgba(0,42,92,0.08);">
+          <div class="mx-auto w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(0,42,92,0.08);">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[color:var(--navy)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
             </svg>
@@ -399,8 +228,7 @@
         </div>
 
         <div class="card p-8 text-center">
-          <div class="mx-auto w-14 h-14 rounded-2xl flex items-center justify-center"
-               style="background: rgba(0,42,92,0.08);">
+          <div class="mx-auto w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(0,42,92,0.08);">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[color:var(--navy)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-2.999-4.03-2.999-9s1.342-9 2.999-9"/>
             </svg>
@@ -423,7 +251,6 @@
           <p class="mt-3 text-slate-500">เลือกคอร์สที่เหมาะกับเป้าหมาย พร้อมเปิดรับสมัครแล้ววันนี้</p>
         </div>
 
-        <!-- Real filter -->
         <div class="inline-flex gap-2 bg-slate-100 p-1 rounded-full">
           <button
             class="px-4 py-2 rounded-full text-xs font-extrabold tracking-widest uppercase transition"
@@ -446,7 +273,7 @@
       </div>
 
       <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <template x-for="c in courses.filter(x => courseFilter==='all' ? true : x.type===courseFilter)" :key="c.id">
+        <template x-for="c in filteredCourses()" :key="c.id">
           <article class="card overflow-hidden">
             <div class="relative aspect-[16/9] overflow-hidden">
               <img :src="c.img" class="w-full h-full object-cover hover:scale-105 transition duration-700" :alt="c.title">
@@ -491,150 +318,70 @@
     </div>
   </section>
 
-  <!-- Testimonials (with photos) -->
-  <section id="testimonials" class="py-24 bg-white">
+  <!-- LEARNING JOURNEY (new, per guideline) -->
+  <section id="journey" class="py-24 bg-[color:var(--bg-soft)] border-y border-slate-200/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16" data-animate="fade-up">
-        <h2 class="serif-heading text-4xl text-brand-navy mb-4">เสียงจากผู้เรียนและผู้ปกครอง</h2>
-        <p class="text-slate-500 max-w-2xl mx-auto">
-          ผลลัพธ์จริงจากแผนการเรียนเฉพาะบุคคล และการติวที่เน้นความเข้าใจเชิงลึก
-        </p>
+      <div class="text-center max-w-3xl mx-auto" data-animate="fade-up">
+        <h2 class="serif text-4xl text-[color:var(--navy)]">กระบวนการเรียนของเรา</h2>
+        <p class="mt-3 text-slate-500">ลดความกังวลของผู้ปกครองและผู้เรียน ด้วยขั้นตอนที่ชัดเจนและวัดผลได้</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8 stagger" data-animate="fade-up">
-
-        <!-- Testimonial 1 -->
-        <article class="bg-white border border-slate-200 rounded-sm p-8 card-shadow hover-lift" style="--d:0ms">
-          <header class="flex items-center justify-between gap-4 mb-6">
-            <div class="flex items-center gap-4">
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200"
-                alt="Student testimonial photo"
-                class="w-12 h-12 rounded-full object-cover border border-slate-200"
-                loading="lazy"
-              />
-              <div>
-                <p class="font-bold text-slate-900 leading-tight">น้องพี (ม.5)</p>
-                <p class="text-xs text-slate-500">SAT Digital • เป้าหมาย: Inter Programs</p>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-1 text-amber-500 shrink-0" aria-label="5 star rating">
-              <template x-for="i in 5" :key="i">
-                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.539 1.118l-3.367-2.447a1 1 0 00-1.176 0l-3.367 2.447c-.783.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"/>
-                </svg>
-              </template>
-            </div>
-          </header>
-
-          <p class="text-slate-600 leading-relaxed mb-6">
-            “ครูช่วยวางแผนอ่าน + ทำโจทย์รายสัปดาห์ชัดมาก ทำให้รู้ว่าต้องแก้ตรงไหน
-            และฝึกทำข้อสอบเหมือนจริงจนทำเวลาได้ดีขึ้น”
-          </p>
-
-          <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold bg-blue-50 text-brand-navy">
-                คะแนนเพิ่มขึ้น
-              </span>
-            </div>
-            <div class="text-right">
-              <p class="text-xs text-slate-400">Outcome</p>
-              <p class="font-bold text-brand-navy">+120 คะแนน</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Testimonial 2 -->
-        <article class="bg-white border border-slate-200 rounded-sm p-8 card-shadow hover-lift" style="--d:120ms">
-          <header class="flex items-center justify-between gap-4 mb-6">
-            <div class="flex items-center gap-4">
-              <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
-                alt="Parent testimonial photo"
-                class="w-12 h-12 rounded-full object-cover border border-slate-200"
-                loading="lazy"
-              />
-              <div>
-                <p class="font-bold text-slate-900 leading-tight">คุณแม่ของน้องเอ</p>
-                <p class="text-xs text-slate-500">Admissions • เป้าหมาย: BBA/BE Inter</p>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-1 text-amber-500 shrink-0" aria-label="5 star rating">
-              <template x-for="i in 5" :key="i">
-                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.539 1.118l-3.367-2.447a1 1 0 00-1.176 0l-3.367 2.447c-.783.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"/>
-                </svg>
-              </template>
-            </div>
-          </header>
-
-          <p class="text-slate-600 leading-relaxed mb-6">
-            “มีการอัปเดตความคืบหน้าเป็นระยะ และช่วยวาง Portfolio ให้ตรงกับคณะ
-            พร้อมซ้อมสัมภาษณ์แบบเข้ม ทำให้ลูกมั่นใจขึ้นมาก”
-          </p>
-
-          <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700">
-                สมัครรอบสัมภาษณ์
-              </span>
-            </div>
-            <div class="text-right">
-              <p class="text-xs text-slate-400">Outcome</p>
-              <p class="font-bold text-brand-navy">ผ่านรอบสัมภาษณ์</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Testimonial 3 -->
-        <article class="bg-white border border-slate-200 rounded-sm p-8 card-shadow hover-lift" style="--d:240ms">
-          <header class="flex items-center justify-between gap-4 mb-6">
-            <div class="flex items-center gap-4">
-              <img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200"
-                alt="Student testimonial photo"
-                class="w-12 h-12 rounded-full object-cover border border-slate-200"
-                loading="lazy"
-              />
-              <div>
-                <p class="font-bold text-slate-900 leading-tight">น้องม.6 (Private)</p>
-                <p class="text-xs text-slate-500">IELTS • เป้าหมาย: CU Inter</p>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-1 text-amber-500 shrink-0" aria-label="5 star rating">
-              <template x-for="i in 5" :key="i">
-                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.539 1.118l-3.367-2.447a1 1 0 00-1.176 0l-3.367 2.447c-.783.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"/>
-                </svg>
-              </template>
-            </div>
-          </header>
-
-          <p class="text-slate-600 leading-relaxed mb-6">
-            “ชอบที่ครูแก้จุดอ่อนแบบตรงจุด โดยเฉพาะ Writing ที่มีโครงสร้างชัด
-            และมีการบ้านที่ตรวจละเอียด ทำให้คะแนนนิ่งและมั่นใจมากขึ้น”
-          </p>
-
-          <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold bg-violet-50 text-violet-700">
-                Intensive Writing
-              </span>
-            </div>
-            <div class="text-right">
-              <p class="text-xs text-slate-400">Outcome</p>
-              <p class="font-bold text-brand-navy">Band 7.5</p>
-            </div>
-          </div>
-        </article>
+      <div class="mt-14 grid md:grid-cols-5 gap-5">
+        <div class="card p-6" data-animate="fade-up" style="--d:0ms">
+          <div class="chip bg-slate-100 text-slate-700 inline-flex">Step 1</div>
+          <h3 class="mt-4 font-extrabold text-slate-900">Consultation</h3>
+          <p class="mt-2 text-sm text-slate-500">พูดคุยเป้าหมาย คณะ/มหาวิทยาลัย และแผนเวลาสอบ</p>
+        </div>
+        <div class="card p-6" data-animate="fade-up" style="--d:80ms">
+          <div class="chip bg-slate-100 text-slate-700 inline-flex">Step 2</div>
+          <h3 class="mt-4 font-extrabold text-slate-900">Diagnostic</h3>
+          <p class="mt-2 text-sm text-slate-500">วัดระดับเพื่อระบุจุดแข็ง-จุดอ่อนอย่างเป็นระบบ</p>
+        </div>
+        <div class="card p-6" data-animate="fade-up" style="--d:160ms">
+          <div class="chip bg-slate-100 text-slate-700 inline-flex">Step 3</div>
+          <h3 class="mt-4 font-extrabold text-slate-900">Personal Plan</h3>
+          <p class="mt-2 text-sm text-slate-500">ออกแบบ Roadmap ชั่วโมงเรียน + Milestones + การบ้าน</p>
+        </div>
+        <div class="card p-6" data-animate="fade-up" style="--d:240ms">
+          <div class="chip bg-slate-100 text-slate-700 inline-flex">Step 4</div>
+          <h3 class="mt-4 font-extrabold text-slate-900">Tracking</h3>
+          <p class="mt-2 text-sm text-slate-500">ติดตามผลรายสัปดาห์ ปรับแผนให้ทันตามเป้าหมาย</p>
+        </div>
+        <div class="card p-6" data-animate="fade-up" style="--d:320ms">
+          <div class="chip bg-slate-100 text-slate-700 inline-flex">Step 5</div>
+          <h3 class="mt-4 font-extrabold text-slate-900">Exam Ready</h3>
+          <p class="mt-2 text-sm text-slate-500">ซ้อมข้อสอบจริง + Strategy + ความมั่นใจก่อนวันสอบ</p>
+        </div>
       </div>
 
       <div class="mt-14 text-center" data-animate="fade-in">
-        <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-brand-navy text-white px-8 py-3 rounded-sm font-bold hover:bg-opacity-90 transition">
+        <a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 font-extrabold">
+          ปรึกษาแผนการเรียนส่วนตัว
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS STORIES -->
+  <section id="success-stories" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16" data-animate="fade-up">
+        <h2 class="serif text-4xl text-[color:var(--navy)] mb-4">Success Stories</h2>
+        <p class="text-slate-500 max-w-2xl mx-auto">
+          ผลลัพธ์จริงจากการวางแผนการเรียนเฉพาะบุคคล การติวเชิงกลยุทธ์ และการติดตามผลอย่างเป็นระบบ
+        </p>
+      </div>
+
+      <!-- Grid -->
+      <div id="successGrid" class="grid md:grid-cols-3 gap-8 stagger" data-animate="fade-up">
+        <!-- Cards will be rendered by JS -->
+      </div>
+
+      <div class="mt-14 text-center" data-animate="fade-in">
+        <a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 font-extrabold">
           ปรึกษาแผนการเรียนส่วนตัว
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
@@ -645,8 +392,7 @@
   </section>
 
 
-
-  <!-- TEAM (kept simple, but modern cards) -->
+  <!-- TEAM -->
   <section id="team" class="py-24 bg-[color:var(--bg-soft)] border-y border-slate-200/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
@@ -655,7 +401,6 @@
       </div>
 
       <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Card template -->
         <div class="card overflow-hidden">
           <div class="relative h-72">
             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=900" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="">
@@ -711,8 +456,8 @@
     </div>
   </section>
 
-  <!-- BLOG (kept your structure, modernized cards) -->
-  <section id="blog" class="py-24">
+  <!-- BLOG -->
+  <!-- <section id="blog" class="py-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
         <div>
@@ -766,7 +511,28 @@
         </article>
       </div>
     </div>
+  </section> -->
+  <!-- BLOG -->
+  <section id="blog" class="py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+        <div>
+          <h2 class="serif text-4xl text-[color:var(--navy)]">คลังความรู้และบทความ</h2>
+          <p class="mt-3 text-slate-500">เจาะลึกกลยุทธ์การสอบและแนวทางการเข้ามหาวิทยาลัยชั้นนำ</p>
+        </div>
+        <a href="https://intsightedu.com/blog" class="font-extrabold text-[color:var(--navy)] hover:text-slate-500 transition">
+          ดูบทความทั้งหมด →
+        </a>
+      </div>
+
+      <!-- dynamic blog grid -->
+      <div id="blogGrid" class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <!-- optional: loading / error -->
+      <div id="blogStatus" class="mt-6 text-sm text-slate-500"></div>
+    </div>
   </section>
+
 
   <!-- FOOTER -->
   <footer id="contact" class="text-white pb-24" style="background: linear-gradient(135deg, #002a5c, #071a38);">
@@ -819,6 +585,7 @@
       </div>
     </div>
   </footer>
+
   <!-- Sticky LINE Floating Button -->
   <a
     class="line-float"
@@ -829,7 +596,6 @@
     data-animate="zoom-in"
   >
     <span class="line-badge" aria-hidden="true">
-      <!-- LINE icon (simple chat bubble) -->
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 3C6.477 3 2 6.582 2 11c0 2.62 1.6 4.95 4.1 6.43V21l3.14-1.72c.88.2 1.82.31 2.76.31 5.523 0 10-3.582 10-8s-4.477-8-10-8zm-4 9a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2z"/>
       </svg>
@@ -840,27 +606,7 @@
     </span>
   </a>
 
-  <script>
-    (function () {
-      const els = document.querySelectorAll("[data-animate]");
-      if (!("IntersectionObserver" in window) || els.length === 0) {
-        els.forEach(el => el.classList.add("in-view"));
-        return;
-      }
-
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
-
-      els.forEach(el => io.observe(el));
-    })();
-  </script>
-
-
+  <!-- Shared JS -->
+  <script src="assets/js/intsight.js"></script>
 </body>
 </html>

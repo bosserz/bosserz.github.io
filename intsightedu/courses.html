@@ -15,68 +15,104 @@
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <!-- Shared Global CSS -->
-  <link rel="stylesheet" href="./assets/css/intsight.css">
+  <link rel="stylesheet" href="assets/css/intsight.css">
 </head>
 
-<body class="bg-white text-slate-800" x-data="{ mobile:false, tab:'private' }">
+<body class="antialiased"
+  x-data="{ mobileMenu:false }"
+>
 
   <!-- NAV -->
-  <nav class="fixed w-full z-50 glass-nav">
+  <nav class="fixed inset-x-0 top-0 z-50 glass">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-20 items-center">
-        <a href="/intsightedu" class="flex items-center gap-3">
-          <img src="logo-1.png" alt="Intsight Education" class="h-10">
-        </a>
+      <div class="h-20 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="logo-1.png" alt="Intsight Education" class="h-10 w-auto" />
+        </div>
 
-        <div class="hidden md:flex gap-8 items-center">
-          <a href="about.html" class="text-sm font-semibold hover:text-brand-navy transition">About</a>
-          <a href="courses.html" class="text-sm font-semibold hover:text-brand-navy transition">Courses</a>
-          <a href="/#blog" class="text-sm font-semibold hover:text-brand-navy transition">Blog</a>
-          <a href="#enroll" class="bg-brand-navy text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-opacity-90 transition">
+        <div class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Home</a>
+          <a href="about.html" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">About</a>
+          <a href="courses.html" class="text-sm font-semibold text-[color:var(--navy)] transition">Courses</a>
+          <a href="index.html#blog" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Blog</a>
+          <a href="index.html#team" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Team</a>
+
+          <a href="#enroll" class="btn-primary px-6 py-3 text-sm font-bold">
             สมัครเรียน
           </a>
         </div>
 
-        <button class="md:hidden text-brand-navy" @click="mobile=!mobile" aria-label="Open menu">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <button class="md:hidden p-2" @click="mobileMenu = !mobileMenu" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[color:var(--navy)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
       </div>
     </div>
 
-    <div x-show="mobile" x-transition class="md:hidden bg-white border-t border-slate-100 p-4 space-y-4">
-      <a href="/#about" @click="mobile=false" class="block text-base font-semibold">About</a>
-      <a href="/#courses" @click="mobile=false" class="block text-base font-semibold">Courses</a>
-      <a href="/#blog" @click="mobile=false" class="block text-base font-semibold">Blog</a>
-      <a href="/about.html" @click="mobile=false" class="block text-base font-semibold">Company</a>
-      <a href="#enroll" @click="mobile=false" class="block text-base font-bold text-brand-navy">สมัครเรียน</a>
+    <!-- Mobile Drawer -->
+    <div x-show="mobileMenu" x-transition class="md:hidden border-t border-slate-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-5 space-y-3">
+        <a href="index.html" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">หน้าแรก</a>
+        <a href="about.html" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">เกี่ยวกับเรา</a>
+        <a href="courses.html" @click="mobileMenu=false" class="block py-2 font-semibold text-[color:var(--navy)]">คอร์สเรียน</a>
+        <a href="index.html#blog" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">บทความ</a>
+        <a href="index.html#team" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">ทีมผู้สอน</a>
+
+        <a href="#enroll" @click="mobileMenu=false" class="btn-primary inline-flex items-center justify-center w-full px-6 py-3 font-bold">
+          สมัครเรียน
+        </a>
+      </div>
     </div>
   </nav>
 
-  <br>
-  <br>
+  <!-- HERO / PAGE HEADER -->
+  <section class="pt-28 lg:pt-36 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center" data-animate="fade-up">
+        <div class="inline-flex items-center gap-2 chip chip-soft text-[color:var(--navy)]">
+          Our Courses
+        </div>
+        <h1 class="serif mt-6 text-4xl lg:text-6xl leading-[1.1] text-[color:var(--navy)]">
+          คอร์สเรียนทั้งหมด
+        </h1>
+        <p class="mt-4 text-slate-600 text-lg max-w-3xl mx-auto leading-relaxed">
+          เลือกคอร์สที่เหมาะกับเป้าหมาย แล้วให้ทีม Intsight ช่วยจัดแผนแบบ Private ให้ “ตรงเดดไลน์” และ “ตรงจุดอ่อน”
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="#private" class="btn-primary px-8 py-4 text-base font-bold inline-flex items-center justify-center">
+            Standard Courses
+          </a>
+          <a href="#featured" class="btn-secondary px-8 py-4 text-base font-bold inline-flex items-center justify-center">
+            Featured Course
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FEATURED COURSE -->
-  <section id="featured" class="section bg-white">
+  <section id="featured" class="pb-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-14" data-animate>
-        <h2 class="serif-heading text-4xl text-brand-navy mb-4">Featured Course</h2>
+      <div class="text-center mb-14" data-animate="fade-up">
+        <h2 class="serif text-4xl lg:text-5xl text-[color:var(--navy)] mb-4">Featured Course</h2>
         <p class="text-slate-500 max-w-3xl mx-auto">
           คอร์สเข้มข้น “เร่งคะแนน” สำหรับช่วงเวลาจำกัด เน้นกลยุทธ์ข้อสอบและการทำโจทย์จริงแบบเข้ม
         </p>
       </div>
 
-      <div class="grid lg:grid-cols-12 gap-8 items-stretch" data-animate>
-        <div class="lg:col-span-7 surface p-10 card-shadow hover-lift">
+      <div class="grid lg:grid-cols-12 gap-8 items-stretch" data-animate="fade-up">
+        <!-- Main featured card -->
+        <div class="lg:col-span-7 card p-8 sm:p-10">
           <div class="flex flex-wrap items-center gap-2 mb-5">
-            <span class="badge badge-blue">SAT</span>
-            <span class="badge badge-soft">Turbo</span>
-            <span class="badge badge-open">Full / Limited Seats</span>
+            <span class="chip chip-blue">SAT</span>
+            <span class="chip chip-soft">Turbo</span>
+            <span class="chip badge-open">Full / Limited Seats</span>
           </div>
 
-          <h3 class="text-3xl font-bold text-slate-900 mb-4">SAT Math Turbo</h3>
+          <h3 class="text-3xl font-extrabold text-slate-900 mb-4">SAT Math Turbo</h3>
           <p class="text-slate-600 leading-relaxed">
             คอร์ส SAT Math แบบเข้มข้นสำหรับผู้ที่ต้องการอัปคะแนนเร็ว
             เน้น <span class="font-semibold">ทุก Topic + Trick สำคัญ</span> พร้อมแนวข้อสอบอัปเดต
@@ -84,28 +120,30 @@
           </p>
 
           <div class="mt-6 grid sm:grid-cols-3 gap-4">
-            <div class="surface-soft p-4">
+            <div class="card p-4 bg-[color:var(--bg-soft)]">
               <p class="text-xs text-slate-500">Format</p>
-              <p class="font-bold text-slate-900">Private 20 hrs</p>
+              <p class="font-extrabold text-slate-900">Private 20 hrs</p>
             </div>
-            <div class="surface-soft p-4">
+            <div class="card p-4 bg-[color:var(--bg-soft)]">
               <p class="text-xs text-slate-500">Focus</p>
-              <p class="font-bold text-slate-900">Speed + Accuracy</p>
+              <p class="font-extrabold text-slate-900">Speed + Accuracy</p>
             </div>
-            <div class="surface-soft p-4">
+            <div class="card p-4 bg-[color:var(--bg-soft)]">
               <p class="text-xs text-slate-500">Tools</p>
-              <p class="font-bold text-slate-900">Desmos Strategy</p>
+              <p class="font-extrabold text-slate-900">Desmos Strategy</p>
             </div>
           </div>
 
           <div class="mt-8 flex flex-col sm:flex-row gap-4">
-            <a href="/courses/sat-math-turbo.html" class="btn btn-primary">
+            <a href="courses/sat-math-turbo.html" class="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 font-bold">
               ดูรายละเอียด SAT Math Turbo
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
               </svg>
             </a>
-            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี / เช็คที่นั่ง</a>
+            <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">
+              ปรึกษาฟรี / เช็คที่นั่ง
+            </a>
           </div>
 
           <p class="mt-6 text-xs text-slate-500">
@@ -113,26 +151,27 @@
           </p>
         </div>
 
-        <div class="lg:col-span-5 surface-soft p-10 hover-lift">
-          <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-3">Why Featured?</p>
+        <!-- Why featured card -->
+        <div class="lg:col-span-5 card p-8 sm:p-10 bg-[color:var(--bg-soft)]">
+          <p class="text-xs font-extrabold tracking-widest uppercase text-slate-400 mb-3">Why Featured?</p>
           <ul class="space-y-3 text-sm text-slate-700">
             <li class="flex gap-3">
-              <span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>
-              ออกแบบสำหรับ “ช่วงเวลาจำกัด” เน้นหัวข้อทำคะแนนสูง (High-ROI)
+              <span class="mt-2 w-2 h-2 rounded-full bg-[color:var(--navy)]"></span>
+              ออกแบบสำหรับ "ช่วงเวลาจำกัด" เน้นหัวข้อทำคะแนนสูง (High-ROI)
             </li>
             <li class="flex gap-3">
-              <span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>
+              <span class="mt-2 w-2 h-2 rounded-full bg-[color:var(--navy)]"></span>
               ฝึกทำโจทย์เข้มข้น พร้อมเทคนิคตัดช้อยส์และจัดลำดับทำข้อ
             </li>
             <li class="flex gap-3">
-              <span class="mt-2 w-2 h-2 rounded-full bg-brand-navy"></span>
+              <span class="mt-2 w-2 h-2 rounded-full bg-[color:var(--navy)]"></span>
               วางระบบ error log ช่วยลดพลาดซ้ำ (careless / concept / time)
             </li>
           </ul>
 
-          <div class="mt-8 surface p-6">
-            <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Best fit</p>
-            <p class="font-bold text-slate-900">พื้นฐานพอมีแล้ว + ต้องการเร่งคะแนน</p>
+          <div class="mt-8 card p-6 bg-white">
+            <p class="text-xs font-extrabold tracking-widest uppercase text-slate-400 mb-2">Best fit</p>
+            <p class="font-extrabold text-slate-900">พื้นฐานพอมีแล้ว + ต้องการเร่งคะแนน</p>
             <p class="text-sm text-slate-600 mt-2">
               ถ้ายังไม่แน่ใจพื้นฐาน แนะนำเริ่มจาก Private SAT Math ปกติ แล้วค่อยเข้าสู่ Turbo
             </p>
@@ -143,130 +182,131 @@
     </div>
   </section>
 
-  <!-- PRIVATE COURSES GRID -->
-  <section id="private" class="section bg-soft border-y border-slate-100">
+  <!-- STANDARD COURSES GRID -->
+  <section id="private" class="py-24 bg-[color:var(--bg-soft)] border-y border-slate-200/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center mb-14" data-animate>
-        <h2 class="serif-heading text-4xl text-brand-navy mb-4">Private Courses (All)</h2>
+      <div class="text-center mb-14" data-animate="fade-up">
+        <h2 class="serif text-4xl lg:text-5xl text-[color:var(--navy)] mb-4">Standard Courses (All)</h2>
         <p class="text-slate-500 max-w-3xl mx-auto">
           เลือกคอร์สที่ใช่ แล้วจัดแผนตามเป้าหมายของผู้เรียน (สามารถเรียนเดี่ยว หรือผสมเป็นแผนยื่นมหาวิทยาลัยได้)
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-animate>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-animate="fade-up">
 
         <!-- GED -->
-        <article class="surface p-8 card-shadow hover-lift">
+        <article class="card p-8">
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="badge badge-blue">GED</span>
-            <span class="badge badge-soft">Private</span>
+            <span class="chip chip-blue">GED</span>
+            <span class="chip chip-soft">Private</span>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Private GED</h3>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-2">GED</h3>
           <p class="text-sm text-slate-600 leading-relaxed mb-6">
             เลือกแพ็กเกจตามพื้นฐาน (60/100 ชั่วโมง) เน้นทำคะแนนจริงด้วย Diagnostic + Plan + Practice + Review
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/courses/private-ged.html" class="btn btn-primary">ดูรายละเอียด</a>
-            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+            <a href="courses/ged.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
 
         <!-- SAT Math -->
-        <article class="surface p-8 card-shadow hover-lift">
+        <article class="card p-8">
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="badge badge-blue">SAT</span>
-            <span class="badge badge-soft">Math</span>
+            <span class="chip chip-blue">SAT</span>
+            <span class="chip chip-soft">Math</span>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Private SAT Math</h3>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-2">Private SAT Math</h3>
           <p class="text-sm text-slate-600 leading-relaxed mb-6">
             ปูพื้น/เก็บคะแนนตามหัวข้อ + ฝึกข้อสอบแบบจับเวลา พร้อมเทคนิค Desmos และ error log ลดพลาดซ้ำ
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/courses/private-sat-math.html" class="btn btn-primary">ดูรายละเอียด</a>
-            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+            <a href="courses/sat-math.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
 
         <!-- SAT Verbal -->
-        <article class="surface p-8 card-shadow hover-lift">
+        <article class="card p-8">
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="badge badge-blue">SAT</span>
-            <span class="badge badge-soft">Verbal</span>
+            <span class="chip chip-blue">SAT</span>
+            <span class="chip chip-soft">Verbal</span>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">Private SAT Verbal</h3>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-2">Private SAT Verbal</h3>
           <p class="text-sm text-slate-600 leading-relaxed mb-6">
             Reading & Writing แบบใหม่ เน้น grammar ที่ออกบ่อย, rhetoric, และกลยุทธ์ทำข้อให้เร็วและแม่น
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/courses/private-sat-verbal.html" class="btn btn-primary">ดูรายละเอียด</a>
-            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+            <!-- NOTE: fix your link (was sat-math.html in your original) -->
+            <a href="courses/sat-verbal.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
 
         <!-- IGCSE -->
-        <article class="surface p-8 card-shadow hover-lift">
+        <article class="card p-8">
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="badge badge-blue">IGCSE</span>
-            <span class="badge badge-soft">Private 1:1</span>
+            <span class="chip chip-blue">IGCSE</span>
+            <span class="chip chip-soft">Private 1:1</span>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">IGCSE Private Tutoring</h3>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-2">IGCSE Private Tutoring</h3>
           <p class="text-sm text-slate-600 leading-relaxed mb-6">
             ปรับตามบอร์ด (Cambridge/Edexcel/AQA) และวิชาที่เรียนจริง เน้น past papers + mark scheme
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/courses/igcse-private.html" class="btn btn-primary">ดูรายละเอียด</a>
-            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+            <a href="courses/igcse.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
 
         <!-- IELTS -->
-        <article class="surface p-8 card-shadow hover-lift">
+        <article class="card p-8">
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="badge badge-blue">IELTS</span>
-            <span class="badge badge-soft">Private</span>
+            <span class="chip chip-blue">IELTS</span>
+            <span class="chip chip-soft">Private</span>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">IELTS (Private)</h3>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-2">IELTS (Private)</h3>
           <p class="text-sm text-slate-600 leading-relaxed mb-6">
             เตรียมครบ 4 ทักษะ Listening/Reading/Writing/Speaking เน้น band strategies + feedback แบบละเอียด
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/courses/ielts-private.html" class="btn btn-primary">ดูรายละเอียด</a>
-            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+            <a href="courses/ielts.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
 
         <!-- CU-ATS -->
-        <article class="surface p-8 card-shadow hover-lift">
+        <article class="card p-8">
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="badge badge-blue">CU-ATS</span>
-            <span class="badge badge-soft">Aptitude</span>
+            <span class="chip chip-blue">CU-ATS</span>
+            <span class="chip chip-soft">Aptitude</span>
           </div>
-          <h3 class="text-xl font-bold text-slate-900 mb-2">CU-ATS Prep</h3>
+          <h3 class="text-xl font-extrabold text-slate-900 mb-2">CU-ATS Prep</h3>
           <p class="text-sm text-slate-600 leading-relaxed mb-6">
             เตรียมสอบ CU-ATS เน้นข้อสอบจริง + reasoning + time management พร้อม mock และ error log
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/courses/cu-ats.html" class="btn btn-primary">ดูรายละเอียด</a>
-            <a href="#enroll" class="btn btn-outline">ปรึกษาฟรี</a>
+            <a href="courses/cu-ats.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
 
       </div>
 
-      <div class="mt-12 surface p-8 card-shadow" data-animate>
+      <div class="mt-12 card p-8" data-animate="fade-up">
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div>
-            <p class="text-xs font-bold tracking-widest uppercase text-slate-400 mb-2">Need a combined plan?</p>
-            <h3 class="text-2xl font-bold text-slate-900">อยากจัด “แผนยื่นมหาวิทยาลัย” แบบรวมหลายคอร์ส?</h3>
+            <p class="text-xs font-extrabold tracking-widest uppercase text-slate-400 mb-2">Need a combined plan?</p>
+            <h3 class="text-2xl font-extrabold text-slate-900">อยากจัด “แผนยื่นมหาวิทยาลัย” แบบรวมหลายคอร์ส?</h3>
             <p class="text-slate-600 mt-2">
               เราช่วยวางแผนลำดับการเรียน (เช่น IELTS + SAT + Admissions) ให้เหมาะกับเดดไลน์และเป้าหมายได้
             </p>
           </div>
-          <a href="#enroll" class="btn btn-primary">
+          <a href="#enroll" class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 font-extrabold">
             ขอแผนเรียนส่วนตัวผ่าน LINE
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
             </svg>
           </a>
         </div>
@@ -276,28 +316,28 @@
   </section>
 
   <!-- FAQ -->
-  <section class="section bg-white" x-data="{ open: 1 }">
+  <section class="py-24" x-data="{ open: 1 }">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12" data-animate>
-        <h2 class="serif-heading text-4xl text-brand-navy mb-4">คำถามที่พบบ่อย</h2>
+      <div class="text-center mb-12" data-animate="fade-up">
+        <h2 class="serif text-4xl lg:text-5xl text-[color:var(--navy)] mb-4">คำถามที่พบบ่อย</h2>
         <p class="text-slate-500">เกี่ยวกับคอร์ส Private และ Featured Course</p>
       </div>
 
-      <div class="space-y-4" data-animate>
-        <div class="surface p-6">
+      <div class="space-y-4" data-animate="fade-up">
+        <div class="card p-6">
           <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===1 ? 0 : 1)">
-            <span class="font-bold text-slate-900">Private 1:1 เลือกเวลาเรียนเองได้ไหม?</span>
-            <span class="text-slate-400 font-bold" x-text="open===1 ? '–' : '+'"></span>
+            <span class="font-extrabold text-slate-900">Private 1:1 เลือกเวลาเรียนเองได้ไหม?</span>
+            <span class="text-slate-400 font-extrabold" x-text="open===1 ? '–' : '+'"></span>
           </button>
           <div x-show="open===1" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
             ได้ครับ/ค่ะ — ผู้เรียนสามารถเลือกวัน/เวลาได้ตามตารางของตัวเอง และทีมงานจะช่วยจัดแผนให้เหมาะกับวันสอบหรือเดดไลน์
           </div>
         </div>
 
-        <div class="surface p-6">
+        <div class="card p-6">
           <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===2 ? 0 : 2)">
-            <span class="font-bold text-slate-900">ควรเริ่มจาก Private ปกติ หรือเข้า Featured (Turbo) เลย?</span>
-            <span class="text-slate-400 font-bold" x-text="open===2 ? '–' : '+'"></span>
+            <span class="font-extrabold text-slate-900">ควรเริ่มจาก Private ปกติ หรือเข้า Featured (Turbo) เลย?</span>
+            <span class="text-slate-400 font-extrabold" x-text="open===2 ? '–' : '+'"></span>
           </button>
           <div x-show="open===2" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
             ถ้าพื้นฐานพอมีและใกล้สอบ แนะนำ Featured (Turbo) เพื่อเร่งคะแนน
@@ -305,10 +345,10 @@
           </div>
         </div>
 
-        <div class="surface p-6">
+        <div class="card p-6">
           <button class="w-full text-left flex justify-between items-center gap-4" @click="open = (open===3 ? 0 : 3)">
-            <span class="font-bold text-slate-900">ต้องเตรียมอะไรบ้างก่อนเริ่มเรียน?</span>
-            <span class="text-slate-400 font-bold" x-text="open===3 ? '–' : '+'"></span>
+            <span class="font-extrabold text-slate-900">ต้องเตรียมอะไรบ้างก่อนเริ่มเรียน?</span>
+            <span class="text-slate-400 font-extrabold" x-text="open===3 ? '–' : '+'"></span>
           </button>
           <div x-show="open===3" x-transition class="mt-3 text-sm text-slate-600 leading-relaxed">
             ส่งได้เลย: เป้าหมาย (ยื่นที่ไหน/คณะอะไร), วันสอบ/เดดไลน์, คะแนนเดิม (ถ้ามี), และเวลาที่สะดวกเรียน
@@ -319,72 +359,84 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section bg-soft border-t border-slate-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
-      <h2 class="serif-heading text-4xl text-brand-navy mb-6">เลือกคอร์ส แล้วเริ่มได้เลย</h2>
+  <!-- CTA / ENROLL -->
+  <section id="enroll" class="py-24 bg-[color:var(--bg-soft)] border-t border-slate-200/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate="fade-up">
+      <h2 class="serif text-4xl lg:text-5xl text-[color:var(--navy)] mb-6">เลือกคอร์ส แล้วเริ่มได้เลย</h2>
       <p class="text-slate-600 mb-10">
         แจ้งคอร์สที่สนใจ + เป้าหมาย + วันสอบ แล้วให้ทีม Intsight จัดแผนเรียนแบบ Private ให้ตรงที่สุด
       </p>
-      <a href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+      <a href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer"
+        class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-3 font-bold">
         ปรึกษาฟรีผ่าน LINE
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 0 010-1.414z" clip-rule="evenodd" />
+          <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
         </svg>
       </a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-brand-navy text-white pt-16 pb-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-10 mb-12">
-        <div>
-          <img src="logo-2.png" alt="Intsight" class="h-10 mb-4">
-          <p class="text-white/70 text-sm leading-relaxed">
-            Insight | Intelligence | International Excellence
-          </p>
+  <footer class="text-white pb-24" style="background: linear-gradient(135deg, #002a5c, #071a38);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-4">
+          <img src="logo-2.png" alt="Intsight Education" class="h-10 w-auto" />
+          <p class="mt-4 text-white/70 text-sm leading-relaxed">Insight • Intelligence • International Excellence</p>
+
+          <div class="mt-6">
+            <a href="courses.html" class="btn-primary inline-flex px-6 py-3 font-extrabold">ดูคอร์ส & สมัครเรียน</a>
+          </div>
         </div>
-        <div>
-          <h5 class="font-bold mb-4">คอร์ส</h5>
-          <ul class="space-y-3 text-sm text-white/70">
-            <li><a href="/#courses" class="hover:text-white">SAT</a></li>
-            <li><a href="/#courses" class="hover:text-white">GED</a></li>
-            <li><a href="/#courses" class="hover:text-white">IELTS</a></li>
-            <li><a href="/#courses" class="hover:text-white">IGCSE</a></li>
-            <li><a href="/#courses" class="hover:text-white">CU-ATS</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="font-bold mb-4">บริษัท</h5>
-          <ul class="space-y-3 text-sm text-white/70">
-            <li><a href="/about.html" class="hover:text-white">เกี่ยวกับเรา</a></li>
-            <li><a href="/#team" class="hover:text-white">ทีมผู้สอน</a></li>
-            <li><a href="/#blog" class="hover:text-white">บทความ</a></li>
-            <li><a href="/#contact" class="hover:text-white">ติดต่อ</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5 class="font-bold mb-4">ติดต่อ</h5>
-          <ul class="space-y-3 text-sm text-white/70">
-            <li>contact@intsightedu.com</li>
-            <li>Bangkok, Thailand</li>
-            <li>LINE: @YOUR_LINE_OA</li>
-          </ul>
+
+        <div class="lg:col-span-8 grid sm:grid-cols-3 gap-8">
+          <div>
+            <h4 class="font-extrabold mb-4">หลักสูตร</h4>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li><a href="courses.html" class="hover:text-white transition">Academic Mentoring</a></li>
+              <li><a href="courses.html" class="hover:text-white transition">University Admissions</a></li>
+              <li><a href="courses.html" class="hover:text-white transition">IB/A-Level Bootcamps</a></li>
+              <li><a href="courses.html" class="hover:text-white transition">SAT & IELTS Mastery</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-extrabold mb-4">บริษัท</h4>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li><a href="about.html" class="hover:text-white transition">เกี่ยวกับเรา</a></li>
+              <li><a href="index.html#team" class="hover:text-white transition">ทีมงาน</a></li>
+              <li><a href="#" class="hover:text-white transition">ข้อตกลงการใช้งาน</a></li>
+              <li><a href="#" class="hover:text-white transition">นโยบายความเป็นส่วนตัว</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-extrabold mb-4">ติดต่อเรา</h4>
+            <ul class="space-y-3 text-sm text-white/70">
+              <li>contact@intsightedu.com</li>
+              <li>1 ซอยริมคลองพระโขนง แขวงพระโขนงเหนือ เขตวัฒนา กรุงเทพฯ 10110</li>
+              <li>+66 2 123 4567</li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="pt-8 border-t border-white/10 text-xs text-white/50 flex flex-col md:flex-row justify-between items-center">
-        <p>© 2026 Intsight Education. All rights reserved.</p>
+      <div class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-white/55">
+        <p>&copy; 2025 Intsight Education. สงวนลิขสิทธิ์.</p>
         <p class="mt-3 md:mt-0 italic">Cultivating Insight, Inspiring Future.</p>
       </div>
     </div>
   </footer>
 
   <!-- Sticky LINE Floating Button -->
-  <a class="line-float" href="https://line.me/R/ti/p/@YOUR_LINE_OA" target="_blank" rel="noopener noreferrer" aria-label="Chat on LINE" data-animate="zoom-in">
+  <a class="line-float"
+     href="https://line.me/R/ti/p/@YOUR_LINE_OA"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat on LINE"
+     data-animate="zoom-in">
     <span class="line-badge" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 3C6.477 3 2 6.582 2 11c0 2.62 1.6 4.95 4.1 6.43V21l3.14-1.72c.88.2 1.82.31 2.76.31 5.523 0 10-3.582 10-8s-4.477-8-10-8zm-4 9a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2zm4 0a1 1 0 110-2 1 1 0 010 2z"/>
       </svg>
     </span>
@@ -394,26 +446,8 @@
     </span>
   </a>
 
-  <!-- On-scroll animation script -->
-  <script>
-    (function () {
-      const els = document.querySelectorAll("[data-animate]");
-      if (!("IntersectionObserver" in window) || els.length === 0) {
-        els.forEach(el => el.classList.add("in-view"));
-        return;
-      }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
-
-      els.forEach(el => io.observe(el));
-    })();
-  </script>
+  <!-- Shared JS -->
+  <script src="assets/js/intsight.js"></script>
 
 </body>
 </html>
