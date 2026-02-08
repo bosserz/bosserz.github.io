@@ -8,53 +8,53 @@ function intsightHome() {
   return {
     mobileMenu: false,
     courseFilter: "all",
-    courses: [
-      {
-        id: 1,
-        type: "group",
-        tag: "Test Prep",
-        sub: "Standardized",
-        title: "SAT Digital Mastery: Intensive Course",
-        desc: "เจาะลึกเทคนิคการทำข้อสอบ SAT Digital ทั้งส่วน Reading & Writing และ Math ครบทุกหัวข้อ",
-        hours: "48 Hours",
-        start: "Starts Feb 15",
-        badge: "Open for Enrollment",
-        img: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=1200",
-      },
-      {
-        id: 2,
-        type: "group",
-        tag: "IELTS",
-        sub: "English",
-        title: "IELTS Academic: Band 7.5 Strategy",
-        desc: "คอร์สเน้นกลยุทธ์ทำคะแนน IELTS สำหรับยื่นคณะอินเตอร์ จุฬาฯ และธรรมศาสตร์ โดยเฉพาะ",
-        hours: "32 Hours",
-        start: "Starts Mar 01",
-        badge: "Fast Track",
-        img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1200",
-      },
-      {
-        id: 3,
-        type: "private",
-        tag: "IB Diploma",
-        sub: "Internal Assessment",
-        title: "IB Economics & Math AA HL Bootcamp",
-        desc: "ติวเข้มโค้งสุดท้ายก่อนสอบและ Workshop การเขียน IA สำหรับนักเรียน IB Year 13",
-        hours: "24 Hours",
-        start: "Starts Mar 10",
-        badge: "Open for Enrollment",
-        img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=1200",
-      },
-    ],
+    courses: [],
+    coursesLoaded: false,
+
+    async init() {
+      await this.loadCourses();
+      initScrollAnimations();
+    },
+
+    async loadCourses() {
+      const courseFiles = [
+        'courses/sat-math.html',
+        'courses/ged.html',
+        'courses/ielts.html',
+        'courses/igcse.html',
+        'courses/sat-math-turbo.html',
+        'courses/cu-ats.html'
+      ];
+
+      const courses = [];
+      
+      for (const file of courseFiles) {
+        try {
+          const response = await fetch(file);
+          if (!response.ok) continue;
+          
+          const html = await response.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const metadataScript = doc.getElementById('course-metadata');
+          
+          if (metadataScript) {
+            const metadata = JSON.parse(metadataScript.textContent);
+            courses.push(metadata);
+          }
+        } catch (error) {
+          console.error(`Failed to load course from ${file}:`, error);
+        }
+      }
+
+      this.courses = courses;
+      this.coursesLoaded = true;
+    },
 
     filteredCourses() {
       if (this.courseFilter === "all") return this.courses;
       return this.courses.filter((x) => x.type === this.courseFilter);
-    },
-
-    init() {
-      initScrollAnimations();
-    },
+    }
   };
 }
 
@@ -265,35 +265,148 @@ function renderSuccessStories({
   }).join("");
 }
 
+// Team Members Renderer
+function renderTeamMembers({
+  containerId = "teamGrid",
+  members = [],
+} = {}) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+
+  const escapeHtml = (s) =>
+    String(s ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+  el.innerHTML = members.map((member, idx) => {
+    const name = escapeHtml(member.name);
+    const role = escapeHtml(member.role);
+    const education = escapeHtml(member.education);
+    const photo = escapeHtml(member.photo);
+
+    return `
+      <article class="team-card" style="--d:${idx * 80}ms">
+        <div class="team-photo">
+          <img src="${photo}" alt="${name}" loading="lazy" />
+          <div class="team-role">
+            <span class="chip bg-white/15 text-white border border-white/20">${role}</span>
+          </div>
+        </div>
+        <div class="team-info">
+          <div class="team-name">${name}</div>
+          <div class="team-education">${education}</div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderSuccessStories({
     stories: [
       {
-        name: "น้องพี (ม.5)",
-        course: "SAT Digital",
-        tag: "Score Improvement",
-        highlightLabel: "SAT Score",
-        highlightValue: "700+ (↑120)",
-        quote: "ครูช่วยวางแผนอ่าน + ทำโจทย์รายสัปดาห์ ทำให้ทำเวลาได้ดีขึ้น",
-        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=1200",
+        name: "น้องแบม",
+        course: "GED",
+        tag: "High Score",
+        highlightLabel: "GED Total Score",
+        highlightValue: "641",
+        quote: "ครูอ้นช่วยวางแผนการเรียนและติวเข้ม ทำให้สอบผ่านด้วยคะแนนสูงกว่าที่ตั้งเป้าไว้มาก",
+        photo: "https://storage.googleapis.com/intsight-assets/web-assets/success-stories/nong_bam_ged.jpg",
       },
       {
-        name: "น้องเอ (ม.6)",
-        course: "Admissions Strategy",
-        tag: "Admission Result",
-        highlightLabel: "Admitted",
-        highlightValue: "BBA • Chulalongkorn (Inter)",
-        quote: "ช่วยวาง Portfolio และซ้อมสัมภาษณ์แบบเข้ม ทำให้มั่นใจขึ้นมาก",
-        photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1200",
+        name: "น้องเฟิร์ส",
+        course: "GED",
+        tag: "1 time pass",
+        highlightLabel: "Pass!",
+        highlightValue: "ผ่านทุกวิชาในการสอบครั้งเดียว",
+        quote: "พี่ๆ Intsight สอนดีมากค่ะ เข้าใจง่าย ทำให้สอบผ่านทุกวิชาได้ในครั้งเดียวเลย",
+        photo: "https://storage.googleapis.com/intsight-assets/web-assets/success-stories/nong_first_ged.jpg",
       },
       {
-        name: "น้องม.6 (Private)",
-        course: "IELTS Academic",
-        tag: "Band Achievement",
+        name: "น้องนน",
+        course: "Admission Prep",
+        tag: "วางแผนการเรียนทุกวิชา",
         highlightLabel: "IELTS Band",
-        highlightValue: "7.5",
-        quote: "Writing มีโครงสร้างชัด ตรวจละเอียด ทำให้คะแนนนิ่งและมั่นใจ",
-        photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=1200",
+        highlightValue: "7.0",
+        quote: "เรียนกับพี่อ้นทุกวิชา พี่ๆ ช่วยวางแผนการเรียนและติวเข้ม ทำให้สอบติดคณะที่ต้องการได้สำเร็จ",
+        photo: "https://storage.googleapis.com/intsight-assets/web-assets/success-stories/nong_non_ged.jpg",
+      },
+      {
+        name: "น้องแบม",
+        course: "GED",
+        tag: "High Score",
+        highlightLabel: "GED Total Score",
+        highlightValue: "641",
+        quote: "ครูอ้นช่วยวางแผนการเรียนและติวเข้ม ทำให้สอบผ่านด้วยคะแนนสูงกว่าที่ตั้งเป้าไว้มาก",
+        photo: "https://storage.googleapis.com/intsight-assets/web-assets/success-stories/nong_bam_ged.jpg",
+      },
+      {
+        name: "น้องเฟิร์ส",
+        course: "GED",
+        tag: "1 time pass",
+        highlightLabel: "Pass!",
+        highlightValue: "ผ่านทุกวิชาในการสอบครั้งเดียว",
+        quote: "พี่ๆ Intsight สอนดีมากค่ะ เข้าใจง่าย ทำให้สอบผ่านทุกวิชาได้ในครั้งเดียวเลย",
+        photo: "https://storage.googleapis.com/intsight-assets/web-assets/success-stories/nong_first_ged.jpg",
+      },
+      {
+        name: "น้องนน",
+        course: "Admission Prep",
+        tag: "วางแผนการเรียนทุกวิชา",
+        highlightLabel: "IELTS Band",
+        highlightValue: "7.0",
+        quote: "เรียนกับพี่อ้นทุกวิชา พี่ๆ ช่วยวางแผนการเรียนและติวเข้ม ทำให้สอบติดคณะที่ต้องการได้สำเร็จ",
+        photo: "https://storage.googleapis.com/intsight-assets/web-assets/success-stories/nong_non_ged.jpg",
+      },
+    ],
+  });
+
+  renderTeamMembers({
+    members: [
+      {
+        name: "Kru Aon",
+        role: "Lead Academic Advisor",
+        education: "MS, Chulalongkorn",
+        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=900",
+      },
+      {
+        name: "Kru Boss",
+        role: "Senior Math Mentor",
+        education: "MSc, Georgia Tech",
+        photo: "https://intsightedu.com/wp-content/uploads/2023/10/k-boss.png",
+      },
+      {
+        name: "ครูเง็ก",
+        role: "IGCSE & Business Mentor",
+        education: "Msc, Warwick",
+        photo: "https://intsightedu.com/wp-content/uploads/2023/10/k-name.jpeg",
+      },
+      {
+        name: "Kru Nicky",
+        role: "English Mentor",
+        education: "MS, Where",
+        photo: "https://intsightedu.com/wp-content/uploads/2023/10/k-nicky.jpg",
+      },
+      {
+        name: "ครูนัท",
+        role: "Physics Mentor",
+        education: "BEng. Chulalongkorn",
+        photo: "https://intsightedu.com/wp-content/uploads/2023/10/k-nut.jpg",
+      },
+      {
+        name: "ครูดาด้า",
+        role: "Chemistry Mentor",
+        education: "BSc, Thammasat",
+        photo: "https://intsightedu.com/wp-content/uploads/2023/10/k-dada.jpg",
+      },
+      {
+        name: "ครูสุ",
+        role: "Biology Mentor",
+        education: "University of Canberra",
+        photo: "https://intsightedu.com/wp-content/uploads/2023/10/k-sue.jpg",
       },
     ],
   });

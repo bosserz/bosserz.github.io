@@ -146,7 +146,7 @@
               <img
                 src="kru-aon.png"
                 alt="Founder"
-                class="w-full h-[520px] object-cover grayscale hover:grayscale-0 transition duration-700"
+                class="w-full h-[520px] object-cover transition duration-700"
                 style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);"
               />
               <div class="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
@@ -252,7 +252,7 @@
           </div>
           <h3 class="mt-6 text-xl font-extrabold text-slate-900">Global Curriculums</h3>
           <p class="mt-3 text-slate-500 text-sm leading-relaxed">
-            IB, A-Level, IGCSE และ GED ด้วยเทคนิคที่เน้นความเข้าใจและการประยุกต์ใช้เพื่อคะแนนสูงสุด
+            ความเข้าใจหลักสูตรทั้ง IB, A-Level, IGCSE และ GED ที่ถ่องแท้ ทำให้สามารถแนะนำได้ตรงจุด
           </p>
         </div>
 
@@ -315,7 +315,7 @@
 
       <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <template x-for="c in filteredCourses()" :key="c.id">
-          <article class="card overflow-hidden">
+          <a :href="c.url" class="card overflow-hidden block">
             <div class="relative aspect-[16/9] overflow-hidden">
               <img :src="c.img" class="w-full h-full object-cover hover:scale-105 transition duration-700" :alt="c.title">
               <div class="absolute top-4 left-4 chip badge-open" x-text="c.badge"></div>
@@ -341,12 +341,12 @@
                   </div>
                 </div>
 
-                <a href="#contact" class="font-extrabold text-[color:var(--navy)] text-sm">
-                  Enroll →
-                </a>
+                <span class="font-extrabold text-[color:var(--navy)] text-sm">
+                  Learn More →
+                </span>
               </div>
             </div>
-          </article>
+          </a>
         </template>
       </div>
 
@@ -416,9 +416,11 @@
         </p>
       </div>
 
-      <!-- Grid -->
-      <div id="successGrid" class="grid md:grid-cols-3 gap-8 stagger" data-animate="fade-up">
-        <!-- Cards will be rendered by JS -->
+      <!-- Scrollable Container -->
+      <div class="overflow-x-auto pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div id="successGrid" class="flex gap-4 stagger" data-animate="fade-up" style="min-width: min-content;">
+          <!-- Cards will be rendered by JS -->
+        </div>
       </div>
 
       <div class="mt-14 text-center" data-animate="fade-in">
@@ -441,57 +443,10 @@
         <p class="mt-3 text-slate-500">ผู้เชี่ยวชาญจากมหาวิทยาลัยชั้นนำระดับโลก ที่พร้อมจะเป็น Mentor ให้กับคุณ</p>
       </div>
 
-      <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="card overflow-hidden">
-          <div class="relative h-72">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=900" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="">
-            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-              <span class="chip bg-white/15 text-white border border-white/20">Lead Academic Advisor</span>
-            </div>
-          </div>
-          <div class="p-5">
-            <div class="font-extrabold text-slate-900">Kru Aon</div>
-            <div class="text-sm text-slate-500">MS, Chulalongkorn</div>
-          </div>
-        </div>
-
-        <div class="card overflow-hidden">
-          <div class="relative h-72">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=900" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="">
-            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-              <span class="chip bg-white/15 text-white border border-white/20">Senior Math Mentor</span>
-            </div>
-          </div>
-          <div class="p-5">
-            <div class="font-extrabold text-slate-900">Kru Boss</div>
-            <div class="text-sm text-slate-500">MSc, Georgia Tech</div>
-          </div>
-        </div>
-
-        <div class="card overflow-hidden">
-          <div class="relative h-72">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=900" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="">
-            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-              <span class="chip bg-white/15 text-white border border-white/20">Admissions Specialist</span>
-            </div>
-          </div>
-          <div class="p-5">
-            <div class="font-extrabold text-slate-900">Who Who</div>
-            <div class="text-sm text-slate-500">MA, Yale University</div>
-          </div>
-        </div>
-
-        <div class="card overflow-hidden">
-          <div class="relative h-72">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=900" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="">
-            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-              <span class="chip bg-white/15 text-white border border-white/20">Sciences Lead</span>
-            </div>
-          </div>
-          <div class="p-5">
-            <div class="font-extrabold text-slate-900">Kru Nicky</div>
-            <div class="text-sm text-slate-500">MS, Where</div>
-          </div>
+      <!-- Scrollable Container -->
+      <div class="mt-14 overflow-x-auto pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+        <div id="teamGrid" class="flex gap-4" style="min-width: min-content;">
+          <!-- Team cards will be rendered by JS -->
         </div>
       </div>
     </div>
