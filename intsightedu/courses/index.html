@@ -15,7 +15,7 @@
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <!-- Shared Global CSS -->
-  <link rel="stylesheet" href="assets/css/intsight.css">
+  <link rel="stylesheet" href="../assets/css/intsight.css">
 </head>
 
 <body class="antialiased"
@@ -27,15 +27,15 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="h-20 flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <img src="logo-1.png" alt="Intsight Education" class="h-10 w-auto" />
+          <img src="https://intsightedu.com/wp-content/uploads/2025/10/intsight-logo-web.png" alt="Intsight Education" class="h-10 w-auto" />
         </div>
 
         <div class="hidden md:flex items-center gap-8">
-          <a href="index.html" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Home</a>
-          <a href="about.html" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">About</a>
-          <a href="courses.html" class="text-sm font-semibold text-[color:var(--navy)] transition">Courses</a>
-          <a href="index.html#blog" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Blog</a>
-          <a href="index.html#team" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Team</a>
+          <a href="../index.html" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Home</a>
+          <a href="../about.html" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">About</a>
+          <a href="./" class="text-sm font-semibold text-[color:var(--navy)] transition">Courses</a>
+          <a href="../index.html#blog" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Blog</a>
+          <a href="../index.html#team" class="text-sm font-semibold text-slate-700 hover:text-[color:var(--navy)] transition">Team</a>
 
           <a href="#enroll" class="btn-primary px-6 py-3 text-sm font-bold">
             สมัครเรียน
@@ -53,11 +53,11 @@
     <!-- Mobile Drawer -->
     <div x-show="mobileMenu" x-transition class="md:hidden border-t border-slate-200 bg-white">
       <div class="max-w-7xl mx-auto px-4 py-5 space-y-3">
-        <a href="index.html" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">หน้าแรก</a>
-        <a href="about.html" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">เกี่ยวกับเรา</a>
-        <a href="courses.html" @click="mobileMenu=false" class="block py-2 font-semibold text-[color:var(--navy)]">คอร์สเรียน</a>
-        <a href="index.html#blog" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">บทความ</a>
-        <a href="index.html#team" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">ทีมผู้สอน</a>
+        <a href="../index.html" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">หน้าแรก</a>
+        <a href="../about.html" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">เกี่ยวกับเรา</a>
+        <a href="./" @click="mobileMenu=false" class="block py-2 font-semibold text-[color:var(--navy)]">คอร์สเรียน</a>
+        <a href="../index.html#blog" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">บทความ</a>
+        <a href="../index.html#team" @click="mobileMenu=false" class="block py-2 font-semibold text-slate-700">ทีมผู้สอน</a>
 
         <a href="#enroll" @click="mobileMenu=false" class="btn-primary inline-flex items-center justify-center w-full px-6 py-3 font-bold">
           สมัครเรียน
@@ -77,7 +77,7 @@
           คอร์สเรียนทั้งหมด
         </h1>
         <p class="mt-4 text-slate-600 text-lg max-w-3xl mx-auto leading-relaxed">
-          เลือกคอร์สที่เหมาะกับเป้าหมาย แล้วให้ทีม Intsight ช่วยจัดแผนแบบ Private ให้ “ตรงเดดไลน์” และ “ตรงจุดอ่อน”
+          เลือกคอร์สที่เหมาะกับเป้าหมาย แล้วให้ทีม Intsight ช่วยจัดแผนแบบ Private ให้ "ตรงเดดไลน์" และ "ตรงจุดอ่อน"
         </p>
 
         <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
@@ -99,7 +99,7 @@
       <div class="text-center mb-14" data-animate="fade-up">
         <h2 class="serif text-4xl lg:text-5xl text-[color:var(--navy)] mb-4">Featured Course</h2>
         <p class="text-slate-500 max-w-3xl mx-auto">
-          คอร์สเข้มข้น “เร่งคะแนน” สำหรับช่วงเวลาจำกัด เน้นกลยุทธ์ข้อสอบและการทำโจทย์จริงแบบเข้ม
+          คอร์สเข้มข้น "เร่งคะแนน" สำหรับช่วงเวลาจำกัด เน้นกลยุทธ์ข้อสอบและการทำโจทย์จริงแบบเข้ม
         </p>
       </div>
 
@@ -135,7 +135,7 @@
           </div>
 
           <div class="mt-8 flex flex-col sm:flex-row gap-4">
-            <a href="courses/sat-math-turbo.html" class="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 font-bold">
+            <a href="sat-math-turbo.html" class="btn-primary inline-flex items-center justify-center gap-2 px-6 py-3 font-bold">
               ดูรายละเอียด SAT Math Turbo
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
@@ -147,7 +147,7 @@
           </div>
 
           <p class="mt-6 text-xs text-slate-500">
-            * หากต้องการทำให้ “ตรงวันสอบจริง” แนะนำแจ้งวันสอบและคะแนนเป้าหมาย เพื่อจัดแผน 20 ชั่วโมงให้คุ้มที่สุด
+            * หากต้องการทำให้ "ตรงวันสอบจริง" แนะนำแจ้งวันสอบและคะแนนเป้าหมาย เพื่อจัดแผน 20 ชั่วโมงให้คุ้มที่สุด
           </p>
         </div>
 
@@ -206,7 +206,7 @@
             เลือกแพ็กเกจตามพื้นฐาน (60/100 ชั่วโมง) เน้นทำคะแนนจริงด้วย Diagnostic + Plan + Practice + Review
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="courses/ged.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="ged.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
             <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
@@ -222,7 +222,7 @@
             ปูพื้น/เก็บคะแนนตามหัวข้อ + ฝึกข้อสอบแบบจับเวลา พร้อมเทคนิค Desmos และ error log ลดพลาดซ้ำ
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="courses/sat-math.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="sat-math.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
             <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
@@ -239,7 +239,7 @@
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
             <!-- NOTE: fix your link (was sat-math.html in your original) -->
-            <a href="courses/sat-verbal.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="sat-verbal.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
             <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
@@ -255,7 +255,7 @@
             ปรับตามบอร์ด (Cambridge/Edexcel/AQA) และวิชาที่เรียนจริง เน้น past papers + mark scheme
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="courses/igcse.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="igcse.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
             <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
@@ -271,7 +271,7 @@
             เตรียมครบ 4 ทักษะ Listening/Reading/Writing/Speaking เน้น band strategies + feedback แบบละเอียด
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="courses/ielts.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="ielts.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
             <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
@@ -287,7 +287,7 @@
             เตรียมสอบ CU-ATS เน้นข้อสอบจริง + reasoning + time management พร้อม mock และ error log
           </p>
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="courses/cu-ats.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
+            <a href="cu-ats.html" class="btn-primary inline-flex items-center justify-center px-6 py-3 font-bold">ดูรายละเอียด</a>
             <a href="#enroll" class="btn-secondary inline-flex items-center justify-center px-6 py-3 font-bold">ปรึกษาฟรี</a>
           </div>
         </article>
@@ -298,7 +298,7 @@
         <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div>
             <p class="text-xs font-extrabold tracking-widest uppercase text-slate-400 mb-2">Need a combined plan?</p>
-            <h3 class="text-2xl font-extrabold text-slate-900">อยากจัด “แผนยื่นมหาวิทยาลัย” แบบรวมหลายคอร์ส?</h3>
+            <h3 class="text-2xl font-extrabold text-slate-900">อยากจัด "แผนยื่นมหาวิทยาลัย" แบบรวมหลายคอร์ส?</h3>
             <p class="text-slate-600 mt-2">
               เราช่วยวางแผนลำดับการเรียน (เช่น IELTS + SAT + Admissions) ให้เหมาะกับเดดไลน์และเป้าหมายได้
             </p>
@@ -381,11 +381,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
       <div class="grid lg:grid-cols-12 gap-10 items-start">
         <div class="lg:col-span-4">
-          <img src="logo-2.png" alt="Intsight Education" class="h-10 w-auto" />
+          <img src="../logo-2.png" alt="Intsight Education" class="h-10 w-auto" />
           <p class="mt-4 text-white/70 text-sm leading-relaxed">Insight • Intelligence • International Excellence</p>
 
           <div class="mt-6">
-            <a href="courses.html" class="btn-primary inline-flex px-6 py-3 font-extrabold">ดูคอร์ส & สมัครเรียน</a>
+            <a href="./" class="btn-primary inline-flex px-6 py-3 font-extrabold">ดูคอร์ส & สมัครเรียน</a>
           </div>
         </div>
 
@@ -393,18 +393,18 @@
           <div>
             <h4 class="font-extrabold mb-4">หลักสูตร</h4>
             <ul class="space-y-3 text-sm text-white/70">
-              <li><a href="courses.html" class="hover:text-white transition">Academic Mentoring</a></li>
-              <li><a href="courses.html" class="hover:text-white transition">University Admissions</a></li>
-              <li><a href="courses.html" class="hover:text-white transition">IB/A-Level Bootcamps</a></li>
-              <li><a href="courses.html" class="hover:text-white transition">SAT & IELTS Mastery</a></li>
+              <li><a href="./" class="hover:text-white transition">Academic Mentoring</a></li>
+              <li><a href="./" class="hover:text-white transition">University Admissions</a></li>
+              <li><a href="./" class="hover:text-white transition">IB/A-Level Bootcamps</a></li>
+              <li><a href="./" class="hover:text-white transition">SAT & IELTS Mastery</a></li>
             </ul>
           </div>
 
           <div>
             <h4 class="font-extrabold mb-4">บริษัท</h4>
             <ul class="space-y-3 text-sm text-white/70">
-              <li><a href="about.html" class="hover:text-white transition">เกี่ยวกับเรา</a></li>
-              <li><a href="index.html#team" class="hover:text-white transition">ทีมงาน</a></li>
+              <li><a href="../about.html" class="hover:text-white transition">เกี่ยวกับเรา</a></li>
+              <li><a href="../index.html#team" class="hover:text-white transition">ทีมงาน</a></li>
               <li><a href="#" class="hover:text-white transition">ข้อตกลงการใช้งาน</a></li>
               <li><a href="#" class="hover:text-white transition">นโยบายความเป็นส่วนตัว</a></li>
             </ul>
@@ -447,7 +447,7 @@
   </a>
 
   <!-- Shared JS -->
-  <script src="assets/js/intsight.js"></script>
+  <script src="../assets/js/intsight.js"></script>
 
 </body>
 </html>
