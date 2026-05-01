@@ -3,10 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>thanawit.com</title>
+        <title>Thanawit Suwannikom — Data Scientist</title>
         <link rel="shortcut icon" href="assets/page-icon.ico" />
-
-        <!-- CSS -->
         <link rel="stylesheet" href="styles.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,450 +12,247 @@
             href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
             rel="stylesheet"
         />
-
-        <!-- AOS Animation Library -->
-        <link
-            href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-            rel="stylesheet"
-        />
+        <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="page-wrapper">
-            <main class="main-layout">
-                <!-- Sidebar -->
-                <aside class="sidebar">
-                    <div class="logo">Thanawit Suwannikom</div>
-                    <div class="role">
-                        <h3>Data Scientist</h3>
-                        <!-- <p>I build data-driven solutions that transform raw information into actionable insights using machine learning and analytics.</p> -->
-                    </div>
 
-                    <nav>
-                        <ul class="nav-links">
-                            <li><a href="#about" class="nav-link">About</a></li>
-                            <li>
-                                <a href="#experience" class="nav-link"
-                                    >Experience</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#projects" class="nav-link"
-                                    >Projects</a
-                                >
-                            </li>
-                        </ul>
-                    </nav>
+        <!-- Navbar -->
+        <nav class="navbar" id="navbar">
+            <a class="nav-logo" href="#">Thanawit</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+            </ul>
+            <div class="nav-social">
+                <a href="https://github.com/bosserz" class="nav-social-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/thanawit-suwannikom" class="nav-social-link" target="_blank">LinkedIn</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
 
-                    <div class="social-icons">
-                        <a href="https://github.com/bosserz"
-                            ><img src="assets/github-icon.svg" alt="GitHub"
-                        /></a>
-                        <a href="https://rpubs.com/bosserz"
-                            ><p class="social-txt">RPub</p></a
-                        >
-                        <a
-                            href="https://www.linkedin.com/in/thanawit-suwannikom"
-                            ><img src="assets/linkedin-icon.svg" alt="LinkedIn"
-                        /></a>
-                    </div>
-                </aside>
-
-                <!-- Content Area -->
-                <div class="content">
-                    <section id="about" class="section" data-aos="fade-up">
-                        <h2 class="section-title">About Me</h2>
-                        <p>
-                            I’m a data scientist and machine learning engineer
-                            passionate about building intelligent systems that
-                            connect data to real-world impact. My work lies at
-                            the intersection of spatial analytics, machine
-                            learning, and user-centered decision
-                            support—transforming messy, complex data into models
-                            and tools that drive business and societal value.
-                        </p>
-                        <br />
-                        <p>
-                            I am currently working as a Lead Data Scientist at Central Food Group where 
-                            I am applying my skills and experience to drive data-driven decision making as well as 
-                            developing innovative machine learning solutions. 
-                            I completed a Master’s in Urban Analytics
-                            at Georgia Tech, where my research focuses on
-                            location intelligence, transportation access, and
-                            computer vision applications for urban systems.
-                            Previously, I led machine learning projects as a
-                            Senior Data Scientist at CJ Express and True Digital
-                            Group, where I developed solutions ranging from
-                            product recommendation systems to geospatial models
-                            for customer profiling and infrastructure planning.
-                        </p>
-                        <br />
-                        <p>
-                            Over the past 7+ years, I’ve worked across
-                            industries including telecom, retail, and real
-                            estate—designing ML pipelines, deploying production
-                            models, and mentoring junior teams. I’ve also
-                            created interactive data visualizations and visual
-                            storytelling projects that make complex insights
-                            more intuitive and accessible.
-                        </p>
-                        <br />
-                        <p>
-                            Whether it's optimizing mobility networks, analyzing
-                            POI accessibility, or training deep learning models
-                            to audit shelf compliance, I’m most excited when
-                            solving problems that combine domain complexity with
-                            tangible outcomes.
-                        </p>
-                    </section>
-
-                    <section id="experience" class="section" data-aos="fade-up">
-                        <h2 class="section-title">Experience</h2>
-                        <div class="experience-list">
-                            <a
-                                href="https://www.tops.co.th"
-                                target="_blank"
-                            >
-                                <div class="experience-item">
-                                    <div class="experience-header">
-                                        <span class="experience-date"
-                                            >Nov 2025 - Present</span
-                                        >
-                                        <div class="experience-title">
-                                            <h3>
-                                                Lead Data Scientist
-                                                · Central Food Group
-                                            </h3>
-                                            <div class="experience-description">
-                                                <p>
-                                                    <ul style="color: white;">
-                                                        <li>
-                                                            Design and implement cashier scheduling optimization solutions to 
-                                                    maximize sales per FTE while keeping customer wait times low at all times.
-                                                        </li>
-                                                        <li>
-                                                            Operationalize a machine learning-based demand forecasting system for promotional products,
-                                                            applying MLOps best practices to ensure reliability and scalability across 100k+ products.
-                                                        </li>
-                                                    </ul>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a
-                                href="https://resilience.research.gatech.edu/"
-                                target="_blank"
-                            >
-                                <div class="experience-item">
-                                    <div class="experience-header">
-                                        <span class="experience-date"
-                                            >May - Aug 2025</span
-                                        >
-                                        <div class="experience-title">
-                                            <h3>
-                                                Machine Learning Scientist
-                                                Intern · Center for Urban
-                                                Resilience and Analytics
-                                            </h3>
-                                            <div class="experience-description">
-                                                <p>
-                                                    Develop and deploy a
-                                                    LightGBM-based
-                                                    recommendation system for
-                                                    assistive equipment tailored
-                                                    to elderly users’
-                                                    accessibility needs,
-                                                    achieving 81% mAP; hosted on
-                                                    an on-premise server for
-                                                    secure, localized
-                                                    accessibility.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="https://www.gatech.edu/" target="_blank">
-                                <div class="experience-item">
-                                    <div class="experience-header">
-                                        <span class="experience-date"
-                                            >Aug 2024 — Apr 2025</span
-                                        >
-                                        <div class="experience-title">
-                                            <h3>
-                                                Graduate Research Assistant ·
-                                                Georgia Institute of Technology
-                                            </h3>
-                                            <div class="experience-description">
-                                                <p>
-                                                    Design and implement machine
-                                                    learning and geospatial
-                                                    models to analyze
-                                                    infrastructure access and
-                                                    urban mobility. Collaborate
-                                                    with faculty and policy
-                                                    partners on projects
-                                                    involving sidewalk quality
-                                                    detection from imagery and
-                                                    job accessibility modeling
-                                                    across U.S. states.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a
-                                href="https://www.cjexpress.co.th/"
-                                target="_blank"
-                            >
-                                <div class="experience-item">
-                                    <div class="experience-header">
-                                        <span class="experience-date"
-                                            >Apr 2023 — Jul 2024</span
-                                        >
-                                        <div class="experience-title">
-                                            <h3>
-                                                Senior Data Scientist · CJ
-                                                Express
-                                            </h3>
-                                            <div class="experience-description">
-                                                <p>
-                                                    Develop end-to-end machine
-                                                    learning solutions for
-                                                    retail optimization.
-                                                    Deployed computer vision
-                                                    models for shelf auditing
-                                                    and built customer
-                                                    segmentation with real-time
-                                                    product recommendations to
-                                                    improve marketing
-                                                    effectiveness and
-                                                    operational efficiency.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a
-                                href="https://www.truedigital.com/true-analytics/"
-                                target="_blank"
-                            >
-                                <div class="experience-item">
-                                    <div class="experience-header">
-                                        <span class="experience-date"
-                                            >Apr 2019 — Mar 2023</span
-                                        >
-                                        <div class="experience-title">
-                                            <h3>
-                                                Senior Data Scientist · True
-                                                Digital Group
-                                            </h3>
-                                            <h3 class="past-position">
-                                                Data Scientist
-                                            </h3>
-                                            <div class="experience-description">
-                                                <p>
-                                                    Led a team delivering
-                                                    large-scale analytics using
-                                                    telecom and geospatial data.
-                                                    Built a Customer360 dataset
-                                                    from 30M+ users, developed
-                                                    location recommendation
-                                                    models, and created
-                                                    real-time COVID-19 risk
-                                                    dashboards for the Ministry
-                                                    of Public Health.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a
-                                href="https://www.sansiri.com/en/"
-                                target="_blank"
-                            >
-                                <div class="experience-item">
-                                    <div class="experience-header">
-                                        <span class="experience-date"
-                                            >Oct 2017 — Mar 2019</span
-                                        >
-                                        <div class="experience-title">
-                                            <h3>
-                                                Data Scientist · Sansiri PLC.
-                                            </h3>
-                                            <div class="experience-description">
-                                                <p>
-                                                    Designed geospatial
-                                                    intelligence tools for land
-                                                    acquisition and urban
-                                                    planning. Developed semantic
-                                                    segmentation models from
-                                                    satellite imagery and
-                                                    dashboards for C-level
-                                                    executives to support
-                                                    data-driven real estate
-                                                    development decisions.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </section>
-
-                    <section id="projects" class="section" data-aos="fade-up">
-                        <h2 class="section-title">Projects</h2>
-                        <div class="project-list">
-                            <a
-                                href="https://thanawit.com/ddd-transport-tokyo-bay/"
-                                target="_blank"
-                            >
-                                <div class="project-item">
-                                    <img
-                                        src="assets/tokyo-bus.png"
-                                        alt="Autonomous Bus System"
-                                        class="project-thumb"
-                                    />
-                                    <div class="project-content">
-                                        <h3>
-                                            Data-Driven Design of Autonomous Bus
-                                            System in Tokyo Bay
-                                        </h3>
-                                        <p>
-                                            Analyzed GPS trajectory data and
-                                            applied clustering to identify trip
-                                            hotspots. Used TSP optimization to
-                                            plan routes and semantic
-                                            segmentation on Google Street View
-                                            to verify stop suitability in the
-                                            urban environment.
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a
-                                href="https://thanawit.com/projects/ImbalancedParkingAnalysis/"
-                                target="_blank"
-                            >
-                                <div class="project-item">
-                                    <img
-                                        src="assets/parking_demand.gif"
-                                        alt="Parking Demand Imbalance"
-                                        class="project-thumb"
-                                    />
-                                    <div class="project-content">
-                                        <h3>
-                                            Spatiotemporal Analysis of Parking
-                                            Demand and Supply Imbalance
-                                        </h3>
-                                        <p>
-                                            Mapped spatial-temporal parking
-                                            mismatches using the inverse 2SFCA
-                                            method. Built classification models
-                                            using satellite and street view
-                                            imagery to identify parking types
-                                            (e.g., public vs private, surface vs
-                                            multi-story).
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <div class="project-item">
-                                <img
-                                    src="assets/london-train.png"
-                                    alt="Public Transit Accessibility"
-                                    class="project-thumb"
-                                />
-                                <div class="project-content">
-                                    <h3>
-                                        Public Transit Accessibility Analysis
-                                        (London)
-                                    </h3>
-                                    <p>
-                                        Modeled multimodal accessibility to
-                                        hospitals and schools across London
-                                        using GTFS and OSM data. Identified
-                                        transit access inequities and informed
-                                        transit planning with dynamic
-                                        programming and spatial equity analysis.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <a
-                                href="https://thanawit.com/wildfire-scrollytelling/"
-                                target="_blank"
-                            >
-                                <div class="project-item">
-                                    <img
-                                        src="assets/wildfire.png"
-                                        alt="Wildfires Scrollytelling"
-                                        class="project-thumb"
-                                    />
-                                    <div class="project-content">
-                                        <h3>
-                                            Wildfires in America -
-                                            Scrollytelling
-                                        </h3>
-                                        <p>
-                                            Developed an interactive,
-                                            scroll-driven narrative that
-                                            visualizes the spread and impact of
-                                            wildfires across the U.S. Utilizing
-                                            dynamic maps and data
-                                            visualizations, offering an
-                                            immersive experience to educate
-                                            users on the frequency, scale, and
-                                            consequences of wildfires over time.
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="https://arcg.is/1nT0qq" target="_blank">
-                                <div class="project-item">
-                                    <img
-                                        src="assets/healthcare-accessibility.png"
-                                        alt="Healthcare Accessibility and Network Analysis"
-                                        class="project-thumb"
-                                    />
-                                    <div class="project-content">
-                                        <h3>
-                                            Atlanta Healthcare Accessibility and
-                                            Network Analysis
-                                        </h3>
-                                        <p>
-                                            Analyzed hospital accessibility and
-                                            optimizing healthcare facility
-                                            distribution in Atlanta using GIS
-                                            and Python.
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </section>
-
-                    <footer class="footer">
-                        <p>&copy; 2025 Thanawit Suwannikom.</p>
-                    </footer>
-                </div>
-            </main>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#about" class="mobile-nav-link">About</a></li>
+                <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+                <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+                <li><a href="https://github.com/bosserz" class="mobile-nav-link" target="_blank">GitHub</a></li>
+                <li><a href="https://rpubs.com/bosserz" class="mobile-nav-link" target="_blank">RPubs</a></li>
+                <li><a href="https://www.linkedin.com/in/thanawit-suwannikom" class="mobile-nav-link" target="_blank">LinkedIn</a></li>
+            </ul>
         </div>
 
-        <!-- AOS and Custom Scripts -->
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-eyebrow">Data Scientist &amp; ML Engineer</p>
+                <h1 class="hero-title">Thanawit<br />Suwannikom</h1>
+                <p class="hero-sub">
+                    Building intelligent systems at the intersection of<br />
+                    spatial analytics, machine learning, and real-world impact.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary">View Projects</a>
+                    <a href="#experience" class="btn-secondary">Experience</a>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span></span>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="section section-alt">
+            <div class="section-inner">
+                <p class="section-eyebrow" data-aos="fade-up">Background</p>
+                <h2 class="section-heading" data-aos="fade-up">About Me</h2>
+                <div class="about-grid" data-aos="fade-up" data-aos-delay="80">
+                    <div class="about-text">
+                        <p>
+                            I'm a data scientist and machine learning engineer
+                            passionate about building intelligent systems that connect data to
+                            real-world impact. My work lies at the intersection of spatial
+                            analytics, machine learning, and user-centered decision support—
+                            transforming messy, complex data into models and tools that drive
+                            business and societal value.
+                        </p>
+                        <p>
+                            Currently working as a Lead Data Scientist at Central Food Group,
+                            I completed a Master's in Urban Analytics at Georgia Tech, where my
+                            research focused on location intelligence, transportation access, and
+                            computer vision applications for urban systems.
+                        </p>
+                        <p>
+                            Over 7+ years across telecom, retail, and real estate—designing ML
+                            pipelines, deploying production models, and creating interactive data
+                            visualizations that make complex insights accessible and actionable.
+                        </p>
+                    </div>
+                    <div class="about-links">
+                        <a href="https://github.com/bosserz" class="about-link-item" target="_blank">
+                            <img src="assets/github-icon.svg" alt="GitHub" class="link-icon" />
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://rpubs.com/bosserz" class="about-link-item" target="_blank">
+                            <span class="link-icon link-icon-text">R</span>
+                            <span>RPubs</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/thanawit-suwannikom" class="about-link-item" target="_blank">
+                            <img src="assets/linkedin-icon.svg" alt="LinkedIn" class="link-icon" />
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="section">
+            <div class="section-inner">
+                <p class="section-eyebrow" data-aos="fade-up">Career</p>
+                <h2 class="section-heading" data-aos="fade-up">Experience</h2>
+                <div class="experience-list">
+
+                    <a href="https://www.tops.co.th" target="_blank" class="experience-card" data-aos="fade-up">
+                        <div class="exp-date">Nov 2025 — Present</div>
+                        <div class="exp-body">
+                            <h3 class="exp-role">Lead Data Scientist</h3>
+                            <p class="exp-company">Central Food Group</p>
+                            <ul class="exp-desc">
+                                <li>Design and implement cashier scheduling optimization solutions to maximize sales per FTE while keeping customer wait times low.</li>
+                                <li>Operationalize an ML-based demand forecasting system for promotional products using MLOps best practices across 100k+ products.</li>
+                            </ul>
+                        </div>
+                    </a>
+
+                    <a href="https://resilience.research.gatech.edu/" target="_blank" class="experience-card" data-aos="fade-up">
+                        <div class="exp-date">May — Aug 2025</div>
+                        <div class="exp-body">
+                            <h3 class="exp-role">Machine Learning Scientist Intern</h3>
+                            <p class="exp-company">Center for Urban Resilience and Analytics</p>
+                            <p class="exp-desc">Developed a LightGBM-based recommendation system for assistive equipment tailored to elderly users, achieving 81% mAP; hosted on-premise for secure, localized accessibility.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.gatech.edu/" target="_blank" class="experience-card" data-aos="fade-up">
+                        <div class="exp-date">Aug 2024 — Apr 2025</div>
+                        <div class="exp-body">
+                            <h3 class="exp-role">Graduate Research Assistant</h3>
+                            <p class="exp-company">Georgia Institute of Technology</p>
+                            <p class="exp-desc">Designed ML and geospatial models to analyze infrastructure access and urban mobility. Collaborated with faculty and policy partners on sidewalk quality detection and job accessibility modeling across U.S. states.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.cjexpress.co.th/" target="_blank" class="experience-card" data-aos="fade-up">
+                        <div class="exp-date">Apr 2023 — Jul 2024</div>
+                        <div class="exp-body">
+                            <h3 class="exp-role">Senior Data Scientist</h3>
+                            <p class="exp-company">CJ Express</p>
+                            <p class="exp-desc">Developed end-to-end ML solutions for retail optimization. Deployed computer vision models for shelf auditing and built customer segmentation with real-time product recommendations to improve marketing effectiveness.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.truedigital.com/true-analytics/" target="_blank" class="experience-card" data-aos="fade-up">
+                        <div class="exp-date">Apr 2019 — Mar 2023</div>
+                        <div class="exp-body">
+                            <h3 class="exp-role">Senior Data Scientist</h3>
+                            <p class="exp-company">True Digital Group</p>
+                            <p class="exp-desc">Led a team delivering large-scale analytics using telecom and geospatial data. Built a Customer360 dataset from 30M+ users, developed location recommendation models, and created real-time COVID-19 risk dashboards for the Ministry of Public Health.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.sansiri.com/en/" target="_blank" class="experience-card" data-aos="fade-up">
+                        <div class="exp-date">Oct 2017 — Mar 2019</div>
+                        <div class="exp-body">
+                            <h3 class="exp-role">Data Scientist</h3>
+                            <p class="exp-company">Sansiri PLC.</p>
+                            <p class="exp-desc">Designed geospatial intelligence tools for land acquisition and urban planning. Developed semantic segmentation models from satellite imagery and C-level dashboards for data-driven real estate development decisions.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section section-alt">
+            <div class="section-inner">
+                <p class="section-eyebrow" data-aos="fade-up">Work</p>
+                <h2 class="section-heading" data-aos="fade-up">Projects</h2>
+                <div class="project-grid">
+
+                    <a href="https://thanawit.com/ddd-transport-tokyo-bay/" target="_blank" class="project-card" data-aos="fade-up">
+                        <div class="project-img-wrap">
+                            <img src="assets/tokyo-bus.png" alt="Autonomous Bus System in Tokyo Bay" />
+                        </div>
+                        <div class="project-info">
+                            <h3>Data-Driven Design of Autonomous Bus System in Tokyo Bay</h3>
+                            <p>Analyzed GPS trajectory data and applied clustering to identify trip hotspots. Used TSP optimization and semantic segmentation on Google Street View to verify stop suitability.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://thanawit.com/projects/ImbalancedParkingAnalysis/" target="_blank" class="project-card" data-aos="fade-up">
+                        <div class="project-img-wrap">
+                            <img src="assets/parking_demand.gif" alt="Parking Demand Imbalance" />
+                        </div>
+                        <div class="project-info">
+                            <h3>Spatiotemporal Analysis of Parking Demand and Supply Imbalance</h3>
+                            <p>Mapped spatial-temporal parking mismatches using inverse 2SFCA. Built classification models using satellite and street view imagery to identify parking types.</p>
+                        </div>
+                    </a>
+
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-img-wrap">
+                            <img src="assets/london-train.png" alt="Public Transit Accessibility London" />
+                        </div>
+                        <div class="project-info">
+                            <h3>Public Transit Accessibility Analysis (London)</h3>
+                            <p>Modeled multimodal accessibility to hospitals and schools across London using GTFS and OSM data. Identified transit inequities and informed planning with spatial equity analysis.</p>
+                        </div>
+                    </div>
+
+                    <a href="https://thanawit.com/wildfire-scrollytelling/" target="_blank" class="project-card" data-aos="fade-up">
+                        <div class="project-img-wrap">
+                            <img src="assets/wildfire.png" alt="Wildfires Scrollytelling" />
+                        </div>
+                        <div class="project-info">
+                            <h3>Wildfires in America — Scrollytelling</h3>
+                            <p>An interactive, scroll-driven narrative visualizing the spread and impact of wildfires across the U.S. with dynamic maps and immersive data storytelling.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://arcg.is/1nT0qq" target="_blank" class="project-card" data-aos="fade-up">
+                        <div class="project-img-wrap">
+                            <img src="assets/healthcare-accessibility.png" alt="Atlanta Healthcare Accessibility" />
+                        </div>
+                        <div class="project-info">
+                            <h3>Atlanta Healthcare Accessibility and Network Analysis</h3>
+                            <p>Analyzed hospital accessibility and optimized healthcare facility distribution in Atlanta using GIS and Python.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <p class="footer-name">Thanawit Suwannikom</p>
+                <div class="footer-links">
+                    <a href="https://github.com/bosserz" target="_blank">GitHub</a>
+                    <a href="https://rpubs.com/bosserz" target="_blank">RPubs</a>
+                    <a href="https://www.linkedin.com/in/thanawit-suwannikom" target="_blank">LinkedIn</a>
+                </div>
+                <p class="footer-copy">&copy; 2026 Thanawit Suwannikom</p>
+            </div>
+        </footer>
+
         <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
         <script src="script.js"></script>
     </body>

@@ -1,55 +1,53 @@
-// AOS Animation Init
+// AOS Animation
 AOS.init({
-    duration: 1000,
+    duration: 700,
     once: true,
-  });
-  
-  // Smooth Scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
+    offset: 60,
+    easing: 'ease-out-cubic',
+});
+
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Hamburger menu
+const hamburger = document.getElementById('navHamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+});
+
+// Smooth scroll with offset for fixed navbar
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            const offset = navbar.offsetHeight + 16;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+        mobileMenu.classList.remove('open');
     });
-  });
-  
-  // Highlight active nav link
-  const sections = document.querySelectorAll('section');
-  const navLinks = document.querySelectorAll('.nav-link');
-  
-  const observer = new IntersectionObserver(entries => {
+});
+
+// Active nav link via Intersection Observer
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      const id = entry.target.getAttribute('id');
-      const link = document.querySelector(`.nav-link[href="#${id}"]`);
-      if (entry.isIntersecting) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
+        if (entry.isIntersecting) {
+            navLinks.forEach(link => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+            });
+        }
     });
-  }, {
-    threshold: 0.5
-  });
-  
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-  
-  function openModal(id) {
-    document.getElementById(id).style.display = "block";
-  }
-  
-  function closeModal(id) {
-    document.getElementById(id).style.display = "none";
-  }
-  
-  // Optional: Close when clicking outside the modal
-  window.onclick = function(event) {
-    document.querySelectorAll('.modal').forEach(modal => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  };
-  
+}, { threshold: 0.4 });
+
+sections.forEach(section => observer.observe(section));
