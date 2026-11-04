@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanghai & Wangxian Valley Year-End Trip 2026–2027</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kanit', 'PingFang SC', 'Noto Sans SC', sans-serif;
+            background-color: #fdf8f4;
+        }
+        html { scroll-behavior: smooth; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 55%, #d97706 100%);
+        }
+        .day-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .day-card:hover { transform: translateY(-4px); }
+        .location-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #dc2626;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+        .schedule tr:nth-child(even) td { background-color: #fef7f2; }
+        .check-item input:checked + span { text-decoration: line-through; color: #94a3b8; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white py-16 px-4 text-center shadow-lg">
+        <p class="text-sm uppercase tracking-[0.3em] opacity-80 mb-3">Year-End Trip · 2 Adults</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Shanghai &amp; Wangxian Valley</h1>
+        <p class="text-xl opacity-90">Wed 30 Dec 2026 – Mon 4 Jan 2027 | 6 days, 5 nights</p>
+        <p class="mt-2 opacity-80">Wangxian Valley overnight · Disneyland · Shopping day · Shanghai sightseeing &amp; food</p>
+
+        <div class="mt-8 flex flex-col md:flex-row justify-center gap-4 max-w-4xl mx-auto bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/20">
+            <div class="flex-1">
+                <p class="text-sm uppercase tracking-wider opacity-75">Outbound</p>
+                <p class="font-semibold">BKK 01:55 ➔ PVG 07:00 (30 Dec)</p>
+            </div>
+            <div class="hidden md:block w-px bg-white/20"></div>
+            <div class="flex-1">
+                <p class="text-sm uppercase tracking-wider opacity-75">Return</p>
+                <p class="font-semibold">PVG 21:10 (4 Jan) ➔ BKK 00:55 (5 Jan)</p>
+            </div>
+        </div>
+
+        <nav class="mt-8 flex flex-wrap justify-center gap-2 text-sm">
+            <a href="#overview" class="px-3 py-1 rounded-full bg-white/15 hover:bg-white/25">Overview</a>
+            <a href="#itinerary" class="px-3 py-1 rounded-full bg-white/15 hover:bg-white/25">Daily Plan</a>
+            <a href="#checklist" class="px-3 py-1 rounded-full bg-white/15 hover:bg-white/25">Booking Checklist</a>
+            <a href="#budget" class="px-3 py-1 rounded-full bg-white/15 hover:bg-white/25">Budget</a>
+            <a href="#logistics" class="px-3 py-1 rounded-full bg-white/15 hover:bg-white/25">Logistics</a>
+        </nav>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-12">
+
+        <!-- Planning note -->
+        <section class="mb-12 bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-sm">
+            <p class="text-amber-900"><strong>Planning note:</strong> All hourly blocks are proposed, not confirmed rail schedules, attraction opening times, restaurant reservations, or holiday event announcements. Recheck before booking.</p>
+        </section>
+
+        <!-- Overview -->
+        <section id="overview" class="mb-16 scroll-mt-6">
+            <h2 class="text-2xl font-bold mb-6 text-red-800">Trip Overview</h2>
+            <div class="bg-white rounded-2xl shadow-md overflow-x-auto border border-slate-100">
+                <table class="w-full text-left text-sm md:text-base">
+                    <thead class="bg-red-700 text-white">
+                        <tr>
+                            <th class="px-4 py-3 whitespace-nowrap">Date</th>
+                            <th class="px-4 py-3">Focus</th>
+                            <th class="px-4 py-3">Overnight</th>
+                        </tr>
+                    </thead>
+                    <tbody class="schedule divide-y divide-slate-100">
+                        <tr><td class="px-4 py-3 font-semibold whitespace-nowrap">Wed 30 Dec</td><td class="px-4 py-3">Fly into Shanghai; transfer to Shangrao; Wangxian Valley at dusk/night</td><td class="px-4 py-3">Wangxian Valley</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold whitespace-nowrap">Thu 31 Dec</td><td class="px-4 py-3">Morning in valley; return to Shanghai; New Year's Eve dinner</td><td class="px-4 py-3">Shanghai</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold whitespace-nowrap">Fri 1 Jan</td><td class="px-4 py-3">Shanghai Disneyland, full day</td><td class="px-4 py-3">Shanghai</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold whitespace-nowrap">Sat 2 Jan</td><td class="px-4 py-3">Yu Garden, Old City, Bund, Lujiazui, local food</td><td class="px-4 py-3">Shanghai</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold whitespace-nowrap">Sun 3 Jan</td><td class="px-4 py-3">Dedicated shopping: Zhangyuan, Taikoo Hui, Plaza 66, Nanjing Road</td><td class="px-4 py-3">Shanghai</td></tr>
+                        <tr><td class="px-4 py-3 font-semibold whitespace-nowrap">Mon 4 Jan</td><td class="px-4 py-3">French Concession, Wukang/Anfu roads, lunch; PVG flight 21:10</td><td class="px-4 py-3">Flight</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Where to stay -->
+            <h3 class="text-xl font-semibold mt-10 mb-4 text-red-800">Where to Stay</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-2xl p-5 shadow-md border-t-4 border-emerald-600">
+                    <p class="text-sm uppercase tracking-wider text-slate-500">30 Dec → 31 Dec · 1 night</p>
+                    <p class="text-lg font-semibold mt-1">Wangxian Valley scenic area or nearby</p>
+                    <p class="text-slate-600 mt-2">Stay within the valley if possible for night photography and easy access.</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-md border-t-4 border-red-600">
+                    <p class="text-sm uppercase tracking-wider text-slate-500">31 Dec → 4 Jan · 4 nights</p>
+                    <p class="text-lg font-semibold mt-1">East Nanjing Road / People's Square / Bund</p>
+                    <p class="text-slate-600 mt-2">Prioritize convenient metro access and easy returns from the Bund.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary -->
+        <section id="itinerary" class="scroll-mt-6">
+            <h2 class="text-2xl font-bold mb-6 text-red-800">Daily Plan</h2>
+            <div class="space-y-8">
+
+                <!-- Day 1 -->
+                <article class="day-card bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100">
+                    <div class="bg-emerald-700 text-white px-6 py-3 flex flex-wrap justify-between items-center gap-2">
+                        <span class="font-bold text-lg">DAY 1: Wed 30 Dec</span>
+                        <span>PVG ➔ Shangrao ➔ Wangxian Valley</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-emerald-800 mb-2">Arrival &amp; the illuminated cliffs of Wangxian Valley</h3>
+                        <p class="text-slate-600 mb-4"><strong>Goal:</strong> Reach the valley with time for twilight and night photography.</p>
+                        <div class="overflow-x-auto rounded-lg border border-slate-100">
+                            <table class="w-full text-sm schedule">
+                                <thead class="bg-slate-100 text-slate-700"><tr><th class="px-3 py-2 text-left whitespace-nowrap">Time (China)</th><th class="px-3 py-2 text-left">Activity</th><th class="px-3 py-2 text-left">Notes</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">07:00</td><td class="px-3 py-2">Land at PVG</td><td class="px-3 py-2 text-slate-500">Arrival from Bangkok</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">07:00–08:30</td><td class="px-3 py-2">Immigration and baggage</td><td class="px-3 py-2 text-slate-500">Times are approximate</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">08:30–10:00</td><td class="px-3 py-2">Transfer PVG → Shanghai Hongqiao Railway Station</td><td class="px-3 py-2 text-slate-500">Airport Link / car; allow walking and waits</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">10:30–11:30</td><td class="px-3 py-2">Target high-speed train departure</td><td class="px-3 py-2 text-slate-500">Book based on actual schedule; include connection buffer</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">13:00–14:30</td><td class="px-3 py-2">Arrive at Shangrao Station</td><td class="px-3 py-2 text-slate-500">Depends on selected train</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">14:00–15:30</td><td class="px-3 py-2">Transfer to Wangxian Valley</td><td class="px-3 py-2 text-slate-500">Prearrange hotel pickup or driver</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">15:30–16:30</td><td class="px-3 py-2">Check in / leave bags, explore village</td><td class="px-3 py-2 text-slate-500">Check scenic-area access</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">16:30–17:30</td><td class="px-3 py-2">Cliff viewpoints, bridges, golden-hour photographs</td><td class="px-3 py-2 text-slate-500">Weather and daylight dependent</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">17:30–19:30</td><td class="px-3 py-2"><strong>Illuminated cliffside buildings; dinner</strong></td><td class="px-3 py-2 text-slate-500">Main trip highlight ⭐</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">19:30–21:00</td><td class="px-3 py-2">Night photography and rest</td><td class="px-3 py-2 text-slate-500">Overnight in the valley</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div>
+                                <h4 class="font-semibold mb-2">🏨 Accommodation guidance</h4>
+                                <ul class="space-y-2 text-slate-600">
+                                    <li class="flex"><span class="location-dot"></span><span><strong>Xiansu / on-site:</strong> Good compromise between convenience and scenery.</span></li>
+                                    <li class="flex"><span class="location-dot"></span><span><strong>Baihe Cliff:</strong> Premium splurge, subject to availability and price.</span></li>
+                                    <li class="flex"><span class="location-dot"></span><span><strong>Outside guesthouses:</strong> May cost less, but require transport after dark.</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">✅ Must confirm</h4>
+                                <ul class="space-y-2 text-slate-600">
+                                    <li class="flex"><span class="location-dot"></span><span>Exact Hongqiao → Shangrao rail schedule and ticket release date.</span></li>
+                                    <li class="flex"><span class="location-dot"></span><span>Hotel station pickup and whether scenic-area tickets are included.</span></li>
+                                    <li class="flex"><span class="location-dot"></span><span>Baggage arrangements; avoid bringing more than needed if feasible.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="mt-5 text-sm font-medium text-slate-500 italic">Overnight: Wangxian Valley</p>
+                    </div>
+                </article>
+
+                <!-- Day 2 -->
+                <article class="day-card bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100">
+                    <div class="bg-amber-600 text-white px-6 py-3 flex flex-wrap justify-between items-center gap-2">
+                        <span class="font-bold text-lg">DAY 2: Thu 31 Dec</span>
+                        <span>Wangxian Valley ➔ Shanghai</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-amber-700 mb-2">Return to Shanghai &amp; New Year's Eve 🎆</h3>
+                        <p class="text-slate-600 mb-4"><strong>Goal:</strong> Enjoy a calm morning, return safely, celebrate the New Year.</p>
+                        <div class="overflow-x-auto rounded-lg border border-slate-100">
+                            <table class="w-full text-sm schedule">
+                                <thead class="bg-slate-100 text-slate-700"><tr><th class="px-3 py-2 text-left whitespace-nowrap">Time</th><th class="px-3 py-2 text-left">Activity</th><th class="px-3 py-2 text-left">Notes</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">08:00–09:30</td><td class="px-3 py-2">Breakfast and final valley photographs</td><td class="px-3 py-2 text-slate-500">Enjoy quieter morning views</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">09:30–10:30</td><td class="px-3 py-2">Check out and drive to Shangrao Station</td><td class="px-3 py-2 text-slate-500">Allow transfer buffer</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">11:30–12:30</td><td class="px-3 py-2">Target high-speed train departure</td><td class="px-3 py-2 text-slate-500">Not a confirmed service</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">14:00–16:00</td><td class="px-3 py-2">Arrive Shanghai Hongqiao</td><td class="px-3 py-2 text-slate-500">Depends on selected train</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">16:00–17:30</td><td class="px-3 py-2">Transfer, hotel check-in, rest</td><td class="px-3 py-2 text-slate-500">Central Shanghai hotel</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">18:30–20:00</td><td class="px-3 py-2">Bund walk if access allows</td><td class="px-3 py-2 text-slate-500">Crowd restrictions possible</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">20:00–22:30</td><td class="px-3 py-2"><strong>New Year's Eve dinner</strong></td><td class="px-3 py-2 text-slate-500">Reservation highly recommended</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">22:30–00:15</td><td class="px-3 py-2">Countdown at booked venue / hotel lounge</td><td class="px-3 py-2 text-slate-500">Confirm venue stays open through midnight</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="font-semibold mt-6 mb-2">🍽️ Dinner ideas</h4>
+                        <ul class="space-y-2 text-slate-600">
+                            <li class="flex"><span class="location-dot"></span><span><strong>Mr &amp; Mrs Bund:</strong> Contemporary French restaurant, lively ambiance; ask for a skyline-facing table.</span></li>
+                            <li class="flex"><span class="location-dot"></span><span><strong>The Cathay Room, Fairmont Peace Hotel:</strong> Elegant historic setting, possible Bund panorama.</span></li>
+                        </ul>
+                        <p class="mt-4 bg-red-50 text-red-900 text-sm p-3 rounded-lg"><strong>Important:</strong> Confirm 2026 NYE special menus, minimum spend, table views, and whether the booking includes midnight. Do not assume Bund fireworks or unrestricted waterfront access.</p>
+                        <p class="mt-5 text-sm font-medium text-slate-500 italic">Overnight: Shanghai</p>
+                    </div>
+                </article>
+
+                <!-- Day 3 -->
+                <article class="day-card bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100">
+                    <div class="bg-indigo-600 text-white px-6 py-3 flex flex-wrap justify-between items-center gap-2">
+                        <span class="font-bold text-lg">DAY 3: Fri 1 Jan</span>
+                        <span>Shanghai Disneyland</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-indigo-700 mb-2">Shanghai Disneyland — Full Day 🏰</h3>
+                        <p class="text-slate-600 mb-4"><strong>Goal:</strong> Prioritize signature rides and stay for the evening show if operating.</p>
+                        <div class="overflow-x-auto rounded-lg border border-slate-100">
+                            <table class="w-full text-sm schedule">
+                                <thead class="bg-slate-100 text-slate-700"><tr><th class="px-3 py-2 text-left whitespace-nowrap">Time</th><th class="px-3 py-2 text-left">Activity</th><th class="px-3 py-2 text-left">Notes</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">07:00–08:00</td><td class="px-3 py-2">Breakfast and transit to Disney Resort</td><td class="px-3 py-2 text-slate-500">Adjust for published opening hours</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">08:00–09:00</td><td class="px-3 py-2">Security / entry</td><td class="px-3 py-2 text-slate-500">Holiday queues expected</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">09:00–10:30</td><td class="px-3 py-2"><strong>Zootopia: Hot Pursuit</strong></td><td class="px-3 py-2 text-slate-500">High-priority attraction</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">10:30–12:00</td><td class="px-3 py-2"><strong>TRON Lightcycle Power Run</strong></td><td class="px-3 py-2 text-slate-500">Height and safety restrictions apply</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">12:00–13:00</td><td class="px-3 py-2">Lunch</td><td class="px-3 py-2 text-slate-500">Eat inside park</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">13:00–14:30</td><td class="px-3 py-2"><strong>Pirates of the Caribbean: Battle for the Sunken Treasure</strong></td><td class="px-3 py-2 text-slate-500">Signature Shanghai ride</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">14:30–16:00</td><td class="px-3 py-2"><strong>Soaring Over the Horizon</strong></td><td class="px-3 py-2 text-slate-500">Queue times can be long</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">16:00–18:00</td><td class="px-3 py-2">Additional rides, photos, shopping</td><td class="px-3 py-2 text-slate-500">Flexible time</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">18:00–19:00</td><td class="px-3 py-2">Dinner</td><td class="px-3 py-2 text-slate-500">Check show start time</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">Evening</td><td class="px-3 py-2">Nighttime castle spectacular, if scheduled</td><td class="px-3 py-2 text-slate-500">Weather / show schedule dependent</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">After closing</td><td class="px-3 py-2">Return to Shanghai hotel</td><td class="px-3 py-2 text-slate-500">Metro / DiDi</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4 class="font-semibold mt-6 mb-2">💡 Tips</h4>
+                        <ul class="space-y-2 text-slate-600">
+                            <li class="flex"><span class="location-dot"></span><span>Book dated admission once available; verify reservation/ID requirements.</span></li>
+                            <li class="flex"><span class="location-dot"></span><span>Compare Premier Access options if January 1 queues are heavy.</span></li>
+                            <li class="flex"><span class="location-dot"></span><span>A later start may be more comfortable after December 31 celebrations.</span></li>
+                            <li class="flex"><span class="location-dot"></span><span>Check park hours and rides on the <a href="https://www.shanghaidisneyresort.com/en/" target="_blank" rel="noopener" class="text-indigo-600 underline">official Disney site</a>.</span></li>
+                        </ul>
+                        <p class="mt-5 text-sm font-medium text-slate-500 italic">Overnight: Shanghai</p>
+                    </div>
+                </article>
+
+                <!-- Day 4 -->
+                <article class="day-card bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100">
+                    <div class="bg-red-700 text-white px-6 py-3 flex flex-wrap justify-between items-center gap-2">
+                        <span class="font-bold text-lg">DAY 4: Sat 2 Jan</span>
+                        <span>Old Shanghai ➔ The Bund ➔ Lujiazui</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-red-700 mb-2">Historic &amp; modern Shanghai 🥟</h3>
+                        <p class="text-slate-600 mb-4"><strong>Theme:</strong> Historic architecture, local dishes, skyline and evening lights.</p>
+                        <div class="overflow-x-auto rounded-lg border border-slate-100">
+                            <table class="w-full text-sm schedule">
+                                <thead class="bg-slate-100 text-slate-700"><tr><th class="px-3 py-2 text-left whitespace-nowrap">Time</th><th class="px-3 py-2 text-left">Stop</th><th class="px-3 py-2 text-left">Food / visit notes</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">09:00–10:00</td><td class="px-3 py-2">Breakfast near People's Square</td><td class="px-3 py-2 text-slate-500"><strong>Jia Jia Tang Bao</strong> for xiaolongbao; queues possible</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">10:30–12:00</td><td class="px-3 py-2"><strong>Yu Garden</strong> (豫园)</td><td class="px-3 py-2 text-slate-500">Traditional garden; check timed admission and winter hours</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">12:00–13:30</td><td class="px-3 py-2"><strong>Yuyuan Bazaar / Nine-Turn Bridge</strong></td><td class="px-3 py-2 text-slate-500">Snacks and souvenir shops</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">13:30–14:30</td><td class="px-3 py-2">Lunch near Old City</td><td class="px-3 py-2 text-slate-500">Try shengjianbao or scallion oil noodles</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">14:30–16:00</td><td class="px-3 py-2"><strong>The Bund</strong> (外滩)</td><td class="px-3 py-2 text-slate-500">River promenade and historic architecture</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">16:00–18:00</td><td class="px-3 py-2"><strong>Lujiazui / Shanghai Tower</strong></td><td class="px-3 py-2 text-slate-500">Optional observation deck if visibility is good</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">18:30–20:00</td><td class="px-3 py-2">Dinner</td><td class="px-3 py-2 text-slate-500">Choose a nearby Bund/Pudong restaurant to reduce travel</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">20:00–21:00</td><td class="px-3 py-2">Optional Huangpu River cruise</td><td class="px-3 py-2 text-slate-500">Check departure times, weather and ticket terms</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div>
+                                <h4 class="font-semibold mb-2">🍜 Restaurant options</h4>
+                                <ul class="space-y-2 text-slate-600">
+                                    <li class="flex"><span class="location-dot"></span><span><strong>Jia Jia Tang Bao:</strong> Soup dumplings near People's Square; approx. ¥35–70 pp.</span></li>
+                                    <li class="flex"><span class="location-dot"></span><span><strong>Ren He Guan (人和馆), Xuhui:</strong> Traditional Shanghai cuisine, crab-roe rice and red-braised pork, approx. ¥150–250 pp. Not near Lujiazui — better as an alternative meal if willing to change the route.</span></li>
+                                    <li class="flex"><span class="location-dot"></span><span>Try <strong>hong shao rou</strong>, <strong>xiaolongbao</strong> and <strong>shengjianbao</strong> during the trip.</span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">🔀 Flexible choices</h4>
+                                <p class="text-slate-600">If tired after Disneyland, skip the Shanghai Tower observation deck and spend more time at the Bund. If visibility is poor, save money and explore the riverside at ground level.</p>
+                            </div>
+                        </div>
+                        <p class="mt-5 text-sm font-medium text-slate-500 italic">Overnight: Shanghai</p>
+                    </div>
+                </article>
+
+                <!-- Day 5 -->
+                <article class="day-card bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100">
+                    <div class="bg-rose-600 text-white px-6 py-3 flex flex-wrap justify-between items-center gap-2">
+                        <span class="font-bold text-lg">DAY 5: Sun 3 Jan</span>
+                        <span>Jing'an ➔ Nanjing Road</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-rose-700 mb-2">Shanghai Shopping Day 🛍️</h3>
+                        <p class="text-slate-600 mb-4"><strong>Theme:</strong> Nanjing West Road luxury/lifestyle shopping, heritage retail, East Nanjing Road souvenirs.</p>
+                        <div class="overflow-x-auto rounded-lg border border-slate-100">
+                            <table class="w-full text-sm schedule">
+                                <thead class="bg-slate-100 text-slate-700"><tr><th class="px-3 py-2 text-left whitespace-nowrap">Time</th><th class="px-3 py-2 text-left">Location</th><th class="px-3 py-2 text-left">What to do</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">09:30–10:30</td><td class="px-3 py-2">Jing'an area</td><td class="px-3 py-2 text-slate-500">Breakfast and coffee</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">10:30–12:00</td><td class="px-3 py-2"><strong>Zhangyuan (张园)</strong></td><td class="px-3 py-2 text-slate-500">Shikumen buildings, curated shops, photos</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">12:00–14:30</td><td class="px-3 py-2"><strong>HKRI Taikoo Hui (兴业太古汇)</strong></td><td class="px-3 py-2 text-slate-500">Fashion, beauty, lifestyle; Starbucks Reserve Roastery</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">14:30–15:30</td><td class="px-3 py-2">Lunch</td><td class="px-3 py-2 text-slate-500">Taikoo Hui or Wujiang Road</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">15:30–17:00</td><td class="px-3 py-2"><strong>Plaza 66 (恒隆广场)</strong></td><td class="px-3 py-2 text-slate-500">Luxury fashion, watches, accessories</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">17:00–18:00</td><td class="px-3 py-2">Jing'an Temple neighborhood</td><td class="px-3 py-2 text-slate-500">Optional stroll / shopping</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">18:30–20:30</td><td class="px-3 py-2"><strong>East Nanjing Road</strong></td><td class="px-3 py-2 text-slate-500">General retail, Chinese brands, gifts, casual dinner</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">20:30 onward</td><td class="px-3 py-2">Hotel</td><td class="px-3 py-2 text-slate-500">Pack and rest</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                            <div class="bg-emerald-50 rounded-lg p-4">
+                                <p class="font-semibold text-emerald-800 mb-1">Must-do</p>
+                                <p class="text-sm text-slate-600">Zhangyuan + HKRI Taikoo Hui + East Nanjing Road</p>
+                            </div>
+                            <div class="bg-amber-50 rounded-lg p-4">
+                                <p class="font-semibold text-amber-800 mb-1">Optional</p>
+                                <p class="text-sm text-slate-600">Plaza 66 if not focusing on luxury; Jing'an Kerry Centre for more lifestyle shopping</p>
+                            </div>
+                            <div class="bg-slate-100 rounded-lg p-4">
+                                <p class="font-semibold text-slate-700 mb-1">Skip unless convenient</p>
+                                <p class="text-sm text-slate-600">Shanghai IFC Mall in Pudong, to avoid cross-city detours</p>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-sm text-slate-600"><strong>Shopping notes:</strong> Check store holiday hours, foreign-card payment acceptance and tax-refund eligibility for qualifying purchases. Save photos/addresses of specific stores in Amap (Gaode Maps) for navigation.</p>
+                        <p class="mt-5 text-sm font-medium text-slate-500 italic">Overnight: Shanghai</p>
+                    </div>
+                </article>
+
+                <!-- Day 6 -->
+                <article class="day-card bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100">
+                    <div class="bg-slate-700 text-white px-6 py-3 flex flex-wrap justify-between items-center gap-2">
+                        <span class="font-bold text-lg">DAY 6: Mon 4 Jan</span>
+                        <span>French Concession ➔ PVG</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-slate-700 mb-2">Streets, cafés &amp; a low-stress departure ✈️</h3>
+                        <p class="text-slate-600 mb-4"><strong>Theme:</strong> Streets, cafés, traditional lunch and a low-stress departure.</p>
+                        <div class="overflow-x-auto rounded-lg border border-slate-100">
+                            <table class="w-full text-sm schedule">
+                                <thead class="bg-slate-100 text-slate-700"><tr><th class="px-3 py-2 text-left whitespace-nowrap">Time</th><th class="px-3 py-2 text-left">Stop</th><th class="px-3 py-2 text-left">Notes</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">09:00–10:00</td><td class="px-3 py-2">Breakfast; hotel check-out</td><td class="px-3 py-2 text-slate-500">Ask hotel to hold luggage</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">10:00–11:00</td><td class="px-3 py-2"><strong>Wukang Road / Wukang Mansion</strong> (武康路)</td><td class="px-3 py-2 text-slate-500">Historic architecture and photos</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">11:00–12:00</td><td class="px-3 py-2"><strong>Anfu Road</strong></td><td class="px-3 py-2 text-slate-500">Coffee, boutiques and relaxed walking</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">12:00–13:30</td><td class="px-3 py-2"><strong>Old Jesse (老吉士)</strong></td><td class="px-3 py-2 text-slate-500">Traditional Shanghai lunch; reserve if possible</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">13:30–15:00</td><td class="px-3 py-2">Optional Xintiandi / more French Concession</td><td class="px-3 py-2 text-slate-500">Do not overpack final day</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">15:00–16:00</td><td class="px-3 py-2">Coffee and final purchases</td><td class="px-3 py-2 text-slate-500">Move toward hotel</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">16:00–16:30</td><td class="px-3 py-2">Collect luggage and depart city center</td><td class="px-3 py-2 text-slate-500">Build airport buffer</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">17:30–18:00</td><td class="px-3 py-2">Reach <strong>PVG</strong></td><td class="px-3 py-2 text-slate-500">Aim ~3 hours ahead</td></tr>
+                                    <tr><td class="px-3 py-2 font-medium whitespace-nowrap">21:10</td><td class="px-3 py-2"><strong>Flight PVG → BKK</strong></td><td class="px-3 py-2 text-slate-500">Arrive Bangkok 00:55 on Tue 5 Jan</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div>
+                                <h4 class="font-semibold mb-2">🍲 Old Jesse lunch</h4>
+                                <p class="text-slate-600">Classic Shanghainese dishes including red-braised pork and seafood. Allow roughly ¥150–300 pp, depending on orders. Confirm holiday hours and reservation availability.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">🛡️ Departure safeguards</h4>
+                                <p class="text-slate-600">Do not schedule an afternoon attraction far from the hotel. Check road traffic or train schedules before leaving. Target arrival at Pudong Airport by around 18:00 for the 21:10 international flight.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Booking Checklist -->
+        <section id="checklist" class="mt-16 bg-white rounded-2xl p-8 shadow-md border-t-4 border-emerald-600 scroll-mt-6">
+            <div class="flex flex-wrap items-baseline justify-between gap-2 mb-6">
+                <h2 class="text-2xl font-bold text-emerald-700">Booking Checklist</h2>
+                <span id="checklist-progress" class="text-sm text-slate-500"></span>
+            </div>
+            <ul class="space-y-3 text-slate-700" id="checklist-items">
+                <li><label class="check-item flex items-start gap-3 cursor-pointer"><input type="checkbox" class="mt-1.5 h-4 w-4 accent-emerald-600" data-key="wangxian-room"><span>Wangxian Valley room for <strong>30 Dec</strong>; confirm if entrance is included and if Shangrao station pickup is offered.</span></label></li>
+                <li><label class="check-item flex items-start gap-3 cursor-pointer"><input type="checkbox" class="mt-1.5 h-4 w-4 accent-emerald-600" data-key="shanghai-hotel"><span>Shanghai hotel for <strong>31 Dec–4 Jan</strong>.</span></label></li>
+                <li><label class="check-item flex items-start gap-3 cursor-pointer"><input type="checkbox" class="mt-1.5 h-4 w-4 accent-emerald-600" data-key="nye"><span>Restaurant or event for <strong>31 Dec</strong>; verify package price, skyline view, seating duration and whether midnight access is included.</span></label></li>
+                <li><label class="check-item flex items-start gap-3 cursor-pointer"><input type="checkbox" class="mt-1.5 h-4 w-4 accent-emerald-600" data-key="disney"><span>Shanghai Disneyland dated admission for <strong>1 Jan</strong>; check park hours, nighttime show and Premier Access options.</span></label></li>
+                <li><label class="check-item flex items-start gap-3 cursor-pointer"><input type="checkbox" class="mt-1.5 h-4 w-4 accent-emerald-600" data-key="rail"><span>Rail tickets <strong>Shanghai Hongqiao ↔ Shangrao</strong> on 30/31 Dec; China Railway typically releases seats 15 days in advance (approximately 16/17 Dec).</span></label></li>
+                <li><label class="check-item flex items-start gap-3 cursor-pointer"><input type="checkbox" class="mt-1.5 h-4 w-4 accent-emerald-600" data-key="transfers"><span>Transfers <strong>Shangrao station ↔ Wangxian Valley</strong>, especially on arrival day.</span></label></li>
+                <li><label class="check-item flex items-start gap-3 cursor-pointer"><input type="checkbox" class="mt-1.5 h-4 w-4 accent-emerald-600" data-key="attractions"><span>Any Shanghai Tower / Yu Garden tickets requiring advance booking; check holiday hours.</span></label></li>
+                <li><label class="check-item flex items-start gap-3 cursor-pointer"><input type="checkbox" class="mt-1.5 h-4 w-4 accent-emerald-600" data-key="restaurants"><span>Old Jesse / Ren He Guan restaurant booking, if available.</span></label></li>
+                <li><label class="check-item flex items-start gap-3 cursor-pointer"><input type="checkbox" class="mt-1.5 h-4 w-4 accent-emerald-600" data-key="connectivity"><span>International roaming/eSIM and Alipay or WeChat Pay setup.</span></label></li>
+            </ul>
+            <p class="mt-4 text-xs text-slate-400">Checked items are saved in this browser only.</p>
+        </section>
+
+        <!-- Budget -->
+        <section id="budget" class="mt-16 scroll-mt-6">
+            <h2 class="text-2xl font-bold mb-2 text-red-800">Indicative Budget for Two</h2>
+            <p class="text-slate-500 mb-6">Excluding flights, hotels and shopping.</p>
+            <div class="bg-white rounded-2xl shadow-md overflow-x-auto border border-slate-100">
+                <table class="w-full text-left text-sm md:text-base">
+                    <thead class="bg-red-700 text-white">
+                        <tr><th class="px-4 py-3">Category</th><th class="px-4 py-3 text-right whitespace-nowrap">Planning range (CNY)</th></tr>
+                    </thead>
+                    <tbody class="schedule divide-y divide-slate-100">
+                        <tr><td class="px-4 py-3">Shanghai–Shangrao trains, round trip</td><td class="px-4 py-3 text-right whitespace-nowrap">500–1,200</td></tr>
+                        <tr><td class="px-4 py-3">Wangxian Valley transfers and admission</td><td class="px-4 py-3 text-right whitespace-nowrap">450–700</td></tr>
+                        <tr><td class="px-4 py-3">Disneyland tickets</td><td class="px-4 py-3 text-right whitespace-nowrap">950–1,600</td></tr>
+                        <tr><td class="px-4 py-3">Optional Disney Premier Access</td><td class="px-4 py-3 text-right whitespace-nowrap">0–1,000+</td></tr>
+                        <tr><td class="px-4 py-3">Shanghai attractions and local transport</td><td class="px-4 py-3 text-right whitespace-nowrap">500–950</td></tr>
+                        <tr><td class="px-4 py-3">Normal meals, snacks and cafés</td><td class="px-4 py-3 text-right whitespace-nowrap">1,000–1,600</td></tr>
+                        <tr><td class="px-4 py-3">New Year's Eve dinner</td><td class="px-4 py-3 text-right whitespace-nowrap">1,200–3,000+</td></tr>
+                    </tbody>
+                    <tfoot class="bg-red-50 font-bold text-red-900">
+                        <tr><td class="px-4 py-3">Total indicative</td><td class="px-4 py-3 text-right whitespace-nowrap">4,600–10,050+</td></tr>
+                    </tfoot>
+                </table>
+            </div>
+            <p class="mt-3 text-sm text-slate-500">These are budgeting allowances, <strong>not verified quotes</strong> for the travel dates.</p>
+        </section>
+
+        <!-- Logistics -->
+        <section id="logistics" class="mt-16 bg-white rounded-2xl p-8 shadow-md border-t-4 border-orange-400 scroll-mt-6">
+            <h2 class="text-2xl font-bold mb-6 text-orange-600">Critical Logistics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-bold text-lg mb-2">🚄 30 Dec arrival</h4>
+                    <p class="text-slate-600">After landing at PVG at 07:00, allow immigration, luggage collection and transfer to Shanghai Hongqiao Railway Station. Target a train departure <strong>around 10:30–11:30</strong>, subject to the actual schedule; do not book an overly tight connection. High-speed rail to Shangrao often takes roughly 2–3.5 hours, then around 45–75 minutes by road to the valley.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-2">🏙️ 31 Dec return</h4>
+                    <p class="text-slate-600">Aim to reach Shanghai by late afternoon for hotel check-in and rest before NYE.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-2">🎢 1 Jan Disneyland</h4>
+                    <p class="text-slate-600">Expect heavy holiday demand. If celebrating past midnight, choose between an early park arrival and a more relaxed start with potentially paid ride access.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-2">✈️ 4 Jan flight</h4>
+                    <p class="text-slate-600">Collect luggage and depart central Shanghai approximately <strong>16:00–16:30</strong>, targeting PVG by <strong>17:30–18:00</strong> for the 21:10 international flight. Allow for holiday traffic.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-2">🧥 Weather</h4>
+                    <p class="text-slate-600">Winter is chilly and can feel damp/windy; pack warm layers and comfortable walking shoes.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-2">🎆 New Year's Eve</h4>
+                    <p class="text-slate-600">Do not assume an official Bund fireworks show; check the final city crowd-control notice and any venue-specific countdown arrangements.</p>
+                </div>
+            </div>
+
+            <h3 class="font-bold text-lg mt-10 mb-3">🔗 Useful links</h3>
+            <div class="flex flex-wrap gap-3">
+                <a href="https://www.12306.cn/en/" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700">China Railway 12306</a>
+                <a href="https://www.shanghaidisneyresort.com/en/" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700">Shanghai Disney Resort</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-white py-12 text-center">
+        <p class="opacity-70">Happy New Year &amp; have a great trip to Shanghai! 🇨🇳 🎆</p>
+    </footer>
+
+    <script>
+        // Booking checklist: persist checked items in this browser
+        (function () {
+            const STORAGE_KEY = 'shanghai-wangxian-2026-checklist';
+            const boxes = document.querySelectorAll('#checklist-items input[type="checkbox"]');
+            const progress = document.getElementById('checklist-progress');
+            let saved = {};
+            try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; } catch (e) { saved = {}; }
+
+            function update() {
+                const done = Array.from(boxes).filter(b => b.checked).length;
+                progress.textContent = done + ' / ' + boxes.length + ' done';
+            }
+
+            boxes.forEach(box => {
+                box.checked = !!saved[box.dataset.key];
+                box.addEventListener('change', () => {
+                    saved[box.dataset.key] = box.checked;
+                    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (e) {}
+                    update();
+                });
+            });
+            update();
+        })();
+    </script>
+</body>
+</html>
