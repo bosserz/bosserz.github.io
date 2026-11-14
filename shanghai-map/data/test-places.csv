@@ -1,0 +1,4 @@
+id,category,subtype,name_en,name_zh,lng,lat,address_zh,notes,day
+test-the-bund,sight,area,TEST The Bund,外滩,121.495066,31.238014,,Temporary test pin (approximate location) — disappears once places.csv has real coordinates,
+test-yuyuan,sight,point,TEST Yuyuan Garden,豫园,121.496559,31.225203,,Temporary test pin (approximate location) — disappears once places.csv has real coordinates,
+test-tao-tao-ju,food,restaurant,TEST Tao Tao Ju,陶陶居,121.490283,31.236827,,Temporary test pin (approximate location) — disappears once places.csv has real coordinates,

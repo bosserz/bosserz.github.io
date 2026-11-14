@@ -1,0 +1,34 @@
+id,category,subtype,name_en,name_zh,lng,lat,address_zh,notes,day,time,tip
+xie-san-bao,food,restaurant,Xie San Bao,蟹叁寳·蟹家宴·蟹黄捞饭(南京路步行街店),121.477904,31.233514,黄浦区汉口路661号,Crab roe noodles / crab XLB. Other branch: SOHO Fuxing Plaza (Xintiandi),2,20:00,Crab roe rice or noodles. Taxi back to Puxi (2.6 km)
+long-time-ago,food,restaurant,Long Time Ago,很久以前羊肉串(南京路第一百货店),121.474785,31.235915,黄浦区南京东路830号第一百货商业中心B馆6楼,Lamb skewers. Same building as New Sukiyaki,2,22:00,Optional late snack: lamb skewers and beer
+lai-lai-xiaolong,food,restaurant,Lai Lai Xiaolong,莱莱小笼,121.477202,31.236001,黄浦区天津路506号,Soup dumplings (original shop),2,08:00,"Breakfast. Popular, so arrive early"
+yangs-dumpling,food,restaurant,Yang's Dumpling,小杨生煎(黄河路店),121.470544,31.234662,黄浦区黄河路97号,Pan-fried buns; chain with many branches,1,11:00,Bite a small hole first; the soup inside is very hot
+fei-da-chu,food,restaurant,Fei Da Chu,费大厨辣椒炒肉(新天地店),121.474094,31.222566,黄浦区淮海中路333号新天地广场F4层,Hunan; chain with many branches,4,19:00,Final dinner: Hunan chili pork
+tao-tao-ju,food,restaurant,Tao Tao Ju,陶陶居酒家(新世界城店),121.473668,31.235119,黄浦区南京西路2-68号新世界城7楼,Cantonese dim sum,1,12:00,Dim sum lunch
+ding-te-le-zhou,food,restaurant,Ding Te Le Zhou,顶特勒粥面馆,121.469525,31.221458,黄浦区淮海中路494弄22号,Congee. Official name uses 顶 not 鼎,3,18:30,Congee if you're still hungry
+ren-he-guan,food,restaurant,Ren He Guan,人和馆(静安寺店),121.445055,31.224378,静安区愚园路142号,Shanghainese. Other branch: Xuhui (肇嘉浜路407),4,12:30,"Shanghainese lunch: braised pork, smoked fish. Taxi (4.7 km)"
+new-sukiyaki,food,restaurant,New Sukiyaki,牛New寿喜烧(人民广场店),121.474785,31.235915,黄浦区六合路69号第一百货商业中心B馆F6层,Same building as Long Time Ago,1,19:30,Dinner. 2.7 km from the bridge: taxi or Line 2/10 to Nanjing East Rd
+weixiangzhai,food,restaurant,Weixiangzhai,味香斋(雁荡路店),121.469898,31.22083,黄浦区雁荡路14号,Sesame paste noodles (original shop),3,17:30,"Sesame paste noodles, an old Shanghai favourite"
+canton-8,food,restaurant,Canton 8,喜粤8号(汝南街总店),121.482915,31.202763,黄浦区汝南街63号,Cantonese; Michelin,2,12:00,Michelin lunch. RESERVE AHEAD
+heytea,cafe,drinks,Hey Tea,喜茶(人广来福士店),121.476581,31.232275,黄浦区西藏中路268号来福士广场B1,Chain; branches everywhere,1,13:30,Grab a drink to carry
+metal-hands,cafe,coffee,Metal Hands,METAL HANDS 铁手咖啡(南昌路店),121.464917,31.217835,黄浦区南昌路234号,Other branches: 永嘉路37号 / 襄阳南路338号,3,15:30,Second coffee stop
+ops-cafe,cafe,coffee,OPS Café,O.P.S. CAFE(太原路店),121.455348,31.205599,徐汇区太原路177弄1号,,3,14:00,Seasonal coffee menu. Walk here via Hengshan Rd
+malkonig,cafe,coffee,Malkonig,Mahlkönig,,,,⚠️ Not found on AMap - need more info,,,
+matcha-wang,cafe,drinks,Matcha Wang,Matcha Wang(HAI550店),121.468445,31.220874,黄浦区淮海中路550号HAI550商场L1层,,4,16:00,Sheep latte art
+13-de-marzo,cafe,coffee,13 de Marzo,13DE MARZO CAFÉ(安福路店),121.440171,31.213288,徐汇区安福路322号4号楼1楼,Teddy bear café flagship,3,10:00,Come at opening to avoid the queue
+amam,cafe,bakery,AMAM LonBakery Town,AMAM LONBAKERY TOWN 伦敦烘焙小镇(上海旗舰店),121.459259,31.229124,静安区吴江路269号,,4,14:30,Pastries to take away. Butterful is opposite
+butterful-xintiandi,cafe,bakery,Butterful & Creamorous (Xintiandi),B&C黄油与面包(新天地店),121.474865,31.218657,黄浦区兴业路123弄6号,,4,17:30,Skip if you already went to the Wujiang Rd branch
+butterful-wujiang,cafe,bakery,Butterful & Creamorous (Wujiang Rd),BUTTERFUL&CREAMOROUS(上海旗舰店),121.458954,31.229124,静安区吴江路289号,Opposite AMAM,4,14:30,Pastries to take away. AMAM is opposite
+apoli,cafe,bakery,Apoli Itabakery,APOLI ITABAKERY(上海首店),121.437457,31.204807,长宁区兴国路380号,,3,12:00,Brunch at the castle-style bakery
+the-bund,sight,area,The Bund,外滩,121.490482,31.237247,黄浦区中山东一路,Promenade near Nanjing East Rd,1,14:00,Walk here along Nanjing East Rd pedestrian street (~1.4 km). Best Pudong skyline photos from the promenade
+north-bund,sight,area,North Bund,北外滩滨江绿地,121.499429,31.248541,虹口区东大名路558号,,1,17:00,Sunset over Lujiazui from a quieter spot
+rockbund,sight,area,Rockbund,洛克·外滩源,121.487638,31.243397,黄浦区虎丘路146号,,1,16:00,Restored 1920s–30s buildings behind the Bund
+zhapu-rd-bridge,sight,point,Zhapu Road Bridge,乍浦路桥,121.487771,31.244224,虹口区乍浦路与南苏州路交叉口,Night photo spot,1,18:30,"Come once the lights are on, with the Bund buildings behind"
+gate-m,sight,point,Gate M,Gate M西岸梦中心,121.464089,31.161916,徐汇区龙腾大道2266号,West Bund Dream Center (confirmed),4,09:30,Waterfront complex and West Bund riverside walk. Taxi from the centre
+lujiazui,sight,area,Lujiazui,陆家嘴中心绿地,121.506482,31.238309,浦东新区陆家嘴环路717号,,2,14:30,Walk the elevated walkway between the towers
+zhongshuge,sight,point,Zhongshuge Bookstore,钟书阁(徐汇绿地缤纷城店),121.456586,31.183567,徐汇区东安路562号绿地缤纷城F1,⚠️ Famous branch is Thames Town (Songjiang; ~1 hr away) - swap if you prefer,4,11:00,Mirror-and-bookshelf bookstore
+shanghai-tower,sight,point,Shanghai Tower,上海中心大厦,121.505531,31.233544,浦东新区银城中路501号,,2,16:30,Go up before sunset; buy tickets online. Afterwards (~19:00) walk the Pudong riverside promenade for the lit-up Bund
+anfu-road,sight,street,Anfu Road,安福路,121.440171,31.213288,徐汇区安福路,Pin at 13 de Marzo,3,10:45,Boutiques and cafés. Detour to Wukang Rd and Wukang Mansion (武康大楼)
+huaihai-road,sight,street,Huaihai Road,淮海中路,121.464432,31.218693,黄浦区淮海中路,Pin near Huaihai Middle Rd station,3,19:30,Evening shopping street
+xintiandi,sight,area,Xintiandi,上海新天地,121.474802,31.220467,黄浦区太仓路181弄,,4,17:00,Restored shikumen lane houses
+yuyuan-garden,sight,point,Yuyuan Garden,豫园,121.49234,31.22725,黄浦区安仁街132号,,2,09:00,"Go at opening, before the tour groups. Allow ~2 hrs including the bazaar"

@@ -1,0 +1,9 @@
+id,category,subtype,name_en,name_zh,lng,lat,address_zh,notes,day,time,tip
+ok-one,food,restaurant,Good Place,好地方,121.4737,31.2304,"上海市, 黄浦区",has a comma,2,9:05,Reserve ahead
+ok-one,cafe,coffee,Dupe,重复,121.47,31.23,,,,,
+swapped,sight,point,Swapped,颠倒,31.2304,121.4737,,,,,
+far,sight,point,Beijing,北京,116.39,39.9,,,,,
+weird-cat,bar,bar,Bar,酒吧,121.47,31.23,,,,,
+no-coords,food,restaurant,Later,以后,,,,,,,
+bad-day,food,restaurant,Bad Day,坏日子,121.47,31.23,,,two,,
+bad-time,food,restaurant,Bad Time,坏时间,121.47,31.23,,,1,25:00,
