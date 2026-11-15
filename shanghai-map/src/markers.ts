@@ -19,19 +19,34 @@ export interface MarkerState {
   /** null = all days (clustered category pins); N = that day's numbered stops + route. */
   day: number | null;
   base: Base;
+  /** All-days view only: true = cluster nearby pins into groups; false = draw every pin. */
+  grouped: boolean;
 }
 
 function pinClass(place: Place): string {
   return ['pin', `pin--${place.category}`, place.visited ? 'pin--visited' : ''].join(' ');
 }
 
-function icon(place: Place): L.DivIcon {
+function icon(place: Place, shiftX = 0): L.DivIcon {
   return L.divIcon({
     className: '',
     html: `<div class="${pinClass(place)}"><svg viewBox="0 0 24 24" aria-hidden="true">${GLYPH[place.category]}</svg></div>`,
     iconSize: [36, 36],
-    iconAnchor: [18, 18],
+    iconAnchor: [18 - shiftX, 18],
   });
+}
+
+/** Pixel offsets that fan out pins sharing the exact same coordinate (0, 30, 60, …). */
+function spotShifts(places: Place[], step: number): Map<Place, number> {
+  const seen = new Map<string, number>();
+  const shifts = new Map<Place, number>();
+  for (const p of places) {
+    const key = p.gcj.join(',');
+    const k = seen.get(key) ?? 0;
+    seen.set(key, k + 1);
+    shifts.set(p, k * step);
+  }
+  return shifts;
 }
 
 function numberIcon(place: Place, n: number, shiftX: number): L.DivIcon {
@@ -61,6 +76,7 @@ export function dayStops(places: Place[], day: number): Place[] {
 
 export class PlaceMarkers {
   readonly cluster: L.MarkerClusterGroup;
+  /** Unclustered markers: day-mode stops, or every pin when grouping is off. */
   private dayLayer = L.layerGroup();
   private markers = new Map<string, L.Marker>();
   private route: L.Polyline | null = null;
@@ -97,14 +113,18 @@ export class PlaceMarkers {
     this.route = null;
 
     if (state.day === null) {
+      const shown = this.places.filter((p) => matchesFilter(p, state));
+      // Ungrouped: pins at the identical spot are fanned out sideways so each stays tappable.
+      const shifts = state.grouped ? null : spotShifts(shown, 30);
       const visible: L.Marker[] = [];
-      for (const p of this.places) {
+      for (const p of shown) {
         const m = this.markers.get(p.id)!;
-        m.setIcon(icon(p));
+        m.setIcon(icon(p, shifts?.get(p) ?? 0));
         m.setLatLng(at(p));
-        if (matchesFilter(p, state)) visible.push(m);
+        visible.push(m);
       }
-      this.cluster.addLayers(visible);
+      if (state.grouped) this.cluster.addLayers(visible);
+      else for (const m of visible) m.addTo(this.dayLayer);
       return;
     }
 
@@ -122,14 +142,11 @@ export class PlaceMarkers {
       }).addTo(this.dayLayer);
     }
     // Stops at the identical spot are fanned out sideways so each number is tappable.
-    const sameSpot = new Map<string, number>();
+    const shifts = spotShifts(stops.filter((p) => matchesFilter(p, state)), 26);
     stops.forEach((p, i) => {
       if (!matchesFilter(p, state)) return;
-      const key = p.gcj.join(',');
-      const k = sameSpot.get(key) ?? 0;
-      sameSpot.set(key, k + 1);
       const m = L.marker(at(p), {
-        icon: numberIcon(p, i + 1, k * 26),
+        icon: numberIcon(p, i + 1, shifts.get(p)!),
         title: `${i + 1}. ${p.name_en}`,
         keyboard: true,
         zIndexOffset: (stops.length - i) * 1000, // earlier stops on top when pins overlap

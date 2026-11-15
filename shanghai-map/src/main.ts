@@ -15,6 +15,7 @@ registerSW({ immediate: true });
 const SHANGHAI_GCJ: LngLat = [121.4800, 31.2300];
 const BASE_KEY = 'shanghai-map:base';
 const DAY_KEY = 'shanghai-map:day';
+const GROUP_KEY = 'shanghai-map:grouped';
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
@@ -51,7 +52,11 @@ try {
   if (localStorage.getItem(BASE_KEY) === 'osm') savedBase = 'osm';
 } catch { /* ignore */ }
 
-const state: MarkerState & { query: string } = { filter: 'all', notVisited: false, day: null, base: savedBase, query: '' };
+let savedGrouped = true;
+try {
+  if (localStorage.getItem(GROUP_KEY) === '0') savedGrouped = false;
+} catch { /* ignore */ }
+const state: MarkerState & { query: string } = { filter: 'all', notVisited: false, day: null, base: savedBase, grouped: savedGrouped, query: '' };
 let userWgs: LngLat | null = null;
 
 const start = gcjForBase(SHANGHAI_GCJ, state.base);
@@ -371,6 +376,24 @@ $('list-body').addEventListener('click', (e) => {
 });
 
 $('btn-layer').addEventListener('click', () => setBase(state.base === 'amap' ? 'osm' : 'amap'));
+
+// ---------- Group / individual pins ----------
+
+function syncGroupButton(): void {
+  const btn = $('btn-group');
+  btn.setAttribute('aria-pressed', String(!state.grouped));
+  btn.setAttribute('aria-label', state.grouped ? 'Pins are grouped. Tap to show every pin.' : 'Showing every pin. Tap to group nearby pins.');
+  btn.title = state.grouped ? 'Show pins individually' : 'Group nearby pins';
+}
+function setGrouped(grouped: boolean): void {
+  state.grouped = grouped;
+  syncGroupButton();
+  markers?.render(state);
+  try { localStorage.setItem(GROUP_KEY, grouped ? '1' : '0'); } catch { /* ignore */ }
+  toast(grouped ? 'Nearby pins grouped' : 'Showing every pin');
+}
+$('btn-group').addEventListener('click', () => setGrouped(!state.grouped));
+syncGroupButton();
 
 // ---------- Not-yet-placed notice ----------
 

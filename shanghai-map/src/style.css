@@ -121,6 +121,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 .fab--on, .fab[aria-pressed="true"] { color: #fff; background: #2563eb; }
 .fab--busy svg { animation: pulse 1s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity: .3; } }
+/* Group toggle (blue = every pin shown). Day view always shows stops individually, so hide it there. */
+body.day-mode #btn-group { display: none; }
 
 /* ---------- Pins ---------- */
 .pin {
