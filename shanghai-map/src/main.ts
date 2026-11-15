@@ -30,7 +30,15 @@ function toast(msg: string): void {
 
 // ---------- Map & basemaps ----------
 
-const tiles: Record<Base, L.TileLayer> = {
+const BASE_LABEL: Record<Base, { short: string; long: string }> = {
+  amap: { short: 'AMap', long: 'AMap street map' },
+  sat: { short: 'Sat', long: 'AMap satellite' },
+  osm: { short: 'OSM', long: 'OpenStreetMap' },
+};
+/** Basemap button cycles in this order. */
+const BASE_ORDER: Base[] = ['amap', 'sat', 'osm'];
+
+const tiles: Record<Base, L.Layer> = {
   // Unofficial AMap endpoint, GCJ-02, English labels. Places are drawn as-is on it.
   amap: L.tileLayer('https://webrd0{s}.is.autonavi.com/appmaptile?lang=en&size=1&scale=1&style=8&x={x}&y={y}&z={z}', {
     subdomains: '1234',
@@ -38,6 +46,21 @@ const tiles: Record<Base, L.TileLayer> = {
     maxZoom: 19,
     attribution: '&copy; AutoNavi',
   }),
+  // Unofficial AMap satellite imagery (GCJ-02) with AMap's road + label overlay on top.
+  // The overlay ignores lang=en, so its labels are Chinese only.
+  sat: L.layerGroup([
+    L.tileLayer('https://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}', {
+      subdomains: '1234',
+      maxNativeZoom: 18,
+      maxZoom: 19,
+      attribution: '&copy; AutoNavi',
+    }),
+    L.tileLayer('https://webst0{s}.is.autonavi.com/appmaptile?style=8&x={x}&y={y}&z={z}', {
+      subdomains: '1234',
+      maxNativeZoom: 18,
+      maxZoom: 19,
+    }),
+  ]),
   // WGS-84 fallback. Places are converted GCJ-02 -> WGS-84 for this layer.
   // (CARTO Voyager now needs an API key, so the standard OSM tiles are used.)
   osm: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -49,7 +72,8 @@ const tiles: Record<Base, L.TileLayer> = {
 
 let savedBase: Base = 'amap';
 try {
-  if (localStorage.getItem(BASE_KEY) === 'osm') savedBase = 'osm';
+  const b = localStorage.getItem(BASE_KEY) as Base | null;
+  if (b && BASE_ORDER.includes(b)) savedBase = b;
 } catch { /* ignore */ }
 
 let savedGrouped = true;
@@ -63,12 +87,14 @@ const start = gcjForBase(SHANGHAI_GCJ, state.base);
 const map = L.map('map', { zoomControl: false, center: [start[1], start[0]], zoom: 13, attributionControl: true });
 L.control.zoom({ position: 'bottomleft' }).addTo(map);
 tiles[state.base].addTo(map);
+syncLayerButton();
 
 // Auto-fallback: if AMap tiles keep failing before any loads, switch to OSM once.
 let amapLoaded = false;
 let amapErrors = 0;
-tiles.amap.on('tileload', () => (amapLoaded = true));
-tiles.amap.on('tileerror', () => {
+const amapStreet = tiles.amap as L.TileLayer;
+amapStreet.on('tileload', () => (amapLoaded = true));
+amapStreet.on('tileerror', () => {
   if (amapLoaded || state.base !== 'amap' || ++amapErrors < 6) return;
   setBase('osm');
   toast('AMap tiles unavailable — switched to OpenStreetMap');
@@ -77,6 +103,12 @@ tiles.amap.on('tileerror', () => {
 const userMarker = L.circleMarker([0, 0], {
   radius: 8, weight: 3, color: '#fff', fillColor: '#2563eb', fillOpacity: 1, interactive: false,
 });
+
+function syncLayerButton(): void {
+  const next = BASE_LABEL[BASE_ORDER[(BASE_ORDER.indexOf(state.base) + 1) % BASE_ORDER.length]];
+  $('btn-layer').textContent = BASE_LABEL[state.base].short;
+  $('btn-layer').setAttribute('aria-label', `Basemap: ${BASE_LABEL[state.base].long}. Tap for ${next.long}.`);
+}
 
 function setBase(next: Base): void {
   if (next === state.base) return;
@@ -88,8 +120,7 @@ function setBase(next: Base): void {
   map.setView([lat, lng], map.getZoom(), { animate: false });
   markers?.render(state);
   drawUser();
-  $('btn-layer').textContent = next === 'amap' ? 'AMap' : 'OSM';
-  $('btn-layer').setAttribute('aria-label', `Basemap: ${next === 'amap' ? 'AMap' : 'OpenStreetMap'}. Tap to switch.`);
+  syncLayerButton();
   try { localStorage.setItem(BASE_KEY, next); } catch { /* ignore */ }
 }
 
@@ -375,7 +406,11 @@ $('list-body').addEventListener('click', (e) => {
   if (p) select(p);
 });
 
-$('btn-layer').addEventListener('click', () => setBase(state.base === 'amap' ? 'osm' : 'amap'));
+$('btn-layer').addEventListener('click', () => {
+  const next = BASE_ORDER[(BASE_ORDER.indexOf(state.base) + 1) % BASE_ORDER.length];
+  setBase(next);
+  toast(BASE_LABEL[next].long);
+});
 
 // ---------- Group / individual pins ----------
 
@@ -418,7 +453,6 @@ loadPlaces()
   .then((loaded) => {
     places = loaded;
     markers = new PlaceMarkers(places, select).addTo(map);
-    $('btn-layer').textContent = state.base === 'amap' ? 'AMap' : 'OSM';
     // During the trip, open on today's day; otherwise on the last day viewed.
     let saved: number | null = null;
     try { saved = Number(localStorage.getItem(DAY_KEY)) || null; } catch { /* ignore */ }

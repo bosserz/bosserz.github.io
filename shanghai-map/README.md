@@ -75,11 +75,13 @@ Until at least one row in `places.csv` has coordinates, the map shows 3 pins fro
 
 | Thing | System | Handling |
 |---|---|---|
-| CSV, GeoJSON, AMap tiles | GCJ-02 | Drawn as-is |
+| CSV, GeoJSON, AMap street + satellite tiles | GCJ-02 | Drawn as-is |
 | OSM fallback tiles | WGS-84 | Pins are converted GCJ-02 → WGS-84 at render time |
 | Browser GPS ("locate me") | WGS-84 | Converted to GCJ-02 before it is drawn on AMap tiles |
 | Amap deep link | GCJ-02 | `coordinate=gaode` |
 | Apple Maps link | WGS-84 | Searches by Chinese name, so `ll` only biases the search (see below) |
+
+The basemap button cycles **AMap → Sat → OSM**. "Sat" is AMap satellite imagery with AMap's roads and labels on top. Those labels are Chinese only, and satellite tiles are larger, so they fill the offline cache faster. The choice is remembered on the device.
 
 If AMap tiles fail to load six times before any tile succeeds, the app switches to OSM by itself. CARTO Voyager now requires an API key, so the fallback uses standard `tile.openstreetmap.org` tiles.
 

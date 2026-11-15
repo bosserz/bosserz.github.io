@@ -2,10 +2,11 @@ import gcoord from 'gcoord';
 
 /** [lng, lat] pair. Every place in places.geojson is GCJ-02. */
 export type LngLat = [number, number];
-export type Base = 'amap' | 'osm';
+export type Base = 'amap' | 'sat' | 'osm';
 
-/** AMap tiles are GCJ-02, OSM/CARTO tiles are WGS-84. */
-export const crsOf = (base: Base) => (base === 'amap' ? gcoord.GCJ02 : gcoord.WGS84);
+/** AMap tiles (street and satellite) are GCJ-02; OSM tiles are WGS-84. */
+export const isGcjBase = (base: Base) => base !== 'osm';
+export const crsOf = (base: Base) => (isGcjBase(base) ? gcoord.GCJ02 : gcoord.WGS84);
 
 export function gcjToWgs(p: LngLat): LngLat {
   return gcoord.transform(p, gcoord.GCJ02, gcoord.WGS84) as LngLat;
@@ -17,12 +18,12 @@ export function wgsToGcj(p: LngLat): LngLat {
 
 /** Where a GCJ-02 place should be drawn on the given basemap. */
 export function gcjForBase(p: LngLat, base: Base): LngLat {
-  return base === 'amap' ? p : gcjToWgs(p);
+  return isGcjBase(base) ? p : gcjToWgs(p);
 }
 
 /** Where a WGS-84 point (browser GPS) should be drawn on the given basemap. */
 export function wgsForBase(p: LngLat, base: Base): LngLat {
-  return base === 'amap' ? wgsToGcj(p) : p;
+  return isGcjBase(base) ? wgsToGcj(p) : p;
 }
 
 /** Re-express a map-view point when switching basemaps. */

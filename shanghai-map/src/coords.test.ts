@@ -31,6 +31,12 @@ describe('coordinate conversion', () => {
     expect(distanceM(wgsForBase(gps, 'amap'), wgsToGcj(gps))).toBe(0);
   });
 
+  it('treats AMap satellite as GCJ-02 like the AMap street map', () => {
+    expect(gcjForBase(BUND_GCJ, 'sat')).toEqual(BUND_GCJ);
+    expect(convertBetweenBases(BUND_GCJ, 'amap', 'sat')).toEqual(BUND_GCJ);
+    expect(convertBetweenBases(BUND_GCJ, 'sat', 'osm')).toEqual(convertBetweenBases(BUND_GCJ, 'amap', 'osm'));
+  });
+
   it('keeps the view on the same spot when switching basemaps', () => {
     const osmView = convertBetweenBases(BUND_GCJ, 'amap', 'osm');
     expect(distanceM(osmView, gcjToWgs(BUND_GCJ))).toBe(0);
