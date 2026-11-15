@@ -85,6 +85,8 @@ The basemap button cycles **AMap → Sat → OSM**. "Sat" is AMap satellite imag
 
 If AMap tiles fail to load six times before any tile succeeds, the app switches to OSM by itself. CARTO Voyager now requires an API key, so the fallback uses standard `tile.openstreetmap.org` tiles.
 
+**Hide filters:** the sliders button at the right of the search box hides the category chips, day chips and the "not on map yet" notice, leaving just the search box (and the day banner, if a day is selected). An orange dot on the button means a category or "Not visited" filter is still on. Tap again to bring the filters back. The choice is remembered on the device.
+
 **Grouped vs individual pins:** in the All-days view, the round button above the list button (four dots) switches between grouping nearby pins into numbered clusters (default) and drawing every pin on its own. In individual mode, pins at exactly the same spot are fanned out side by side so each can be tapped. The choice is remembered on the device. The button is hidden in a day view, which always shows each stop.
 
 "Mark visited" is saved per device in localStorage and is not part of the data.

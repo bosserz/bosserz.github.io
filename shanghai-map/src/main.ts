@@ -16,6 +16,7 @@ const SHANGHAI_GCJ: LngLat = [121.4800, 31.2300];
 const BASE_KEY = 'shanghai-map:base';
 const DAY_KEY = 'shanghai-map:day';
 const GROUP_KEY = 'shanghai-map:grouped';
+const FILTERS_KEY = 'shanghai-map:filters-hidden';
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
@@ -429,6 +430,31 @@ function setGrouped(grouped: boolean): void {
 }
 $('btn-group').addEventListener('click', () => setGrouped(!state.grouped));
 syncGroupButton();
+
+// ---------- Show / hide the filter rows ----------
+
+let filtersHidden = false;
+try { filtersHidden = localStorage.getItem(FILTERS_KEY) === '1'; } catch { /* ignore */ }
+
+function syncFiltersButton(): void {
+  const btn = $('btn-filters');
+  btn.setAttribute('aria-expanded', String(!filtersHidden));
+  btn.setAttribute('aria-label', filtersHidden ? 'Show filters' : 'Hide filters');
+  btn.title = filtersHidden ? 'Show filters' : 'Hide filters';
+  const active = state.filter !== 'all' || state.notVisited;
+  btn.querySelector<HTMLElement>('.search__filters-dot')!.hidden = !(filtersHidden && active);
+  document.body.classList.toggle('filters-hidden', filtersHidden);
+  // The list sits under the header, so follow its new height.
+  if (!listEl.hidden) listEl.style.paddingTop = `${document.querySelector<HTMLElement>('.top')!.offsetHeight + 8}px`;
+}
+$('btn-filters').addEventListener('click', () => {
+  filtersHidden = !filtersHidden;
+  try { localStorage.setItem(FILTERS_KEY, filtersHidden ? '1' : '0'); } catch { /* ignore */ }
+  syncFiltersButton();
+});
+// Runs after the chips' own handlers (bubbling), so the dot reflects the new filter.
+document.querySelector('.chips')!.addEventListener('click', syncFiltersButton);
+syncFiltersButton();
 
 // ---------- Not-yet-placed notice ----------
 

@@ -20,6 +20,10 @@
       <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
       <input id="search" type="search" placeholder="Search places (English or 中文)" autocomplete="off" enterkeyhint="search" aria-label="Search places" />
       <button id="search-clear" class="search__clear" type="button" aria-label="Clear search" hidden>✕</button>
+      <button id="btn-filters" class="search__filters" type="button" aria-expanded="true" aria-label="Hide filters">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+        <span class="search__filters-dot" hidden></span>
+      </button>
       <ul id="results" class="results" hidden></ul>
     </div>
     <nav class="chips" aria-label="Filters">

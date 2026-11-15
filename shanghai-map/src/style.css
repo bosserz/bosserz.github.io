@@ -51,6 +51,20 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
 }
 .search input::-webkit-search-cancel-button { display: none; }
 .search__clear { width: 44px; height: 44px; border: 0; background: none; color: var(--muted); }
+.search__filters {
+  position: relative; flex: none; width: 44px; height: 44px; margin-right: 2px; border: 0; border-radius: 12px;
+  background: none; color: var(--muted); display: grid; place-items: center;
+}
+.search__filters svg { width: 22px; height: 22px; }
+.search__filters[aria-expanded="false"] { color: var(--accent); }
+/* Shown while the filters are hidden but one of them is active, so a filtered map isn't a surprise. */
+.search__filters-dot {
+  position: absolute; top: 9px; right: 8px; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 0 2px var(--surface);
+}
+/* Filters hidden: keep the search box and the day banner (Timeline), drop chips and the notice. */
+body.filters-hidden .chips, body.filters-hidden .unplaced { display: none; }
+body.filters-hidden .daybanner { margin-top: 10px; }
 .results {
   position: absolute; top: 54px; left: 0; right: 0; margin: 0; padding: 6px 0; list-style: none;
   background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); max-height: 50vh; overflow: auto;
