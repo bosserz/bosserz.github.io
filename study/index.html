@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Explore 5,000 years of world history, with countries and civilizations on one shared timeline.">
+  <title>History Atlas — A world in parallel</title>
+  <link rel="stylesheet" href="history-atlas.css">
+  <script defer src="history-data.js"></script>
+  <script defer src="history-atlas.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="masthead">
+      <a href="./" class="wordmark" aria-label="History Atlas home"><span class="atlas-symbol" aria-hidden="true">✳</span> HISTORY <span>ATLAS</span></a>
+      <span class="masthead-note">5,000 years. Countless connections.</span>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">THE WORLD, SIDE BY SIDE</p>
+          <h1 id="page-title">Different stories.<br><em>The same moment.</em></h1>
+          <p class="intro">Follow the thread of world history. See which kingdoms, cultures, and ideas existed alongside one another.</p>
+        </div>
+        <div class="moment">
+          <div class="moment-top"><span class="eyebrow">YOUR MOMENT IN HISTORY</span><span class="live-mark" aria-hidden="true"></span></div>
+          <div class="moment-date"><output id="selected-year" for="year-slider">1350</output><span id="selected-era">CE</span></div>
+          <p id="moment-summary">A snapshot across ten countries and regions.</p>
+        </div>
+      </section>
+      <section class="explorer" aria-label="Timeline explorer">
+        <div class="explorer-toolbar">
+          <div class="window-control">
+            <label for="time-window" class="eyebrow">EXPLORE AN ERA</label>
+            <div class="select-wrap"><select id="time-window">
+              <option value="0">The whole story · 3000 BCE–2000 CE</option>
+              <option value="1">Early civilizations · 3000–500 BCE</option>
+              <option value="2">The classical world · 500 BCE–500 CE</option>
+              <option value="3">Expanding networks · 500–1000 CE</option>
+              <option value="4" selected>A connected world · 1000–1600 CE</option>
+              <option value="5">An age of change · 1600–1900 CE</option>
+              <option value="6">The twentieth century · 1900–2000 CE</option>
+            </select></div>
+          </div>
+          <div class="year-control">
+            <div class="range-caption"><label for="year-slider">Move through time</label><span id="range-caption">1000 — 1600 CE</span></div>
+            <input id="year-slider" type="range" min="1000" max="1600" value="1350" step="1" aria-valuetext="1350 CE">
+          </div>
+        </div>
+        <div class="focus-panel" aria-live="polite" aria-atomic="true">
+          <span class="focus-label" id="focus-label">WORLD CONTEXT</span>
+          <div><h2 id="focus-title">Black Death spreads <span>1347 CE</span></h2><p id="focus-description">Plague devastated many parts of Afro-Eurasia in the 1340s and 1350s.</p></div>
+        </div>
+        <div class="timeline-intro"><div><span class="eyebrow">A SHARED TIMELINE</span><h2 id="timeline-heading">1000–1600 CE</h2></div><div class="legend"><span><i class="legend-swatch"></i>At your selected year</span><span>Click a period to explore</span></div></div>
+        <div id="timeline" class="timeline" aria-labelledby="timeline-heading"></div>
+        <div class="timeline-bottom"><span>Bar length represents time. Stacked bars show overlapping periods.</span><span>c. = approximate</span></div>
+      </section>
+      <footer>
+        <div><span class="footer-brand">History is connected.</span><p>A selective learning atlas. Historical regions differ from modern countries; gaps indicate omitted entries, and period boundaries may be approximate. Era names are learning guides.</p></div>
+        <div class="sources"><span class="eyebrow">KEEP EXPLORING</span><a href="https://www.metmuseum.org/toah/chronology" target="_blank" rel="noreferrer">The Met · Historical timelines</a><a href="https://openstax.org/books/world-history-volume-1/pages/1-introduction" target="_blank" rel="noreferrer">OpenStax · World History</a><a href="https://www.thaiembassy.at/en/content_page/item/18-thailands-history.html" target="_blank" rel="noreferrer">Thai Embassy · History of Thailand</a></div>
+      </footer>
+    </main>
+  </div>
+  <div class="sr-only" id="timeline-announcement" aria-live="polite"></div>
+</body>
+</html>
